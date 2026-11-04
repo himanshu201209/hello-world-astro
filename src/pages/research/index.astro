@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DevLinkChrome from "../../components/DevLinkChrome";
+import "../../devlink/css/global.css";
+
+export const prerender = false;
+---
+
+<Layout title="Research papers | micro1">
+  <DevLinkChrome client:only="react">
+    <div slot="fallback">Loading…</div>
+  </DevLinkChrome>
+</Layout>

@@ -1,8 +1,5 @@
 import SiteShell from "./SiteShell";
-
-type DevLinkChromeProps = {
-  base?: string;
-};
+import { withBase } from "../lib/paths";
 
 const papers = [
   {
@@ -21,7 +18,7 @@ const papers = [
   },
 ] as const;
 
-export default function DevLinkChrome({ base = "" }: DevLinkChromeProps) {
+export default function DevLinkChrome() {
   return (
     <SiteShell>
       <main className="research">
@@ -29,7 +26,7 @@ export default function DevLinkChrome({ base = "" }: DevLinkChromeProps) {
         <ul className="research__list">
           {papers.map((paper) => (
             <li key={paper.slug}>
-              <a className="research__card" href={`${base}/research/${paper.slug}`}>
+              <a className="research__card" href={withBase(`/research/${paper.slug}`)}>
                 <div className="research__media">
                   <img src={paper.image} alt="" loading="lazy" />
                 </div>
