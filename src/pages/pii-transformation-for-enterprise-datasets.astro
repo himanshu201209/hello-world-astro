@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaperPii from "../components/papers/PaperPii";
+import { withBase } from "../lib/paths";
+import "../devlink/css/global.css";
+
+export const prerender = false;
+---
+
+<Layout title="PII Transformation for Enterprise Datasets | micro1">
+  <PaperPii client:only="react" homeHref={withBase("/")}>
+    <div slot="fallback">Loading…</div>
+  </PaperPii>
+</Layout>

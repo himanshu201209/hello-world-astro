@@ -26,7 +26,7 @@ export default function DevLinkChrome() {
         <ul className="research__list">
           {papers.map((paper) => (
             <li key={paper.slug}>
-              <a className="research__card" href={withBase(`/research/${paper.slug}`)}>
+              <a className="research__card" href={withBase(`/${paper.slug}`)}>
                 <div className="research__media">
                   <img src={paper.image} alt="" loading="lazy" />
                 </div>
