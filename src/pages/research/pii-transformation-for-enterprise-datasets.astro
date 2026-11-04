@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PaperPii from "../../components/papers/PaperPii";
+import "../../devlink/css/global.css";
+
+export const prerender = false;
+
+const homeHref = `${(import.meta.env.BASE_URL || "/").replace(/\/$/, "")}/`;
+---
+
+<Layout title="PII Transformation for Enterprise Datasets | micro1">
+  <PaperPii client:only="react" homeHref={homeHref}>
+    <div slot="fallback">Loading…</div>
+  </PaperPii>
+</Layout>

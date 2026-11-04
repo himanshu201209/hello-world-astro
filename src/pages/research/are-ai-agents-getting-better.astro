@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PaperAiAgents from "../../components/papers/PaperAiAgents";
+import "../../devlink/css/global.css";
+
+export const prerender = false;
+
+const homeHref = `${(import.meta.env.BASE_URL || "/").replace(/\/$/, "")}/`;
+---
+
+<Layout title="Can a company tell whether its AI agent is getting better? | micro1">
+  <PaperAiAgents client:only="react" homeHref={homeHref}>
+    <div slot="fallback">Loading…</div>
+  </PaperAiAgents>
+</Layout>

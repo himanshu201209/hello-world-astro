@@ -1,0 +1,10 @@
+/* Fonts */
+
+@font-face {
+  font-family: "Outfit";
+  src: url("https://cdn.prod.website-files.com/6ae04bddc23a43dde81d354f/6ae04bddc23a43dde81d40f1_Outfit-VariableFont_wght.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

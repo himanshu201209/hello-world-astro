@@ -1,5 +1,14 @@
 {
   "cloud": {
     "framework": "astro"
+  },
+  "siteId": "6ae04bddc23a43dde81d354f",
+  "devlink-export": {
+    "rootDir": "./src/devlink",
+    "components": "^(Nav|Footer|GlobalCss)$",
+    "componentGroups": ".*",
+    "ts": true,
+    "cssScopes": true,
+    "relativeHrefRoot": "/"
   }
 }
