@@ -5,7 +5,7 @@ import cloudflare from "@astrojs/cloudflare";
 import react from '@astrojs/react';
 
 // https://astro.build/config
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   base: "CLOUD_MOUNT_PATH",
   output: "server",
   compressHTML: true,
@@ -20,9 +20,9 @@ export default defineConfig({
     resolve: {
       // Use react-dom/server.edge instead of react-dom/server.browser for React 19.
       // Without this, MessageChannel from node:worker_threads needs to be polyfilled.
-      alias: import.meta.env.PROD ? {
+      alias: command === "build" ? {
         "react-dom/server": "react-dom/server.edge",
       } : undefined,
     },
 }
-});
+}));
