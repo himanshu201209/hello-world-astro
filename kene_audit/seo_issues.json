@@ -1,0 +1,503 @@
+[
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/contact-us",
+    "detail": 7
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/patent-box-tax-savings",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/meet-our-team",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners",
+    "detail": 1
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/rd-innovation-grants",
+    "detail": 184
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/rd-innovation-grants",
+    "detail": 2
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/book-a-free-consultation",
+    "detail": 16
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/what-is-r-and-d",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/rd-tax-credits-explained",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/about-us",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/rdec-scheme-explained",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/claiming-rd",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/join-our-team",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/impact-beyond-business",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants-finder",
+    "detail": "63: Find UK & European Business Grants | Grant Search Tool for SMEs"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants-finder",
+    "detail": 166
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants-finder",
+    "detail": 21
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/claimsure-r-and-d-tax-review",
+    "detail": 181
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/claimsure-r-and-d-tax-review",
+    "detail": 1
+  },
+  {
+    "type": "title_too_short",
+    "url": "https://kene.partners/r-and-d-tax-calculator",
+    "detail": "R&D tax calculator"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/r-and-d-tax-calculator",
+    "detail": 17
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/hmrc-compliance-check-support",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/r-and-d-tax-credit-submission-deadlines",
+    "detail": 3
+  },
+  {
+    "type": "vague_link_text",
+    "url": "https://kene.partners/r-and-d-tax-credit-submission-deadlines",
+    "detail": [
+      {
+        "href": "https://kene.partners/insights/r-and-d-claim-notification-form-guide",
+        "text": "Learn more"
+      },
+      {
+        "href": "https://www.gov.uk/company-tax-returns",
+        "text": "Learn more"
+      },
+      {
+        "href": "https://kene.partners/support-hub/claim-rd-tax-credits-ct600",
+        "text": "Learn more"
+      },
+      {
+        "href": "https://kene.partners/support-hub/rd-tax-claim-deadline",
+        "text": "Learn more"
+      },
+      {
+        "href": "https://www.gov.uk/self-assessment-tax-returns/deadlines",
+        "text": "Learn more"
+      }
+    ]
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/merged-r-and-d-scheme-explained",
+    "detail": 1
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/kore-r-and-d-support",
+    "detail": 173
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/kore-r-and-d-support",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/insights",
+    "detail": 2
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/client-stories",
+    "detail": 1
+  },
+  {
+    "type": "duplicate_meta_description",
+    "url": "https://kene.partners/innovation-funding-event"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/innovation-funding-event",
+    "detail": 15
+  },
+  {
+    "type": "duplicate_meta_description",
+    "url": "https://kene.partners/innovation-funding-event-v2"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/innovation-funding-event-v2",
+    "detail": 6
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/support-hub",
+    "detail": 2
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/sector-guides",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/insights/a-review-of-the-2020-2021-financial-year-r-d-stats",
+    "detail": "64: A Review of HMRC R&D Tax Stats For the 2020/2021 Tax Year - Kene"
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/insights/adopt-farming-innovation-grant-successful-projects",
+    "detail": "65: Adopt grants explained: how farmers can build successful projects"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/insights/how-can-technology-reduce-healthcare-costs",
+    "detail": 171
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/insights/what-r-d-tax-credits-can-mean-for-property-developers",
+    "detail": "62: R&D Tax Relief For Property Developers: What Qualifies? | Kene"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/insights/how-to-navigate-hmrc-enquires-into-r-d-tax-credit-claims",
+    "detail": 239
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/insights/r-and-d-claim-notification-form-guide",
+    "detail": 171
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/insights/the-uks-biggest-upcoming-retail-projects",
+    "detail": 189
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/insights/r-d-tax-credits-for-farmers-and-agriculture",
+    "detail": 179
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/insights/what-forms-of-innovation-funding-are-available-for-large-corporations",
+    "detail": 173
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/team-details/anna-stevens",
+    "detail": 161
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/team-details/eduardo-zamorano",
+    "detail": 165
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/team-details/barney-davis",
+    "detail": 161
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/team-details/nathan-glover",
+    "detail": 162
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/team-details/jana-du-plessis",
+    "detail": 164
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/team-details/will-granger",
+    "detail": 161
+  },
+  {
+    "type": "skipped_heading_level",
+    "url": "https://kene.partners/sector-guides/software-rd-tax-relief-funding"
+  },
+  {
+    "type": "skipped_heading_level",
+    "url": "https://kene.partners/sector-guides/water-and-waste"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/accelerating-adoption-of-quantum-enabled-sensing-and-pnt",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/insights/innovation-and-technology-in-uk-politics-a-breakdown-of-2024-party-manifestos",
+    "detail": "67: 2024 UK Party Manifestos: R&D, Innovation and Tech Breakdown | Kene"
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-1",
+    "detail": "69: ADOPT Facilitator Support Grant \u2013 \u00a32,500 for Farmers & Growers | Kene"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-1",
+    "detail": 183
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-1",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-2-361de",
+    "detail": "61: ADOPT Facilitator Support Grant Round 2: \u00a32,500 Farming Grant"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-2-361de",
+    "detail": 193
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-2-361de",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/clean-maritime-demonstration-competition-6-smart-shipping",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/life-sciences-transformational-r-d-investment-fund-trif-pilot",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-10",
+    "detail": "62: ADOPT Facilitator Support Grant Round 10 | \u00a32,500 Grant | Kene"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-10",
+    "detail": 163
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/adopt-facilitator-support-grant-round-10",
+    "detail": 1
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/battery-innovation-feasibility-studies-round-1",
+    "detail": 196
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/battery-innovation-feasibility-studies-round-1",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/engineering-biology-access-to-infrastructure-pilot",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/zero-emission-vessels-and-infrastructure-2-energy-efficiency",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/advanced-manufacturing-supply-chains-potential-high-growth-smes",
+    "detail": "63: Advanced Manufacturing Supply Chains Grant for High-Growth SMEs"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/advanced-manufacturing-supply-chains-potential-high-growth-smes",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/commercialising-knowledge-assets-fund-ckaf-winter",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/defra-farming-innovation-investor-partnership-majjg",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/efficient-structured-and-controllable-ai-systems",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/farming-innovation-programme-feasibility-round-5",
+    "detail": "70: Farming Innovation Programme: Feasibility Round 5 | Kene Grants Finder"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/farming-innovation-programme-feasibility-round-5",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/contracts-for-innovation-quantum-sensors-and-pnt-missions-primer",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/cfi-advanced-connectivity-technologies-act---call-1",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/industrial-collaboration-programme-icp-round",
+    "detail": "68: Industrial Collaboration Programme Round 6 | Royce ICP Grant Funding"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/industrial-collaboration-programme-icp-round",
+    "detail": 192
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/industrial-collaboration-programme-icp-round",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/new-innovators-in-marine-and-maritime-great-south-west",
+    "detail": "64: Marine & Maritime Innovation Grants \u2013 Great South West Launchpad"
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/new-innovators-in-marine-and-maritime-great-south-west",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/investor-partnerships-clean-energy-and-climate-technologies",
+    "detail": 1
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/full-adopt-grant-round-8",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/support-hub/claim-notification-advance-notification-r-and-d-tax-relief",
+    "detail": "62: R&D Claim Notification Form: Deadlines, Who Must Notify | Kene"
+  },
+  {
+    "type": "incomplete_og",
+    "url": "https://kene.partners/support-hub/claim-notification-advance-notification-r-and-d-tax-relief",
+    "detail": {
+      "og_title": true,
+      "og_description": true,
+      "og_image": false
+    }
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/support-hub/accounting-treatment-rd-tax-credits",
+    "detail": 167
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/grants/uk-canada-quantum-communications-networking-demonstrator",
+    "detail": "63: IUK: UK\u2013Canada Quantum Communications & Networking Demonstrator"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/uk-canada-quantum-communications-networking-demonstrator",
+    "detail": 191
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/uk-canada-quantum-communications-networking-demonstrator",
+    "detail": 1
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/support-hub/intangible-assets-rd-tax-credit-claims",
+    "detail": 195
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/grants/quantum-computing-applications-for-large-scale-impact-cr-d",
+    "detail": 164
+  },
+  {
+    "type": "form_inputs_missing_label",
+    "url": "https://kene.partners/grants/quantum-computing-applications-for-large-scale-impact-cr-d",
+    "detail": 1
+  },
+  {
+    "type": "title_too_long",
+    "url": "https://kene.partners/support-hub/the-minimum-expenditure-requirements-for-r-d-tax-credits",
+    "detail": "62: Minimum Spend For R&D Tax Relief: Is There A Threshold? | Kene"
+  },
+  {
+    "type": "meta_description_too_long",
+    "url": "https://kene.partners/support-hub/eris-vs-the-merged-r-d-scheme-how-to-choose-the-right-route",
+    "detail": 169
+  }
+]

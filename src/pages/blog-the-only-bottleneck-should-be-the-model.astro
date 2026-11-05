@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogBottleneck from "../components/papers/BlogBottleneck";
+import { withBase } from "../lib/paths";
+import "../devlink/css/global.css";
+
+export const prerender = false;
+---
+
+<Layout title="The only bottleneck should be the model">
+  <BlogBottleneck client:only="react" homeHref={withBase("/")}>
+    <div slot="fallback">Loading…</div>
+  </BlogBottleneck>
+</Layout>

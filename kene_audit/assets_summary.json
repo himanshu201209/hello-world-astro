@@ -1,0 +1,437 @@
+{
+  "total_sampled": 300,
+  "pagination_hint": [
+    {
+      "total": 437,
+      "limit": 100,
+      "offset": 0
+    },
+    {
+      "total": 437,
+      "limit": 100,
+      "offset": 100
+    },
+    {
+      "total": 437,
+      "limit": 100,
+      "offset": 200
+    }
+  ],
+  "missing_alt_count": 99,
+  "missing_alt_samples": [
+    {
+      "id": "6a61a40ce609dc05d1ebdc31",
+      "name": "llms.txt",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a61a40ce609dc05d1ebdc31_llms.txt",
+      "type": "text/plain",
+      "size": 3992
+    },
+    {
+      "id": "6a57b5236b5e33f2e43c4e78",
+      "name": "Map Kene address.png",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a57b5236b5e33f2e43c4e78_Map%20Kene%20address.png",
+      "type": "image/png",
+      "size": 735012
+    },
+    {
+      "id": "6a57b3e8d55e6094f4c4a345",
+      "name": "Kene Map Tabernacle ST.png",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a57b3e8d55e6094f4c4a345_Kene%20Map%20Tabernacle%20ST.png",
+      "type": "image/png",
+      "size": 1039914
+    },
+    {
+      "id": "6a47591abfafecf27f7ab1f1",
+      "name": "OPUS.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a47591abfafecf27f7ab1f1_OPUS.webp",
+      "type": "image/webp",
+      "size": 4900
+    },
+    {
+      "id": "6a474a450fa7eefe5f9412c2",
+      "name": "Fespa.avif",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a474a450fa7eefe5f9412c2_Fespa.avif",
+      "type": "image/avif",
+      "size": 3528
+    },
+    {
+      "id": "6a47468333347a5b7ab923f3",
+      "name": "Fespa.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a47468333347a5b7ab923f3_Fespa.webp",
+      "type": "image/webp",
+      "size": 5988
+    },
+    {
+      "id": "6a4746028b96bf5ba8dd99a4",
+      "name": "Ibioic white.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a4746028b96bf5ba8dd99a4_Ibioic%20white.webp",
+      "type": "image/webp",
+      "size": 1628
+    },
+    {
+      "id": "6a474511ef2a160a148b0c16",
+      "name": "Built for the ambitious.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a474511ef2a160a148b0c16_Built%20for%20the%20ambitious.webp",
+      "type": "image/webp",
+      "size": 46730
+    },
+    {
+      "id": "6a4744af92034523692feddf",
+      "name": "Built for the ambitious.jpg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a4744af92034523692feddf_Built%20for%20the%20ambitious.jpg",
+      "type": "image/jpeg",
+      "size": 111559
+    },
+    {
+      "id": "6a4744241a367b82993d64e2",
+      "name": "Transform your business with R&D funding.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a4744241a367b82993d64e2_Transform%20your%20business%20with%20R%26D%20funding.webp",
+      "type": "image/webp",
+      "size": 21978
+    },
+    {
+      "id": "6a4743d42bbc569046fe5969",
+      "name": "josh s.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a4743d42bbc569046fe5969_josh%20s.webp",
+      "type": "image/webp",
+      "size": 13546
+    },
+    {
+      "id": "6a3e767c4d9e1b910eb9c6da",
+      "name": "Introducer Code of Conduct 2026.pdf",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a3e767c4d9e1b910eb9c6da_0c78fae78bf25ceb7f2be483ec022c16_Introducer%20Code%20of%20Conduct%202026.pdf",
+      "type": "application/pdf",
+      "size": 397825
+    },
+    {
+      "id": "6a328ae6655d013c23045cbd",
+      "name": "Client Code of Conduct2026.pdf",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a328ae6655d013c23045cbd_Client%20Code%20of%20Conduct2026.pdf",
+      "type": "application/pdf",
+      "size": 496283
+    },
+    {
+      "id": "6a0d833df7731053c226ff08",
+      "name": "Kene B Corp Report 2026.pdf",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6a0d833df7731053c226ff08_Kene%20B%20Corp%20Report%202026.pdf",
+      "type": "application/pdf",
+      "size": 3709390
+    },
+    {
+      "id": "69fb4e97fcd8ef87c3c21093",
+      "name": "andy.avif",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/69fb4e97fcd8ef87c3c21093_andy.avif",
+      "type": "image/avif",
+      "size": 19150
+    },
+    {
+      "id": "69fb1f4b86383eaeaee4987e",
+      "name": "will.avif",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/69fb1f4b86383eaeaee4987e_will.avif",
+      "type": "image/avif",
+      "size": 15525
+    },
+    {
+      "id": "69dcd52d6d38d2b60bdfd0d7",
+      "name": "Ibioic white.png",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/69dcd52d6d38d2b60bdfd0d7_Ibioic%20white.png",
+      "type": "image/png",
+      "size": 43663
+    },
+    {
+      "id": "69dcd30fcb9e841ba04b1a8f",
+      "name": "Full+Colour.png-2.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/69dcd30fcb9e841ba04b1a8f_Full%2BColour.png-2.webp",
+      "type": "image/webp",
+      "size": 18252
+    },
+    {
+      "id": "6930019c4deb4a057e080fad",
+      "name": "Support BG.webp",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/6930019c4deb4a057e080fad_Support%20BG.webp",
+      "type": "image/webp",
+      "size": 215400
+    },
+    {
+      "id": "692ffd755a3efd13f51840f6",
+      "name": "Cash.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692ffd755a3efd13f51840f6_Cash.svg",
+      "type": "image/svg+xml",
+      "size": 1933
+    },
+    {
+      "id": "692fe3afab7f8726775d3b88",
+      "name": "Software.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3afab7f8726775d3b88_Software.svg",
+      "type": "image/svg+xml",
+      "size": 2385
+    },
+    {
+      "id": "692fe3aae40a01a6d5a6b3ef",
+      "name": "Cybernet.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3aae40a01a6d5a6b3ef_Cybernet.svg",
+      "type": "image/svg+xml",
+      "size": 5527
+    },
+    {
+      "id": "692fe3a9fea9140b81eb6455",
+      "name": "Rocket.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a9fea9140b81eb6455_Rocket.svg",
+      "type": "image/svg+xml",
+      "size": 2940
+    },
+    {
+      "id": "692fe3a9a7274865e81183d5",
+      "name": "VR.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a9a7274865e81183d5_VR.svg",
+      "type": "image/svg+xml",
+      "size": 8932
+    },
+    {
+      "id": "692fe3a95ed8b3bbcdc318c8",
+      "name": "Financial growth.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a95ed8b3bbcdc318c8_Financial%20growth.svg",
+      "type": "image/svg+xml",
+      "size": 4508
+    },
+    {
+      "id": "692fe3a9a6ec4a2cc2e26039",
+      "name": "Health & Medical.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a9a6ec4a2cc2e26039_Health%20%26%20Medical.svg",
+      "type": "image/svg+xml",
+      "size": 1221
+    },
+    {
+      "id": "692fe3a92f67dcefcda7ce4d",
+      "name": "Manufacturing.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a92f67dcefcda7ce4d_Manufacturing.svg",
+      "type": "image/svg+xml",
+      "size": 1376
+    },
+    {
+      "id": "692fe3a9b3837a1b8d543c2d",
+      "name": "Transport.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a9b3837a1b8d543c2d_Transport.svg",
+      "type": "image/svg+xml",
+      "size": 2158
+    },
+    {
+      "id": "692fe3a9abbbc8e356f7a11a",
+      "name": "Eco-recycle.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692fe3a9abbbc8e356f7a11a_Eco-recycle.svg",
+      "type": "image/svg+xml",
+      "size": 2361
+    },
+    {
+      "id": "692edba6432fd5e37e229ba7",
+      "name": "Dots.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/692edba6432fd5e37e229ba7_Dots.svg",
+      "type": "image/svg+xml",
+      "size": 334
+    },
+    {
+      "id": "68ecd6a232c3323a6f3c4455",
+      "name": "JSON 3.json",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68ecd6a232c3323a6f3c4455_JSON%203.json",
+      "type": "application/json",
+      "size": 612959
+    },
+    {
+      "id": "68ecd337d8c705db05359d2a",
+      "name": "JSON 2.json",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68ecd337d8c705db05359d2a_JSON%202.json",
+      "type": "application/json",
+      "size": 33859
+    },
+    {
+      "id": "68dd2775297765e8f784c9e4",
+      "name": "tlive-logo.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68dd2775297765e8f784c9e4_tlive-logo.svg",
+      "type": "image/svg+xml",
+      "size": 2284
+    },
+    {
+      "id": "68dd27756c4fed1ec255f81f",
+      "name": "FW-default.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68dd27756c4fed1ec255f81f_FW-default.svg",
+      "type": "image/svg+xml",
+      "size": 2258
+    },
+    {
+      "id": "68a4187ab6a8d14b225ea016",
+      "name": "Icon.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68a4187ab6a8d14b225ea016_Icon.svg",
+      "type": "image/svg+xml",
+      "size": 221
+    },
+    {
+      "id": "68a356a4b3b15cc535730af8",
+      "name": "Checked Icon.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68a356a4b3b15cc535730af8_Checked%20Icon.svg",
+      "type": "image/svg+xml",
+      "size": 216
+    },
+    {
+      "id": "68a3412f9c9409664607bcd0",
+      "name": "Calculator.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/68a3412f9c9409664607bcd0_Calculator.svg",
+      "type": "image/svg+xml",
+      "size": 91455
+    },
+    {
+      "id": "689f4ae37e3f1d3872f603cd",
+      "name": "restart-icon.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/689f4ae37e3f1d3872f603cd_restart-icon.svg",
+      "type": "image/svg+xml",
+      "size": 626
+    },
+    {
+      "id": "689ef862a02514dac893c393",
+      "name": "info-icon.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/689ef862a02514dac893c393_info-icon.svg",
+      "type": "image/svg+xml",
+      "size": 499
+    },
+    {
+      "id": "689eef3d910a366d5e624c43",
+      "name": "calendar.svg",
+      "url": "https://s3.amazonaws.com/webflow-prod-assets/673b62c92b84c2a97fd703f6/689eef3d910a366d5e624c43_calendar-icon.svg",
+      "type": "image/svg+xml",
+      "size": 337
+    }
+  ],
+  "poor_name_samples": [
+    "Map Kene address.png",
+    "Kene Map Tabernacle ST.png",
+    "OPUS.webp",
+    "Fespa.avif",
+    "Fespa.webp",
+    "Ibioic white.webp",
+    "Built for the ambitious.webp",
+    "Built for the ambitious.jpg",
+    "Transform your business with R&D funding.webp",
+    "josh s.webp",
+    "Introducer Code of Conduct 2026.pdf",
+    "Client Code of Conduct2026.pdf",
+    "Kene B Corp Report 2026.pdf",
+    "Ibioic white.png",
+    "Full+Colour.png-2.webp",
+    "new team circle.png",
+    "new team.jpg",
+    "card team.jpg",
+    "JPEG image 12.jpeg",
+    "getty-images-ShGfn233L9c-unsplash.jpg",
+    "resource-database-Jsi-YBtOcLE-unsplash (2).jpg",
+    "getty-images-sfM_Or2TpgY-unsplash.jpg",
+    "josh s.jpg",
+    "CF and doug.jpg",
+    "CF an.jpg",
+    "JPEG image.jpg",
+    "getty-images-e5NjAyIh9Sk-unsplash.jpg",
+    "a-c-jgDk8PHZ5GQ-unsplash.jpg",
+    "Expert Support.png",
+    "Hero Image.png",
+    "2 of team members kene.webp",
+    "R&D Claim.png",
+    "Plan.png",
+    "Build.png",
+    "Build.png",
+    "Capture.png",
+    "Plan.png",
+    "The problem with traditional R&D claims.png",
+    "Support BG.webp",
+    "Adams K.avif"
+  ],
+  "largest": [
+    {
+      "name": "B Corp impact report 25.pdf",
+      "size": 10461133,
+      "type": "application/pdf",
+      "alt": null
+    },
+    {
+      "name": "History image.jpg",
+      "size": 4193875,
+      "type": "image/jpeg",
+      "alt": "Person in a suit holding a wooden judge gavel above a sound block on a table."
+    },
+    {
+      "name": "gradient bg (1).webp",
+      "size": 3819524,
+      "type": "image/webp",
+      "alt": "Gradient background transitioning from dark blue and black on the left to teal on the right."
+    },
+    {
+      "name": "Kene B Corp Report 2026.pdf",
+      "size": 3709390,
+      "type": "application/pdf",
+      "alt": null
+    },
+    {
+      "name": "ECC.png",
+      "size": 3672167,
+      "type": "image/png",
+      "alt": "Flowchart showing seven steps in the HMRC claim process: 1. Submission of claim, 2. Opening compliance checks, 3. First response to questions, 4. Subsequent correspondence rounds, 5. Pre-decision letter, 6. Final decision letter, 7. Optional appeal request."
+    },
+    {
+      "name": "Hiring process steps.png",
+      "size": 3604736,
+      "type": "image/png",
+      "alt": "Flowchart showing the hiring process steps: Job Description, Sourcing Candidates, Screening, Interviewing, Reference Check, Hire."
+    },
+    {
+      "name": "CF an.jpg",
+      "size": 3596867,
+      "type": "image/jpeg",
+      "alt": "Two business professionals smiling and talking indoors, with one holding an open notebook."
+    },
+    {
+      "name": "Nathan testimonial thumbnail.png",
+      "size": 3403472,
+      "type": "image/png",
+      "alt": "Nathan speaking into a microphone while seated on a brown leather couch in a modern room with a lamp and a plant."
+    },
+    {
+      "name": "new team.jpg",
+      "size": 3289299,
+      "type": "image/jpeg",
+      "alt": "Three young people collaborating indoors, one holding a laptop while the other two look on and smile."
+    },
+    {
+      "name": "resource-database-Jsi-YBtOcLE-unsplash (2).jpg",
+      "size": 3091651,
+      "type": "image/jpeg",
+      "alt": "Floating green credit cards, some covered with grass and small pink flowers, against a blue sky with clouds."
+    },
+    {
+      "name": "CF and doug.jpg",
+      "size": 2911711,
+      "type": "image/jpeg",
+      "alt": "Two professionals standing indoors near a large window; she reads a notebook while a man in a dark suit looks on and smiles."
+    },
+    {
+      "name": "291c5107ffba0d986412c01593d27a6a739dc17d.jpg",
+      "size": 2904385,
+      "type": "image/jpeg",
+      "alt": "Transparent globe with green plants and coins featuring leaf symbols around it on a light blue background."
+    },
+    {
+      "name": "getty-images-sfM_Or2TpgY-unsplash.jpg",
+      "size": 2553626,
+      "type": "image/jpeg",
+      "alt": "Two men having a discussion in a bright office, one holding papers and a laptop on a table in front of them."
+    },
+    {
+      "name": "a-c-0pJtB-TtSeo-unsplash.jpg",
+      "size": 2345690,
+      "type": "image/jpeg",
+      "alt": "Woman with curly hair and glasses talking and gesturing while holding a laptop on her lap."
+    },
+    {
+      "name": "a-c-jgDk8PHZ5GQ-unsplash.jpg",
+      "size": 2344502,
+      "type": "image/jpeg",
+      "alt": "Woman placing a document with charts and text into a large brown envelope at a desk with other envelopes and a vase of flowers."
+    }
+  ]
+}

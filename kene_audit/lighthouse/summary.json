@@ -1,0 +1,728 @@
+[
+  {
+    "name": "home",
+    "url": "https://kene.partners/",
+    "formFactor": "mobile",
+    "performance": 60,
+    "accessibility": 92,
+    "bestPractices": 65,
+    "seo": 100,
+    "LCP": 5991.999,
+    "CLS": 0.20608661453146193,
+    "TBT": 225,
+    "FCP": 1924.482,
+    "SI": 4422.112846063989,
+    "TTI": 12698.499,
+    "failedA11y": [
+      {
+        "id": "image-aspect-ratio",
+        "title": "Displays images with incorrect aspect ratio",
+        "score": 0
+      },
+      {
+        "id": "image-size-responsive",
+        "title": "Serves images with low resolution",
+        "score": 0
+      },
+      {
+        "id": "aria-required-children",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 450
+      }
+    ]
+  },
+  {
+    "name": "home",
+    "url": "https://kene.partners/",
+    "formFactor": "desktop",
+    "performance": 56,
+    "accessibility": 92,
+    "bestPractices": 65,
+    "seo": 100,
+    "LCP": 5630.063,
+    "CLS": 0.022513144326745466,
+    "TBT": 181,
+    "FCP": 1874.0670000000002,
+    "SI": 4492.586731531554,
+    "TTI": 12520.062999999998,
+    "failedA11y": [
+      {
+        "id": "image-aspect-ratio",
+        "title": "Displays images with incorrect aspect ratio",
+        "score": 0
+      },
+      {
+        "id": "image-size-responsive",
+        "title": "Serves images with low resolution",
+        "score": 0
+      },
+      {
+        "id": "aria-required-children",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 450
+      }
+    ]
+  },
+  {
+    "name": "about",
+    "url": "https://kene.partners/about-us",
+    "formFactor": "mobile",
+    "performance": 59,
+    "accessibility": 92,
+    "bestPractices": 69,
+    "seo": 100,
+    "LCP": 12347.837,
+    "CLS": 0.12348503044679911,
+    "TBT": 213,
+    "FCP": 2266.557,
+    "SI": 5872.855778124738,
+    "TTI": 13288.6846,
+    "failedA11y": [
+      {
+        "id": "image-size-responsive",
+        "title": "Serves images with low resolution",
+        "score": 0
+      },
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "aria-required-children",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 2090
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "savingsMs": 310
+      }
+    ]
+  },
+  {
+    "name": "about",
+    "url": "https://kene.partners/about-us",
+    "formFactor": "desktop",
+    "performance": 50,
+    "accessibility": 92,
+    "bestPractices": 69,
+    "seo": 100,
+    "LCP": 7839.536,
+    "CLS": 0.1303914111620533,
+    "TBT": 188,
+    "FCP": 1910.5379999999996,
+    "SI": 3800.463104326456,
+    "TTI": 13194.036,
+    "failedA11y": [
+      {
+        "id": "image-size-responsive",
+        "title": "Serves images with low resolution",
+        "score": 0
+      },
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "aria-required-children",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 900
+      }
+    ]
+  },
+  {
+    "name": "insights",
+    "url": "https://kene.partners/insights",
+    "formFactor": "mobile",
+    "performance": 61,
+    "accessibility": 93,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 12658.045,
+    "CLS": 0,
+    "TBT": 202.5,
+    "FCP": 2869.8205,
+    "SI": 6264.842710483383,
+    "TTI": 14195.492299999998,
+    "failedA11y": [
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "aria-command-name",
+        "title": "`button`, `link`, and `menuitem` elements do not have accessible names.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 2120
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "savingsMs": 280
+      }
+    ]
+  },
+  {
+    "name": "insights",
+    "url": "https://kene.partners/insights",
+    "formFactor": "desktop",
+    "performance": 50,
+    "accessibility": 93,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 3898.5932000000003,
+    "CLS": 0.1380245267520151,
+    "TBT": 229,
+    "FCP": 1908.55148,
+    "SI": 4490.751593112478,
+    "TTI": 27709.593199999996,
+    "failedA11y": [
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "aria-command-name",
+        "title": "`button`, `link`, and `menuitem` elements do not have accessible names.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": []
+  },
+  {
+    "name": "grants-finder",
+    "url": "https://kene.partners/grants-finder",
+    "formFactor": "mobile",
+    "performance": 61,
+    "accessibility": 97,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 17537.21,
+    "CLS": 0.002283062336752584,
+    "TBT": 208,
+    "FCP": 2481.5839999999994,
+    "SI": 7542.995387053474,
+    "TTI": 17828.611249999998,
+    "failedA11y": [
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 2160
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "savingsMs": 330
+      },
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "savingsMs": 52
+      }
+    ]
+  },
+  {
+    "name": "grants-finder",
+    "url": "https://kene.partners/grants-finder",
+    "formFactor": "desktop",
+    "performance": 47,
+    "accessibility": 97,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 12687.591,
+    "CLS": 0.1242611545707208,
+    "TBT": 216,
+    "FCP": 1903.6680000000001,
+    "SI": 6456.15708990792,
+    "TTI": 16787.091,
+    "failedA11y": [
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 900
+      }
+    ]
+  },
+  {
+    "name": "support-hub",
+    "url": "https://kene.partners/support-hub",
+    "formFactor": "mobile",
+    "performance": 54,
+    "accessibility": 97,
+    "bestPractices": 69,
+    "seo": 100,
+    "LCP": 18026.239499999996,
+    "CLS": 0.01394662009557903,
+    "TBT": 228,
+    "FCP": 4710.490750000001,
+    "SI": 8668.774053613224,
+    "TTI": 18076.094149999997,
+    "failedA11y": [
+      {
+        "id": "image-aspect-ratio",
+        "title": "Displays images with incorrect aspect ratio",
+        "score": 0
+      },
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "title": "Elements with visible text labels do not have matching accessible names.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 2010
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "savingsMs": 330
+      },
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "savingsMs": 57
+      }
+    ]
+  },
+  {
+    "name": "support-hub",
+    "url": "https://kene.partners/support-hub",
+    "formFactor": "desktop",
+    "performance": 55,
+    "accessibility": 97,
+    "bestPractices": 69,
+    "seo": 100,
+    "LCP": 10528.663,
+    "CLS": 0.04960891558860295,
+    "TBT": 182.5,
+    "FCP": 1900.787,
+    "SI": 3585.304285324975,
+    "TTI": 18608.163,
+    "failedA11y": [
+      {
+        "id": "image-aspect-ratio",
+        "title": "Displays images with incorrect aspect ratio",
+        "score": 0
+      },
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "title": "Elements with visible text labels do not have matching accessible names.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 1200
+      }
+    ]
+  },
+  {
+    "name": "contact",
+    "url": "https://kene.partners/contact-us",
+    "formFactor": "mobile",
+    "performance": 88,
+    "accessibility": 92,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 2629.7149999999997,
+    "CLS": 0,
+    "TBT": 135.5,
+    "FCP": 2629.7149999999997,
+    "SI": 5227.747131479813,
+    "TTI": 10736.965999999999,
+    "failedA11y": [
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "aria-required-children",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": []
+  },
+  {
+    "name": "contact",
+    "url": "https://kene.partners/contact-us",
+    "formFactor": "desktop",
+    "performance": 68,
+    "accessibility": 92,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 1860.119,
+    "CLS": 0.09108624488797608,
+    "TBT": 229.5,
+    "FCP": 1860.119,
+    "SI": 3069.599935613215,
+    "TTI": 14016.955000000002,
+    "failedA11y": [
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "aria-required-children",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+        "score": 0
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": []
+  },
+  {
+    "name": "insight-article",
+    "url": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor",
+    "formFactor": "mobile",
+    "performance": 61,
+    "accessibility": 97,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 20631.867000000013,
+    "CLS": 0,
+    "TBT": 229,
+    "FCP": 2166.938,
+    "SI": 7969.597708367743,
+    "TTI": 21058.092250000016,
+    "failedA11y": [
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 2000
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "savingsMs": 310
+      },
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "savingsMs": 153
+      }
+    ]
+  },
+  {
+    "name": "insight-article",
+    "url": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor",
+    "formFactor": "desktop",
+    "performance": 55,
+    "accessibility": 97,
+    "bestPractices": 73,
+    "seo": 100,
+    "LCP": 15781.926029999997,
+    "CLS": 0.03816955044762374,
+    "TBT": 171.5,
+    "FCP": 1875.53772,
+    "SI": 4191.195456821698,
+    "TTI": 18975.980362999995,
+    "failedA11y": [
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 910
+      }
+    ]
+  },
+  {
+    "name": "grant-detail",
+    "url": "https://kene.partners/grants/women-in-innovation-awards-2025-26",
+    "formFactor": "mobile",
+    "performance": 91,
+    "accessibility": 97,
+    "bestPractices": 69,
+    "seo": 100,
+    "LCP": 2124.827,
+    "CLS": 0.018341158015582393,
+    "TBT": 208.5,
+    "FCP": 2124.827,
+    "SI": 4566.750130336955,
+    "TTI": 13563.9382,
+    "failedA11y": [
+      {
+        "id": "image-size-responsive",
+        "title": "Serves images with low resolution",
+        "score": 0
+      },
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": [
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "savingsMs": 369
+      }
+    ]
+  },
+  {
+    "name": "grant-detail",
+    "url": "https://kene.partners/grants/women-in-innovation-awards-2025-26",
+    "formFactor": "desktop",
+    "performance": 72,
+    "accessibility": 97,
+    "bestPractices": 69,
+    "seo": 100,
+    "LCP": 1888.9609999999998,
+    "CLS": 0.019164283577827238,
+    "TBT": 177.5,
+    "FCP": 1888.9609999999998,
+    "SI": 3261.894208821951,
+    "TTI": 12892.407,
+    "failedA11y": [
+      {
+        "id": "image-size-responsive",
+        "title": "Serves images with low resolution",
+        "score": 0
+      },
+      {
+        "id": "unsized-images",
+        "title": "Image elements do not have explicit `width` and `height`",
+        "score": 0.5
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5
+      }
+    ],
+    "failedSeo": [],
+    "opportunities": []
+  }
+]

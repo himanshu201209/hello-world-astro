@@ -1,0 +1,1872 @@
+{
+  "schema": [
+    {
+      "url": "https://kene.partners/",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Kene Partners",
+            "url": "/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6789f450651a4a7ab4c98aa8_Dimensions.svg"
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6788d675583cbf1b0eee9670_Thumbnail%20Kene.png"
+            },
+            "description": "R&D tax credit specialists and advisers in London helping UK businesses secure funding through R&D tax credits, Patent Box and grants. Certified B Corp with \u00a3164m+ secured for clients.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10 Devonshire Square",
+              "addressLocality": "London",
+              "postalCode": "EC2M 4YP",
+              "addressCountry": "GB"
+            },
+            "telephone": "0207 118 8833",
+            "email": "info@kene.partners",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "bestRating": "5",
+              "ratingCount": "100"
+            },
+            "sameAs": [
+              "https://www.trustpilot.com/review/kene.partners",
+              "https://www.bcorporation.net/en-us/find-a-b-corp/company/kene-partners/"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Adam Kene",
+              "email": "adam.kene@kene.partners",
+              "jobTitle": "CEO"
+            },
+            "employee": [
+              {
+                "@type": "Person",
+                "name": "Sage Lakhani",
+                "email": "sage.lakhani@kene.partners",
+                "jobTitle": "COO"
+              },
+              {
+                "@type": "Person",
+                "name": "Gemma Smith",
+                "email": "gemma.smith@kene.partners",
+                "jobTitle": "CFO"
+              },
+              {
+                "@type": "Person",
+                "name": "Andy Royce",
+                "email": "andy.royce@kene.partners",
+                "jobTitle": "Head of Delivery"
+              },
+              {
+                "@type": "Person",
+                "name": "Will Granger",
+                "email": "will.granger@kene.partners",
+                "jobTitle": "Deputy Head of Delivery"
+              },
+              {
+                "@type": "Person",
+                "name": "Dr Claire Flanagan",
+                "email": "claire.flanagan@kene.partners",
+                "jobTitle": "Grants Lead"
+              },
+              {
+                "@type": "Person",
+                "name": "Fergus Watson",
+                "email": "fergus.watson@kene.partners",
+                "jobTitle": "Head of Compliance"
+              },
+              {
+                "@type": "Person",
+                "name": "Olly Newman",
+                "email": "oliver.newman@kene.partners",
+                "jobTitle": "Senior R&D Technical Manager"
+              },
+              {
+                "@type": "Person",
+                "name": "Dr Arwyn Evans",
+                "email": "arwyn.evans@kene.partners",
+                "jobTitle": "R&D Tax Manager"
+              },
+              {
+                "@type": "Person",
+                "name": "Laura Kelly",
+                "email": "laura.kelly@kene.partners",
+                "jobTitle": "Head of Marketing"
+              },
+              {
+                "@type": "Person",
+                "name": "Ella Francis",
+                "email": "ella.francis@kene.partners",
+                "jobTitle": "Head of Operations"
+              }
+            ],
+            "areaServed": {
+              "@type": "Country",
+              "name": "United Kingdom"
+            }
+          },
+          "raw_len": 3096
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/about-us",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.kene.partners/#organization",
+                "name": "Kene Partners",
+                "alternateName": "Kene",
+                "url": "https://www.kene.partners/",
+                "description": "R&D funding advisors helping UK businesses access R&D tax credits, Patent Box and grants with clear advice and evidence-led delivery.",
+                "foundingDate": "2017",
+                "slogan": "To help our clients secure \u00a3500 million in R&D funding, so they can build faster and go further",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/67668cfaf6ff5b3bc2e340cc_KENE%20logo%20light.svg"
+                },
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6788d675583cbf1b0eee9670_Thumbnail%20Kene.png"
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "10 Devonshire Square",
+                  "addressLocality": "London",
+                  "postalCode": "EC2M 4YP",
+                  "addressCountry": "GB"
+                },
+                "telephone": "+44 20 7118 8833",
+                "email": "info@kene.partners",
+                "sameAs": [
+                  "https://uk.trustpilot.com/review/kene.partners"
+                ],
+                "knowsAbout": [
+                  "R&D Tax Credits",
+                  "Patent Box",
+                  "R&D Innovation Grants",
+                  "RDEC Scheme",
+                  "AML Compliance"
+                ],
+                "award": [
+                  "Certified B Corporation"
+                ],
+                "memberOf": {
+                  "@type": "Organization",
+                  "name": "Chartered Institute of Taxation (CIOT)"
+                },
+                "employee": [
+                  {
+                    "@type": "Person",
+                    "name": "Andy Royce",
+                    "jobTitle": "Head of Delivery",
+                    "email": "andy.royce@kene.partners"
+                  }
+                ],
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "bestRating": "5",
+                  "ratingCount": "2",
+                  "reviewCount": "2"
+                },
+                "review": [
+                  {
+                    "@type": "Review",
+                    "author": {
+                      "@type": "Person",
+                      "name": "Customer"
+                    },
+                    "reviewBody": "Impressed with Kene Partners and the speed in which they put together our claim, without compromising quality. From the initial conversations to collaborating with the team, it was all seamless.",
+                    "reviewRating": {
+                      "@type": "Rating",
+                      "ratingValue": "5",
+                      "bestRating": "5"
+                    }
+                  },
+                  {
+                    "@type": "Review",
+                    "author": {
+                      "@type": "Person",
+                      "name": "Customer"
+                    },
+                    "reviewBody": "We have already referred a number of our clients to Kene Partners so they can benefit from their expertise and help more businesses benefit from this generous government incentive.",
+                    "reviewRating": {
+                      "@type": "Rating",
+                      "ratingValue": "5",
+                      "bestRating": "5"
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://www.kene.partners/#website",
+                "url": "https://www.kene.partners/",
+                "name": "Kene Partners",
+                "publisher": {
+                  "@id": "https://www.kene.partners/#organization"
+                },
+                "inLanguage": "en-GB"
+              },
+              {
+                "@type": "AboutPage",
+                "@id": "https://www.kene.partners/about-us#webpage",
+                "url": "https://www.kene.partners/about-us",
+                "name": "About Us | Kene",
+                "description": "Kene helps innovative UK businesses secure R&D tax credits, Patent Box and grants, taking the time to understand what you're building and recommending the best funding route.",
+                "inLanguage": "en-GB",
+                "isPartOf": {
+                  "@id": "https://www.kene.partners/#website"
+                },
+                "about": {
+                  "@id": "https://www.kene.partners/#organization"
+                },
+                "publisher": {
+                  "@id": "https://www.kene.partners/#organization"
+                },
+                "mainEntity": {
+                  "@id": "https://www.kene.partners/#organization"
+                },
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6788d675583cbf1b0eee9670_Thumbnail%20Kene.png"
+                }
+              }
+            ]
+          },
+          "raw_len": 4248
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://kene.partners/#organization",
+                "name": "Kene Partners",
+                "url": "https://kene.partners/"
+              },
+              {
+                "@type": "BlogPosting",
+                "@id": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor#article",
+                "headline": "How to choose a trusted R&amp;D tax advisor: a practical guide for UK businesses",
+                "description": "A practical guide to choosing a reputable R&amp;D tax advisor. Discover what to look for, common risks with low cost providers and how to ensure a compliant claim.",
+                "url": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor",
+                "image": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd70442/67af3a2cbe4d413300b0b5be_kene-0029-scaled.webp",
+                "datePublished": "2024-02-21",
+                "dateModified": "2025-12-12",
+                "inLanguage": "en-GB",
+                "author": {
+                  "@id": "https://kene.partners/#organization"
+                },
+                "publisher": {
+                  "@id": "https://kene.partners/#organization"
+                },
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor"
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://kene.partners/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Insights",
+                    "item": "https://kene.partners/insights"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "How to choose a trusted R&amp;D tax advisor: a practical guide for UK businesses",
+                    "item": "https://kene.partners/insights/how-to-choose-an-r-and-d-tax-advisor"
+                  }
+                ]
+              }
+            ]
+          },
+          "raw_len": 2015
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/client-stories/ecoeggs-story",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": false,
+          "error": "Invalid control character at: line 14 column 169 (char 528)",
+          "raw_preview": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Organization\",\n      \"@id\": \"https://kene.partners/#organization\",\n      \"name\": \"Kene Partners\",\n      \"url\": \"https://kene.partners/\"\n    },\n    {\n      \"@type\": \"Article\",\n      \"@id\": \"https://kene.partners/client-stories/"
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/sector-guides/agriculture",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": false,
+          "error": "Invalid control character at: line 14 column 164 (char 517)",
+          "raw_preview": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Organization\",\n      \"@id\": \"https://kene.partners/#organization\",\n      \"name\": \"Kene Partners\",\n      \"url\": \"https://kene.partners/\"\n    },\n    {\n      \"@type\": \"Article\",\n      \"@id\": \"https://kene.partners/sector-guides/a"
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/grants/women-in-innovation-awards-2025-26",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://kene.partners/#organization",
+                "name": "Kene Partners",
+                "url": "https://kene.partners/"
+              },
+              {
+                "@type": "MonetaryGrant",
+                "@id": "https://kene.partners/grants/women-in-innovation-awards-2025-26#grant",
+                "name": "Women in Innovation Awards 2025/26",
+                "description": "Apply for the Women in Innovation Awards 2025/26 from Innovate UK. Women founders and co-founders of UK late stage start-ups in Advanced Manufacturing, Digital and Technologies, or Life Sciences can access up to \u00a375,000 plus 12 months of tailored business growth support.",
+                "url": "https://kene.partners/grants/women-in-innovation-awards-2025-26",
+                "image": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd70442/6a2be48d9c8d59acd1c9100a_6929dbe2fce99ca0b646307b_getty-images-hThLfOdtbY0-unsplash.jpeg",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://kene.partners/grants/women-in-innovation-awards-2025-26"
+                }
+              }
+            ]
+          },
+          "raw_len": 1092
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/support-hub/hmrc-enquiries",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://kene.partners/#organization",
+                "name": "Kene Partners",
+                "url": "https://kene.partners/"
+              },
+              {
+                "@type": "TechArticle",
+                "@id": "https://kene.partners/support-hub/hmrc-enquiries#article",
+                "headline": "HMRC enquiries into R&amp;D tax relief claims: what to expect and how to respond",
+                "description": "A step-by-step guide to HMRC enquiries into R&amp;D tax relief claims: time limits, what HMRC asks for, how to build an evidence pack, and how enquiries close.",
+                "url": "https://kene.partners/support-hub/hmrc-enquiries",
+                "image": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd70442/686508fb29fd6e1965c24d21_Thumbnail%20Kene.png",
+                "datePublished": "2023-12-19",
+                "dateModified": "2026-02-17",
+                "inLanguage": "en-GB",
+                "author": {
+                  "@id": "https://kene.partners/#organization"
+                },
+                "publisher": {
+                  "@id": "https://kene.partners/#organization"
+                },
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://kene.partners/support-hub/hmrc-enquiries"
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": "https://kene.partners/support-hub/hmrc-enquiries#breadcrumb",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://kene.partners/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Support Hub",
+                    "item": "https://kene.partners/support-hub"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "HMRC enquiries into R&amp;D tax relief claims: what to expect and how to respond",
+                    "item": "https://kene.partners/support-hub/hmrc-enquiries"
+                  }
+                ]
+              }
+            ]
+          },
+          "raw_len": 1921
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/team-details/adam-kene",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://kene.partners/#organization",
+                "name": "Kene Partners",
+                "url": "https://kene.partners/"
+              },
+              {
+                "@type": "Person",
+                "@id": "https://kene.partners/team-details/adam-kene#person",
+                "name": "Adam Kene",
+                "jobTitle": "CEO",
+                "url": "https://kene.partners/team-details/adam-kene",
+                "image": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd70442/677272a9c3a96c9b5b7d519b_adam.png.avif",
+                "worksFor": {
+                  "@id": "https://kene.partners/#organization"
+                }
+              }
+            ]
+          },
+          "raw_len": 638
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/contact-us",
+      "status": 200,
+      "blocks": [
+        {
+          "ok": true,
+          "data": {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://kene.partners/#organization",
+                "name": "Kene Partners",
+                "description": "R&D tax credit advisers helping UK businesses unlock millions in R&D tax incentives.",
+                "url": "https://kene.partners/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6789f450651a4a7ab4c98aa8_Dimensions.svg"
+                },
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6788d675583cbf1b0eee9670_Thumbnail%20Kene.png"
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "10 Devonshire Square",
+                  "addressLocality": "London",
+                  "postalCode": "EC2M 4YP",
+                  "addressCountry": "GB"
+                },
+                "telephone": "+44 20 7118 8833",
+                "email": "info@kene.partners",
+                "sameAs": [
+                  "https://uk.trustpilot.com/review/kene.partners"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "telephone": "+44 20 7118 8833",
+                  "email": "info@kene.partners"
+                }
+              },
+              {
+                "@type": "ContactPage",
+                "@id": "https://kene.partners/contact-us#webpage",
+                "url": "https://kene.partners/contact-us",
+                "name": "Contact Us | Kene Partners",
+                "description": "Get in touch with Kene Partners to discuss R&D tax credits, Patent Box, Capital Allowances and other innovation tax incentives.",
+                "inLanguage": "en-GB",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6788d675583cbf1b0eee9670_Thumbnail%20Kene.png"
+                },
+                "mainEntity": {
+                  "@id": "https://kene.partners/#organization"
+                },
+                "publisher": {
+                  "@id": "https://kene.partners/#organization"
+                }
+              }
+            ]
+          },
+          "raw_len": 1967
+        }
+      ]
+    }
+  ],
+  "security": {
+    "url": "https://kene.partners/",
+    "final": "https://kene.partners/",
+    "status": 200,
+    "headers": {
+      "strict-transport-security": "max-age=31536000",
+      "content-security-policy": null,
+      "x-frame-options": null,
+      "x-content-type-options": null,
+      "referrer-policy": null,
+      "permissions-policy": null,
+      "cross-origin-opener-policy": null,
+      "cache-control": null,
+      "server": "cloudflare",
+      "cf-cache-status": "HIT"
+    }
+  },
+  "www_redirect": {
+    "url": "https://www.kene.partners/",
+    "final": "https://kene.partners/",
+    "status": 200,
+    "headers": {
+      "strict-transport-security": "max-age=31536000",
+      "content-security-policy": null,
+      "x-frame-options": null,
+      "x-content-type-options": null,
+      "referrer-policy": null,
+      "permissions-policy": null,
+      "cross-origin-opener-policy": null,
+      "cache-control": null,
+      "server": "cloudflare",
+      "cf-cache-status": "HIT"
+    }
+  },
+  "http_redirect": {
+    "url": "http://kene.partners/",
+    "final": "https://kene.partners/",
+    "status": 200,
+    "headers": {
+      "strict-transport-security": "max-age=31536000",
+      "content-security-policy": null,
+      "x-frame-options": null,
+      "x-content-type-options": null,
+      "referrer-policy": null,
+      "permissions-policy": null,
+      "cross-origin-opener-policy": null,
+      "cache-control": null,
+      "server": "cloudflare",
+      "cf-cache-status": "HIT"
+    }
+  },
+  "forms": [
+    {
+      "url": "https://kene.partners/contact-us",
+      "forms": [
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "First-Name",
+              "name": "First-Name",
+              "placeholder": "First name",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "Last-Name",
+              "name": "Last-Name",
+              "placeholder": "Last name",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "Company-Name",
+              "name": "Company-Name",
+              "placeholder": "Company name",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "Email",
+              "name": "Email",
+              "placeholder": "Email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "tel",
+              "id": "Phone-Number",
+              "name": "Phone-Number",
+              "placeholder": "Phone number",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "textarea",
+              "type": "textarea",
+              "id": "Message",
+              "name": "Message",
+              "placeholder": "Write your message",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": null,
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        },
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "email",
+              "name": "email",
+              "placeholder": "Enter your email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": "footer-submit",
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/book-a-free-consultation",
+      "forms": [
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "First-Name-4",
+              "name": "First-Name",
+              "placeholder": "First name",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "Last-Name-4",
+              "name": "Last-Name",
+              "placeholder": "Last name",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "Company-Name-4",
+              "name": "Company-Name",
+              "placeholder": "Company name",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "Job-Title-3",
+              "name": "Job-Title",
+              "placeholder": "Job title",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "Business-Email-3",
+              "name": "Business-Email",
+              "placeholder": "Business email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "tel",
+              "id": "Phone-Number-4",
+              "name": "Phone-Number",
+              "placeholder": "Phone number",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "Preferred-Day-For-Your-Consultation-Call-4",
+              "name": "Preferred-Day-For-Your-Consultation-Call",
+              "placeholder": "Preferred day for your consultation call",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "id": "R-D-Tax-Credits",
+              "name": "R-D-Tax-Credits",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "id": "R-D-claim-review",
+              "name": "R-D-claim-review",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "id": "Compliance-suppor",
+              "name": "Compliance-suppor",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "id": "Grants",
+              "name": "Grants",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "id": "Patent-Box",
+              "name": "Patent-Box",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "id": "Other",
+              "name": "Other",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "textarea",
+              "type": "textarea",
+              "id": "service_of_interest",
+              "name": "service_of_interest",
+              "placeholder": "Tell us more about why you\u2019re booking this consultation",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "textarea",
+              "type": "textarea",
+              "id": "Message-3",
+              "name": "Message",
+              "placeholder": "Tell us a bit more about you or why you're getting in touch",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": null,
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        },
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "email",
+              "name": "email",
+              "placeholder": "Enter your email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": "footer-submit",
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/grants-finder",
+      "forms": [
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "popup_email",
+              "name": "email",
+              "placeholder": "Enter your email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": null,
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        },
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "hero_email",
+              "name": "email",
+              "placeholder": "Enter your email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": "hero-submit",
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        },
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Advanced manufacturing & materials",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Agritech",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "AI",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Biotechnology",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Clean energy",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Creative industries",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Defence",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Digital tools and technologies",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Engineering Biology",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Environment & circular economy",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "European Funding",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Health & Life Science",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Open/technology agnostic",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Quantum",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Robotics & smart machines",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Space",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "radio",
+              "id": "Transport",
+              "name": "radio",
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "id": "field",
+              "name": "field",
+              "placeholder": "Search for funding opportunities..",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            }
+          ]
+        },
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "email",
+              "name": "email",
+              "placeholder": "Enter your email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": "footer-submit",
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://kene.partners/",
+      "forms": [
+        {
+          "action": null,
+          "method": "get",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "email",
+              "id": "email",
+              "name": "email",
+              "placeholder": "Enter your email",
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": true
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "id": "footer-submit",
+              "name": null,
+              "placeholder": null,
+              "aria-label": null,
+              "aria-labelledby": null,
+              "label_for": null,
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "nav_footer": {
+    "nav": [
+      {
+        "text": "R&D tax credits",
+        "href": "#"
+      },
+      {
+        "text": "Claim R&D tax credits",
+        "href": "/claiming-rd"
+      },
+      {
+        "text": "Subscription R&D support",
+        "href": "/kore-r-and-d-support"
+      },
+      {
+        "text": "Review my R&D claim",
+        "href": "/claimsure-r-and-d-tax-review"
+      },
+      {
+        "text": "Enquiry support",
+        "href": "/hmrc-compliance-check-support"
+      },
+      {
+        "text": "Grants",
+        "href": "/rd-innovation-grants"
+      },
+      {
+        "text": "Patent box",
+        "href": "/patent-box-tax-savings"
+      },
+      {
+        "text": "What is R&D",
+        "href": "/what-is-r-and-d"
+      },
+      {
+        "text": "R&D tax credits explained",
+        "href": "/rd-tax-credits-explained"
+      },
+      {
+        "text": "RDEC & SME Accounting",
+        "href": "#"
+      },
+      {
+        "text": "Eligible Costs",
+        "href": "#"
+      },
+      {
+        "text": "R&D tax calculator",
+        "href": "/r-and-d-tax-calculator"
+      },
+      {
+        "text": "Check R&D tax deadlines",
+        "href": "/r-and-d-tax-credit-submission-deadlines"
+      },
+      {
+        "text": "Merged scheme explained",
+        "href": "/merged-r-and-d-scheme-explained"
+      },
+      {
+        "text": "About us",
+        "href": "/about-us"
+      },
+      {
+        "text": "Meet our team",
+        "href": "/meet-our-team"
+      },
+      {
+        "text": "Impact beyond business",
+        "href": "/impact-beyond-business"
+      },
+      {
+        "text": "Join our team",
+        "href": "/join-our-team"
+      },
+      {
+        "text": "Contact us",
+        "href": "/contact-us"
+      },
+      {
+        "text": "News and insights",
+        "href": "/insights"
+      },
+      {
+        "text": "Support hub",
+        "href": "/support-hub"
+      },
+      {
+        "text": "Sector guides",
+        "href": "/sector-guides"
+      },
+      {
+        "text": "Sector guides",
+        "href": "/sector-guides"
+      },
+      {
+        "text": "Client stories",
+        "href": "/client-stories"
+      },
+      {
+        "text": "Downloads",
+        "href": "https://fliphtml5.com/bookcase/xydrak/"
+      },
+      {
+        "text": "Grant finder",
+        "href": "/grants-finder"
+      }
+    ],
+    "footer": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "",
+        "href": "https://www.facebook.com/Kene.Partners"
+      },
+      {
+        "text": "",
+        "href": "https://www.linkedin.com/company/kene-partners-limited"
+      },
+      {
+        "text": "",
+        "href": "https://www.youtube.com/@wearekene"
+      },
+      {
+        "text": "Trustpilot",
+        "href": "https://www.trustpilot.com/review/kene.partners"
+      },
+      {
+        "text": "R&D tax credits",
+        "href": "/rd-innovation-grants"
+      },
+      {
+        "text": "Claiming R&D tax credits",
+        "href": "/claiming-rd"
+      },
+      {
+        "text": "Subscription R&D support",
+        "href": "/kore-r-and-d-support"
+      },
+      {
+        "text": "Review my R&D claim",
+        "href": "/rd-tax-credits-explained"
+      },
+      {
+        "text": "Compliance support",
+        "href": "/hmrc-compliance-check-support"
+      },
+      {
+        "text": "Grants",
+        "href": "/rd-innovation-grants"
+      },
+      {
+        "text": "Patent box",
+        "href": "/patent-box-tax-savings"
+      },
+      {
+        "text": "What is R&D?",
+        "href": "/what-is-r-and-d"
+      },
+      {
+        "text": "R&D tax credits explained",
+        "href": "/rd-tax-credits-explained"
+      },
+      {
+        "text": "Merged R&D scheme explained",
+        "href": "/merged-r-and-d-scheme-explained"
+      },
+      {
+        "text": "Client stories",
+        "href": "#"
+      },
+      {
+        "text": "Check your R&D tax deadlines",
+        "href": "/r-and-d-tax-credit-submission-deadlines"
+      },
+      {
+        "text": "R&D tax calculator",
+        "href": "/r-and-d-tax-calculator"
+      },
+      {
+        "text": "What sets us apart?",
+        "href": "#"
+      },
+      {
+        "text": "About us",
+        "href": "/about-us"
+      },
+      {
+        "text": "Meet our team",
+        "href": "/meet-our-team"
+      },
+      {
+        "text": "Impact beyond business",
+        "href": "/impact-beyond-business"
+      },
+      {
+        "text": "Join our team",
+        "href": "/join-our-team"
+      },
+      {
+        "text": "Impact beyond business",
+        "href": "/impact-beyond-business"
+      },
+      {
+        "text": "52 Tabernacle Street, London, EC2A 4NJ",
+        "href": "https://share.google/7EUZSk9mxZRFhbY42"
+      },
+      {
+        "text": "info@kene.partners",
+        "href": "mailto:info@kene.partners"
+      },
+      {
+        "text": "0207 118 8833",
+        "href": "tel:02071188833"
+      },
+      {
+        "text": "News and insights",
+        "href": "/insights"
+      },
+      {
+        "text": "Sector guides",
+        "href": "/sector-guides"
+      },
+      {
+        "text": "Support hub",
+        "href": "/support-hub"
+      },
+      {
+        "text": "Client stories",
+        "href": "/client-stories"
+      },
+      {
+        "text": "Grant finder",
+        "href": "/grants-finder"
+      },
+      {
+        "text": "Downloads",
+        "href": "https://fliphtml5.com/bookcase/xydrak/"
+      },
+      {
+        "text": "Client stories",
+        "href": "#"
+      },
+      {
+        "text": "Latest articles",
+        "href": "/insights"
+      },
+      {
+        "text": "Contact us",
+        "href": "/contact-us"
+      },
+      {
+        "text": "Book a consultation",
+        "href": "/book-a-free-consultation"
+      },
+      {
+        "text": "Client stories",
+        "href": "#"
+      },
+      {
+        "text": "Terms",
+        "href": "/terms"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy-policy"
+      },
+      {
+        "text": "Cookie policy",
+        "href": "/cookie-policy"
+      },
+      {
+        "text": "Raise a concern",
+        "href": "/raise-a-concern"
+      },
+      {
+        "text": "Site map",
+        "href": "#"
+      },
+      {
+        "text": "AML",
+        "href": "/aml-compliance"
+      }
+    ],
+    "nav_found": true,
+    "footer_found": true
+  },
+  "empty_alt_home": [
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6789feb708be05e6abfeaf68_Asset%2088%404x%201.svg",
+      "class": "images",
+      "loading": "eager",
+      "width": null,
+      "height": "152"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    }
+  ],
+  "empty_alt_claiming": [
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6774cd9e6c74644eb25f9d57_bg_square.svg",
+      "class": "left-square-bg",
+      "loading": "lazy",
+      "width": null,
+      "height": null
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6766a6b391a48db16a12372d_map-pin.svg",
+      "class": "detail-icon",
+      "loading": "lazy",
+      "width": null,
+      "height": null
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6766a6b371d4342794b2c53a_phone-call.svg",
+      "class": "detail-icon",
+      "loading": "lazy",
+      "width": null,
+      "height": null
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/6766a6b3329e480383f83508_mail.svg",
+      "class": "detail-icon",
+      "loading": "lazy",
+      "width": null,
+      "height": null
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/673b62c92b84c2a97fd703f6/676acb1d7e04d0c6a4639631_Comma.svg",
+      "class": "",
+      "loading": "lazy",
+      "width": "69",
+      "height": "70"
+    }
+  ],
+  "utility_pages": [
+    {
+      "url": "https://kene.partners/thank-you",
+      "status": 404,
+      "final": "https://kene.partners/thank-you",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/style-guide",
+      "status": 404,
+      "final": "https://kene.partners/style-guide",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/grants-finder-test",
+      "status": 404,
+      "final": "https://kene.partners/grants-finder-test",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/support-hub-test",
+      "status": 404,
+      "final": "https://kene.partners/support-hub-test",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/fetch-grant",
+      "status": 404,
+      "final": "https://kene.partners/fetch-grant",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/previous-grants",
+      "status": 200,
+      "final": "https://kene.partners/previous-grants",
+      "len": 122539
+    },
+    {
+      "url": "https://kene.partners/401",
+      "status": 200,
+      "final": "https://kene.partners/401",
+      "len": 16228
+    },
+    {
+      "url": "https://kene.partners/checkout",
+      "status": 200,
+      "final": "https://kene.partners/checkout",
+      "len": 11391
+    },
+    {
+      "url": "https://kene.partners/detail_services",
+      "status": 404,
+      "final": "https://kene.partners/detail_services",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/services",
+      "status": 404,
+      "final": "https://kene.partners/services",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/product/basic-plan",
+      "status": 404,
+      "final": "https://kene.partners/product/basic-plan",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/category/pricing",
+      "status": 404,
+      "final": "https://kene.partners/category/pricing",
+      "len": 23184
+    },
+    {
+      "url": "https://kene.partners/innovation-funding-event",
+      "status": 200,
+      "final": "https://kene.partners/innovation-funding-event",
+      "len": 60587
+    },
+    {
+      "url": "https://kene.partners/innovation-funding-event-v2",
+      "status": 200,
+      "final": "https://kene.partners/innovation-funding-event-v2",
+      "len": 56258
+    }
+  ],
+  "robots": {
+    "status": 200,
+    "body": "User-agent: *\nDisallow: /*_page=\n\nSitemap: https://kene.partners/sitemap.xml"
+  },
+  "sitemap_prefix_counts": {
+    "grants": 195,
+    "insights": 97,
+    "team-details": 33,
+    "support-hub": 25,
+    "client-stories": 18,
+    "sector-guides": 13,
+    "contact-us": 1,
+    "book-a-free-consultation": 1,
+    "meet-our-team": 1,
+    "rd-innovation-grants": 1,
+    "patent-box-tax-savings": 1,
+    "what-is-r-and-d": 1,
+    "rd-tax-credits-explained": 1,
+    "rdec-scheme-explained": 1,
+    "about-us": 1,
+    "terms": 1,
+    "privacy-policy": 1,
+    "aml-compliance": 1,
+    "claiming-rd": 1,
+    "cookie-policy": 1,
+    "impact-beyond-business": 1,
+    "join-our-team": 1,
+    "grants-finder": 1,
+    "claimsure-r-and-d-tax-review": 1,
+    "hmrc-compliance-check-support": 1,
+    "r-and-d-tax-calculator": 1,
+    "kore-r-and-d-support": 1,
+    "r-and-d-tax-credit-submission-deadlines": 1,
+    "merged-r-and-d-scheme-explained": 1,
+    "raise-a-concern": 1,
+    "innovation-funding-event": 1,
+    "innovation-funding-event-v2": 1
+  },
+  "mixed_content_home": [],
+  "prefers_reduced_motion_css": false,
+  "skip_link": false,
+  "landmarks": {
+    "header": true,
+    "nav": true,
+    "main": true,
+    "footer": true
+  }
+}

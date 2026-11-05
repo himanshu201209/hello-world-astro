@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "file": "chart-01.html",
+    "marker": "after-tldr-list",
+    "bytes": 20760,
+    "startsWithScript": false
+  },
+  {
+    "id": 2,
+    "file": "chart-02.html",
+    "marker": "One system feeds every environment at once",
+    "bytes": 29593,
+    "startsWithScript": false
+  },
+  {
+    "id": 3,
+    "file": "chart-03.html",
+    "marker": "The agent accounts for 88% of elapsed time",
+    "bytes": 27843,
+    "startsWithScript": false
+  },
+  {
+    "id": 4,
+    "file": "chart-04.html",
+    "marker": "Over five months, monthly token volume grew 12 times",
+    "bytes": 26461,
+    "startsWithScript": false
+  },
+  {
+    "id": 5,
+    "file": "chart-05.html",
+    "marker": "Each script tracked its own results",
+    "bytes": 21538,
+    "startsWithScript": false
+  },
+  {
+    "id": 6,
+    "file": "chart-06.html",
+    "marker": "When a component fails, the run recovers",
+    "bytes": 28162,
+    "startsWithScript": false
+  },
+  {
+    "id": 7,
+    "file": "chart-07.html",
+    "marker": "The scheduler groups dozens of wake-ups",
+    "bytes": 22141,
+    "startsWithScript": false
+  },
+  {
+    "id": 8,
+    "file": "chart-08.html",
+    "marker": "Workers now start in about twelve seconds",
+    "bytes": 23219,
+    "startsWithScript": false
+  },
+  {
+    "id": 9,
+    "file": "chart-09.html",
+    "marker": "Because agents spend much of a rollout waiting",
+    "bytes": 25180,
+    "startsWithScript": false
+  },
+  {
+    "id": 10,
+    "file": "chart-10.html",
+    "marker": "Eight readers share one build",
+    "bytes": 25068,
+    "startsWithScript": false
+  },
+  {
+    "id": 11,
+    "file": "chart-11.html",
+    "marker": "From one request, the service manages the work",
+    "bytes": 46812,
+    "startsWithScript": false
+  },
+  {
+    "id": 12,
+    "file": "chart-12.html",
+    "marker": "The controller finishes the job by reaching",
+    "bytes": 24374,
+    "startsWithScript": false
+  },
+  {
+    "id": 13,
+    "file": "chart-13.html",
+    "marker": "A dead agent and a wrong answer used to leave",
+    "bytes": 26367,
+    "startsWithScript": false
+  },
+  {
+    "id": 14,
+    "file": "chart-14.html",
+    "marker": "The watchdog stops an agent that has stopped",
+    "bytes": 28520,
+    "startsWithScript": false
+  },
+  {
+    "id": 15,
+    "file": "chart-15.html",
+    "marker": "The ledger stays locked until the matrix",
+    "bytes": 25747,
+    "startsWithScript": false
+  },
+  {
+    "id": 16,
+    "file": "chart-16.html",
+    "marker": "Faster starts need pacing so each job",
+    "bytes": 22745,
+    "startsWithScript": false
+  },
+  {
+    "id": 17,
+    "file": "chart-17.html",
+    "marker": "An adapter gives the harness a new model",
+    "bytes": 26450,
+    "startsWithScript": false
+  },
+  {
+    "id": 18,
+    "file": "chart-18.html",
+    "marker": "Our telemetry platform shows live rollout stages",
+    "bytes": 49456,
+    "startsWithScript": false
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "sitemap_total": 408,
+  "crawled": 104,
+  "http_errors": 0,
+  "issue_counts": {
+    "form_inputs_missing_label": 48,
+    "meta_description_too_long": 26,
+    "title_too_long": 15,
+    "duplicate_meta_description": 2,
+    "skipped_heading_level": 2,
+    "title_too_short": 1,
+    "vague_link_text": 1,
+    "incomplete_og": 1
+  },
+  "broken_links_found": [],
+  "by_page_type": {
+    "static": 26,
+    "static-home": 1,
+    "listing-insights": 1,
+    "listing-client-stories": 1,
+    "listing-support-hub": 1,
+    "listing-sector-guides": 1,
+    "cms-insights": 20,
+    "cms-team-details": 8,
+    "cms-client-stories": 8,
+    "cms-sector-guides": 7,
+    "cms-grants": 22,
+    "cms-support-hub": 8
+  }
+}
