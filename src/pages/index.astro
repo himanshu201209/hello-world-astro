@@ -1,13 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import DevLinkChrome from "../components/DevLinkChrome";
+import { getPublishedBlogs } from "../lib/sanity";
 import "../devlink/css/global.css";
 
 export const prerender = false;
+
+const blogs = await getPublishedBlogs();
 ---
 
 <Layout title="Research papers | micro1">
-  <DevLinkChrome client:only="react">
+  <DevLinkChrome client:only="react" blogs={blogs}>
     <div slot="fallback">Loading…</div>
   </DevLinkChrome>
 </Layout>

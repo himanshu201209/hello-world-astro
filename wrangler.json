@@ -7,6 +7,11 @@
     "binding": "ASSETS",
     "directory": "./dist/client"
   },
+  "vars": {
+    "PUBLIC_SANITY_PROJECT_ID": "eoib96e0",
+    "PUBLIC_SANITY_DATASET": "production",
+    "PUBLIC_SANITY_API_VERSION": "2025-02-19"
+  },
   "observability": {
     "enabled": true
   }

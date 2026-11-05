@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SanityBlogArticle from "../../components/SanityBlogArticle";
+import { getBlogBySlug } from "../../lib/sanity";
+import { withBase } from "../../lib/paths";
+import "../../devlink/css/global.css";
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+if (!slug) {
+  return Astro.redirect(withBase("/"));
+}
+
+const post = await getBlogBySlug(slug);
+if (!post) {
+  return new Response(null, { status: 404, statusText: "Not Found" });
+}
+
+const pageTitle = post.seoTitle?.trim() || `${post.title.trim()} | micro1`;
+---
+
+<Layout title={pageTitle}>
+  <SanityBlogArticle
+    client:only="react"
+    post={post}
+    homeHref={withBase("/")}
+  >
+    <div slot="fallback">Loading…</div>
+  </SanityBlogArticle>
+</Layout>
