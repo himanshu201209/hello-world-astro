@@ -19,7 +19,6 @@ import NavbarButton from "../webflow_modules/Navbar/components/NavbarButton";
 import NavbarLink from "../webflow_modules/Navbar/components/NavbarLink";
 import NavbarMenu from "../webflow_modules/Navbar/components/NavbarMenu";
 import NavbarWrapper from "../webflow_modules/Navbar/components/NavbarWrapper";
-import NotSupported from "../webflow_modules/Builtin/components/NotSupported";
 import Paragraph from "../webflow_modules/Basic/components/Paragraph";
 import * as _interactions from "../webflow_modules/interactions";
 import { Button } from "../Button";
@@ -72,11 +71,10 @@ export type NavProps = {
 /**
  * Nav
  *
- * @warning
- * The component could not be fully exported:
- * - Unsupported element: `Animation`
- *
  * @see {@link https://micro1-stage-speed.design.webflow.com | Source site in Webflow}
+ *
+ * Note: DevLink exports Lottie as unsupported `Animation`; replaced with a CSS
+ * hamburger icon (`.nav_button-icon`) that morphs on `.w--open`.
  */
 export function Nav({
   primaryCtaButtonVisibility = true,
@@ -329,7 +327,11 @@ export function Nav({
             </Block>
           </NavbarMenu>
           <NavbarButton className={"nav_button"} tag={"div"}>
-            <NotSupported _atom={"Animation"} />
+            <span className={"nav_button-icon"} aria-hidden={"true"}>
+              <span className={"nav_button-icon_line"} />
+              <span className={"nav_button-icon_line"} />
+              <span className={"nav_button-icon_line"} />
+            </span>
           </NavbarButton>
         </Block>
         <Block className={"nav_scroll_wrap"} tag={"div"}>

@@ -1,0 +1,39 @@
+---
+/**
+ * Blog detail route: /CLOUD_MOUNT_PATH/<slug>/
+ * Layout/design reused from Research Detail; content from Blog CSV.
+ */
+import BlogDetailLayout from "../components/blog/BlogDetailLayout.astro";
+import BlogBody from "../components/blog/BlogBody.astro";
+import BlogOther from "../components/blog/BlogOther.astro";
+import { blogPosts } from "../data/blogs";
+import "../../../research/src/devlink/css/global.css";
+import "../styles/blog-hub.css";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.id },
+  }));
+}
+
+const slug = Astro.params.slug ?? "";
+const post = blogPosts.find((entry) => entry.id === slug);
+
+if (!post) {
+  return new Response(null, { status: 404, statusText: "Not Found" });
+}
+---
+
+<BlogDetailLayout
+  title={post.title}
+  date={post.detailDate}
+  authors={post.authors}
+  heroImage={post.heroImage || post.image || undefined}
+  heroImageAlt={post.title}
+  description={post.description}
+>
+  <BlogBody slug={post.id} />
+  <BlogOther currentSlug={post.id} />
+</BlogDetailLayout>

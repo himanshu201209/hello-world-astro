@@ -1,0 +1,27 @@
+---
+/**
+ * Research hero structure reused for Blog Hub.
+ * Content only: title → "micro1 blog" (no subtitle — matches Figma/screenshot).
+ */
+import { asset } from "../../lib/asset";
+
+const heroImage = asset("/research/Hero-Image.png");
+---
+
+<section class="section_research-hero" aria-labelledby="blog-hero-title">
+  <div class="research-hero_bg" aria-hidden="true">
+    <img
+      class="research-hero_bg-img"
+      src={heroImage}
+      alt=""
+      loading="eager"
+    />
+  </div>
+  <div class="padding-global">
+    <div class="container-research">
+      <div class="research-hero_content">
+        <h1 id="blog-hero-title" class="research-hero_title">micro1 blog</h1>
+      </div>
+    </div>
+  </div>
+</section>

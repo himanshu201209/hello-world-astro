@@ -1,0 +1,59 @@
+---
+/**
+ * Renders CSV Main / Main — part 2 HTML inside the Research Detail article body.
+ */
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const modules = import.meta.glob("../../content/blog/*.html", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
+const match = Object.keys(modules).find(
+  (path) => path.endsWith(`/${slug}.html`) || path.endsWith(`${slug}.html`)
+);
+const html = match ? modules[match] ?? "" : "";
+---
+
+{
+  html ? (
+    <div class="blog-detail_richtext" data-blog-body set:html={html} />
+  ) : (
+    <p class="blog-detail_empty">This article has no body content in the CSV.</p>
+  )
+}
+
+{
+  html ? (
+    <script>
+      function activateBlogBodyScripts() {
+        document.querySelectorAll("[data-blog-body]").forEach((root) => {
+          if (!(root instanceof HTMLElement)) return;
+          if (root.dataset.bodyReady === "true") return;
+          root.dataset.bodyReady = "true";
+          root.querySelectorAll("script").forEach((oldScript) => {
+            const next = document.createElement("script");
+            for (const attr of oldScript.attributes) {
+              next.setAttribute(attr.name, attr.value);
+            }
+            next.textContent = oldScript.textContent;
+            oldScript.replaceWith(next);
+          });
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", activateBlogBodyScripts, {
+          once: true,
+        });
+      } else {
+        activateBlogBodyScripts();
+      }
+    </script>
+  ) : null
+}

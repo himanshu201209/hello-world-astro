@@ -1,11 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { SiteNav, SiteFooter } from "../components/SiteChrome";
+import BlogHero from "../components/blog/BlogHero.astro";
+import BlogGrid from "../components/blog/BlogGrid.astro";
+import "../../../research/src/devlink/css/global.css";
+import "../styles/blog-hub.css";
 
 export const prerender = false;
 ---
 
-<Layout title="Blog | micro1">
-  <main class="blog-placeholder">
-    <h1>Blog Comes from Webflow Cloud</h1>
+<Layout
+  title="micro1 blog"
+  description="Articles and updates from the micro1 team."
+>
+  <SiteNav client:only="react">
+    <div slot="fallback"></div>
+  </SiteNav>
+
+  <main class="page_blog">
+    <BlogHero />
+    <BlogGrid />
   </main>
+
+  <SiteFooter client:only="react">
+    <div slot="fallback"></div>
+  </SiteFooter>
 </Layout>

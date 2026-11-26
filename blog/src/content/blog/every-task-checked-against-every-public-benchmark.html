@@ -1,0 +1,703 @@
+<div data-rt-embed-type='true'><!--
+  flow qc post · STYLES (embed 1 of 2, keep at the very top of the post)
+  #fqc-page   Layout tweaks for this post only, so the blog template matches the original design.
+  #fqc-blocks Styles for the custom blocks (TL;DR, figures, closing). media="not all" keeps them off
+              the page; the script embed copies them into each block's own isolated shadow root.
+-->
+<style id='fqc-page'>
+  /* Every rule starts with this post's slug, so no other blog post is affected. */
+
+  /* No subtitle on this post: hide the empty description line under the title */
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .s_blog_main h1 + .text-size-medium:empty { display: none; }
+
+  /* Hero image: 1192:745 crop, 32px above the TL;DR */
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .blog_media { margin-top: 36px; margin-bottom: 32px; }
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .blog_img { height: auto; aspect-ratio: 1192 / 745; border-radius: 2px; background: #000; }
+
+  /* Body copy */
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text.is-blog { margin-top: 0; }
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text p { margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, .6); }
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text h2 { margin: 56px 0 16px; font-size: 24px; line-height: 1.5; font-weight: 400; letter-spacing: -.01em; color: rgba(255, 255, 255, .92); text-wrap: balance; }
+
+  /* Let block margins flow like the original page (Webflow adds clearfix pseudo-elements to embeds) */
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text .w-embed,
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text [data-rt-embed-type] { margin: 0; }
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text .w-embed::before,
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text .w-embed::after,
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text [data-rt-embed-type]::before,
+  html[data-wf-item-slug="every-task-checked-against-every-public-benchmark"] .research_rich-text [data-rt-embed-type]::after { content: none; }
+</style>
+
+<style id='fqc-blocks' media='not all'>
+  /* ---------- Tokens ---------- */
+  :host {
+    display: block;
+    color-scheme: dark;
+    --plate: #0c0c0c;
+    --ink: rgba(255, 255, 255, .92);
+    --ink2: rgba(255, 255, 255, .74);
+    --mute: rgba(255, 255, 255, .56);
+    --faint: rgba(255, 255, 255, .4);
+    --accent: #7065F0;
+    --coral: #e8968c;
+    --coral-t: #f0b4ab;
+    --coral-bg: rgba(83, 38, 38, .34);
+    --coral-bd: #6e3b3b;
+    --green-l: #8cc8a0;
+    --ease-out: cubic-bezier(.22, 1, .36, 1);
+    --ease-move: cubic-bezier(.65, 0, .35, 1);
+    color: var(--ink);
+    font: 16px/1.6 Outfit, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .35); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: rgba(255, 255, 255, .8); }
+  a:focus-visible { outline: 2px solid rgba(255, 255, 255, .8); outline-offset: 3px; }
+
+  /* ---------- TL;DR ---------- */
+  .tldr { display: flex; flex-direction: column; gap: 11px; margin: 0 0 8px; padding: 20px; border: 1px solid rgba(255, 255, 255, .06); background: rgba(255, 255, 255, .01); font-size: 16px; line-height: 1.5; color: rgba(255, 255, 255, .6); }
+  .tldr p { margin: 0; }
+  .tldr .t { margin: 0; font-size: 20px; line-height: 1.6; font-weight: 500; color: rgba(255, 255, 255, .8); }
+  .tldr .prod { font-weight: 500; color: rgba(255, 255, 255, .9); }
+  .tldr a { color: #9fa3fc; text-decoration: none; }
+  .tldr a:hover { text-decoration: underline; text-decoration-color: currentColor; }
+  .tldr ul { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .tldr li { display: flex; gap: 10px; align-items: flex-start; }
+  .tldr li::before { content: ""; flex: none; width: 4px; height: 4px; margin: 10px 2px 0; border-radius: 50%; background: rgba(255, 255, 255, .6); }
+
+  /* ---------- Closing statement ---------- */
+  .closing { margin: 40px 0 96px; font-size: 20px; line-height: 1.55; color: #fff; }
+
+  /* ---------- Figures (shared) ---------- */
+  figure { margin: 40px 0; }
+  figcaption { margin-top: 12px; font-size: 13.6px; line-height: 1.5; color: var(--faint); }
+  .claim { margin: 0 0 14px; font-size: 17px; font-weight: 500; line-height: 1.45; color: #fff; }
+  .plate { position: relative; overflow: hidden; padding: 32px 36px; background: var(--plate); border: 1px solid rgba(255, 255, 255, .07); border-radius: 2px; }
+  .num { font-variant-numeric: tabular-nums; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--ink2); }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { display: inline-block; width: 11px; height: 11px; }
+  .sw-task { background: var(--accent); }
+  .sw-sim { background: rgba(255, 255, 255, .35); }
+  .sw-hold { background: var(--coral); }
+  canvas { display: block; width: 100%; max-width: 100%; }
+
+  /* ---------- Hero figure ---------- */
+  #f0 { margin-top: 32px; }
+  #f0 .plate { padding: 18px; }
+  .hero-legend { justify-content: center; margin: 0 0 14px; }
+
+  /* ---------- Pipeline figure: four steps ---------- */
+  .pipe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .st { min-width: 0; overflow: hidden; padding: 22px 18px 24px; background: var(--plate); border: 1px solid rgba(255, 255, 255, .07); border-radius: 2px; animation: stin .5s var(--ease-out) var(--d) both; }
+  .st h3 { margin: 16px 0 6px; font-size: 15px; font-weight: 500; color: #fff; }
+  .st p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink2); }
+  .vis { position: relative; display: flex; align-items: center; height: 112px; }
+
+  @keyframes stin    { from { opacity: .3; } }
+  @keyframes fadein  { from { opacity: 0; } }
+  @keyframes growx   { from { transform: scaleX(0); } }
+  @keyframes popin   { from { transform: scale(0); opacity: 0; } }
+  @keyframes slidein { from { transform: translateX(14px); opacity: 0; } }
+  @keyframes dropin  { from { transform: translateY(-6px); opacity: 0; } }
+  @keyframes blink   { 50% { opacity: 1; } }
+
+  /* Step 1 · Capture: a task card fills with text while modality chips dock onto it */
+  .v-cap { gap: 12px; }
+  .doc { position: relative; flex: none; display: flex; flex-direction: column; gap: 6px; width: 60px; height: 78px; padding: 10px 8px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 3px; background: rgba(255, 255, 255, .02); animation: dropin .5s var(--ease-out) var(--d) both; }
+  .doc .ln { width: var(--w); height: 4px; background: rgba(255, 255, 255, .55); transform-origin: left; animation: growx .5s var(--ease-out) calc(var(--d) + 180ms + var(--i) * 140ms) both; }
+  .doc .ln.cd { background: var(--accent); }
+  .doc .cur { position: absolute; right: 7px; bottom: 8px; width: 1.5px; height: 10px; background: #fff; opacity: 0; animation: blink .9s steps(2) calc(var(--d) + 600ms) 4 both; }
+  .chips { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; width: max-content; padding: 3px 6px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 2px; background: rgba(255, 255, 255, .03); font-size: 10px; line-height: 1; color: var(--ink2); white-space: nowrap; animation: slidein .45s var(--ease-out) calc(var(--d) + 520ms + var(--i) * 130ms) both; }
+  .chip svg { display: block; flex: none; width: 11px; height: 11px; }
+
+  /* Step 2 · Index: the card becomes a fingerprint, a scanline reads it */
+  .v-idx { gap: 10px; }
+  .fpw { position: relative; flex: none; }
+  .fp { display: grid; grid-template-columns: repeat(8, 9px); gap: 1px; }
+  .fp i { display: block; width: 9px; height: 9px; animation: popin .4s var(--ease-out) calc(var(--d) + 350ms + var(--k) * 18ms) both; }
+  .scan { position: absolute; top: 0; left: -6px; right: -6px; height: 1px; opacity: 0; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .9), transparent); box-shadow: 0 0 6px rgba(255, 255, 255, .5); animation: scan 1.1s var(--ease-move) calc(var(--d) + 1150ms) both; }
+  @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+  /* Step 3 · Compare: a beam sweeps both fingerprints, differing cells light up, the score counts up */
+  .v-cmp { flex-direction: column; align-items: flex-start; justify-content: center; gap: 9px; }
+  .v-cmp .pair { position: relative; display: flex; gap: 9px; padding: 3px 0; }
+  .v-cmp .fp { grid-template-columns: repeat(8, 6px); }
+  .v-cmp .fp i { width: 6px; height: 6px; animation-delay: calc(var(--d) + var(--k) * 8ms); }
+  .v-cmp .fp i.dif { animation: popin .4s var(--ease-out) calc(var(--d) + var(--k) * 8ms) both, difpulse 1.4s ease-out calc(var(--d) + 1250ms) both; }
+  @keyframes difpulse { 0% { box-shadow: 0 0 0 0 rgba(232, 150, 140, .9); } 60% { box-shadow: 0 0 0 3px rgba(232, 150, 140, 0); } 100% { box-shadow: 0 0 0 0 rgba(232, 150, 140, 0); } }
+  .beam { position: absolute; top: 0; bottom: 0; left: 0; width: 1.5px; opacity: 0; background: #fff; box-shadow: 0 0 8px 1px rgba(255, 255, 255, .6); animation: beam 1s var(--ease-move) calc(var(--d) + 650ms) both; }
+  @keyframes beam { 0% { left: 0; opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+  .simbar { display: grid; gap: 4px; width: 100%; max-width: 111px; font-size: 11px; color: var(--mute); animation: fadein .4s var(--ease-out) calc(var(--d) + 1000ms) both; }
+  .simbar span { white-space: nowrap; }
+  .simbar b { position: relative; display: block; overflow: hidden; height: 3px; background: rgba(255, 255, 255, .08); }
+  .simbar b::after { content: ""; position: absolute; inset: 0; width: 94%; background: var(--coral); transform-origin: left; animation: growx .9s var(--ease-move) calc(var(--d) + 1250ms) both; }
+  .simbar .n { font-weight: 500; color: var(--coral-t); }
+
+  /* Step 4 · Flag: a check runs down the queue; one task is held, the rest pass */
+  .v-flag { position: relative; flex-direction: column; align-items: stretch; justify-content: center; gap: 5px; max-width: 168px; }
+  .q { display: flex; align-items: center; gap: 7px; height: 24px; padding: 0 7px; border: 1px solid transparent; border-radius: 2px; animation: qin .35s var(--ease-out) calc(var(--d) + var(--i) * 90ms) both, qbox .4s ease-out calc(var(--d) + 650ms + var(--i) * 300ms) both; }
+  @keyframes qin  { from { opacity: 0; transform: translateX(-8px); } }
+  @keyframes qbox { from { border-color: transparent; background: transparent; } }
+  .q .sq { flex: none; width: 9px; height: 9px; background: var(--green-l); animation: sqin .35s ease-out calc(var(--d) + 650ms + var(--i) * 300ms) both; }
+  @keyframes sqin { from { background: rgba(255, 255, 255, .35); } }
+  .q .bar { flex: 1; height: 3px; background: rgba(255, 255, 255, .14); }
+  .q .tag { font-size: 10px; line-height: 1; font-weight: 500; color: var(--green-l); white-space: nowrap; animation: dropin .3s var(--ease-out) calc(var(--d) + 750ms + var(--i) * 300ms) both; }
+  .q.hold { border-color: var(--coral-bd); background: var(--coral-bg); }
+  .q.hold .sq { background: var(--coral); }
+  .q.hold .tag { color: var(--coral-t); }
+  .q.hold .bar { background: rgba(240, 180, 171, .3); }
+  .ck { position: absolute; top: 0; left: -6px; right: -6px; height: 24px; opacity: 0; border-radius: 2px; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .06), transparent); animation: ck 1.1s var(--ease-move) calc(var(--d) + 550ms) both; }
+  @keyframes ck { 0% { top: 0; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { top: calc(100% - var(--qh, 24px)); opacity: 0; } }
+
+  /* "wait" = below the fold: animations hold on their first frame until the figure scrolls in */
+  #fpipe.wait *, #fpipe .st.wait, #fpipe .st.wait * { animation-play-state: paused !important; }
+
+  /* ---------- Batch figure ---------- */
+  .bstat { min-height: 1.5em; margin: 14px 0 0; font-size: 12.5px; color: var(--mute); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .plate { padding: 20px 16px; }
+    #f0 .plate { padding: 14px 12px; }
+    .pipe { grid-template-columns: minmax(0, 1fr); }
+    .st { padding: 18px 16px 20px; }
+    .vis { height: 132px; justify-content: center; }
+    .v-cap { gap: 18px; }
+    .doc { width: 74px; height: 96px; padding: 12px 10px; gap: 8px; }
+    .doc .ln { height: 5px; }
+    .chips { gap: 4px; }
+    .chip { gap: 6px; padding: 4px 8px; font-size: 11.5px; }
+    .chip svg { width: 13px; height: 13px; }
+    .fp { grid-template-columns: repeat(8, 14px); }
+    .fp i { width: 14px; height: 14px; }
+    .v-cmp { align-items: center; }
+    .v-cmp .pair { gap: 14px; }
+    .v-cmp .fp { grid-template-columns: repeat(8, 10px); }
+    .v-cmp .fp i { width: 10px; height: 10px; }
+    .simbar { max-width: 198px; font-size: 12px; }
+    .v-flag { max-width: 280px; margin: 0 auto; gap: 6px; }
+    .q { height: 28px; gap: 9px; padding: 0 9px; }
+    .q .sq { width: 11px; height: 11px; }
+    .q .bar { height: 4px; }
+    .q .tag { font-size: 11px; }
+    .ck { height: 28px; --qh: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style></div><div data-rt-embed-type='true'><!--
+  flow qc post · SCRIPT (embed 2 of 2, keep right after the STYLES embed)
+  Defines fqcMount(). Every block below is a <div data-fqc="name"> with its markup, followed by a
+  one-line script calling fqcMount(), which moves the markup into a shadow root (so the blog's
+  rich-text CSS can't touch it), rebuilds the canvases and icons Webflow strips on publish,
+  and starts the matching animation: hero, pipeline or batch.
+-->
+<script>
+(function () {
+  'use strict';
+
+  /* ===================== Shared helpers ===================== */
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PAL = [[38, 34, 70], [54, 48, 112], [75, 67, 168], [112, 101, 240], [165, 160, 248], [201, 198, 251]];
+  var CORAL = [232, 150, 140], CORAL_T = [240, 180, 171], GREEN = [140, 200, 160], WHITE = [255, 255, 255], LILAC = [165, 160, 248], ACC = [112, 101, 240];
+
+  var rnd = function (i) { var x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+  var clamp = function (x, a, b) { a = a === undefined ? 0 : a; b = b === undefined ? 1 : b; return Math.min(b, Math.max(a, x)); };
+  var eio = function (x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+  var eout = function (x) { return 1 - Math.pow(1 - x, 3); };
+  var lerp = function (a, b, u) { return a + (b - a) * u; };
+  var rgb = function (c, a) { return 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + a + ')'; };
+  var mix = function (a, b, u) { return [lerp(a[0], b[0], u), lerp(a[1], b[1], u), lerp(a[2], b[2], u)]; };
+  var fpIndex = function (i, j) {
+    var v = .5 + .22 * Math.sin(i * .31 + j * .17) + .18 * Math.sin(i * .07 - j * .41 + 2) + .25 * (rnd(i * 41 + j) - .5);
+    return Math.max(0, Math.min(5, Math.floor(v * 6)));
+  };
+  function onView(el, cb) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { cb(e.isIntersecting); }); }, { threshold: .25 }).observe(el);
+  }
+  function innerW(el) {
+    var cs = getComputedStyle(el);
+    return el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  }
+
+  /* ===================== Hero: one task becomes one square, then meets its match ===================== */
+  function initHero(root) {
+    var cv = root.getElementById('field'), ctx = cv.getContext('2d');
+    var D = 2, N = 32, NC = N * N, L = 12.6;
+    var SETS = [['flow tasks', 760, 1], ['SWE-bench Verified', 190], ["Humanity's Last Exam", 220], ['MMMU', 150], ['MathVista', 150], ['DocVQA', 130], ['GPQA', 90], ['ChartQA', 110], ['SWE-bench Multilingual', 120], ['ScreenSpot', 100], ['LiveCodeBench', 120], ['KernelBench', 100], ['LibriSpeech', 90], ['Terminal-Bench 2.1', 70], ['Video-MME', 80], ['SWE-Atlas', 70]];
+    var MATCH = [['SWE-bench Verified', '0.94'], ['MathVista', '0.91']];
+    var W, H, p, ts, blocks, tiles, taskI, matches, tp, gp, F, fs, F2, maxD, fcols, mcols, avgs, LF, GAP;
+
+    function layout() {
+      W = Math.max(innerW(cv.parentElement), 220);
+      var narrow = W < 640, compact = W < 900;
+      p = narrow ? 6 : compact ? 7 : 9; ts = p - 2;
+      var scale = narrow ? .36 : compact ? .62 : 1;
+      LF = narrow ? '400 10px Outfit, Arial, sans-serif' : '400 11px Outfit, Arial, sans-serif';
+      ctx.font = LF;
+
+      // Lay benchmark blocks out on shelves, each with its label above
+      var cols = Math.floor(W / p), LH = 18, x = 0, y = 0, shelf = 0;
+      blocks = [];
+      SETS.forEach(function (set) {
+        var name = set[0], n = Math.ceil(set[1] * scale), own = set[2];
+        var lw = Math.ceil((ctx.measureText(name).width + (narrow ? 4 : 10)) / p);
+        var w = own ? Math.round(Math.sqrt(n * (narrow ? 2.2 : 4))) : narrow ? Math.round(Math.sqrt(n * 1.25)) : Math.max(lw, Math.round(Math.sqrt(n * 1.7)));
+        w = Math.min(w, cols);
+        var h = Math.ceil(n / w);
+        var span = narrow ? Math.max(w, lw) : w; // on phones the label may be wider than its block
+        if (x && x + span > cols) { x = 0; y += shelf + LH + 8; shelf = 0; }
+        blocks.push({ name: name, n: n, own: own, c: x, y: y + LH, w: w, h: h, span: span });
+        x += span + (narrow ? 2 : 3);
+        shelf = Math.max(shelf, h * p);
+      });
+      var wallH = y + shelf;
+      H = Math.round(Math.max(narrow ? Math.min(W, 360) : compact ? 340 : 380, wallH + 28));
+      var maxR = Math.max.apply(null, blocks.map(function (b) { return (b.c + b.span) * p; }));
+      var ox = Math.round((W - maxR) / 2), oy = Math.round((H - wallH) / 2);
+
+      tiles = [];
+      blocks.forEach(function (b, bi) {
+        b.x = ox + b.c * p; b.y += oy; b.first = tiles.length;
+        for (var i = 0; i < b.n; i++) tiles.push({ x: b.x + (i % b.w) * p, y: b.y + ((i / b.w) | 0) * p, s: Math.pow(rnd(tiles.length * 3 + 1), 3.4), b: bi });
+      });
+      var mid = function (bi, fr) { var b = blocks[bi]; return b.first + Math.min(b.n - 1, Math.floor(b.h * fr) * b.w + Math.floor(b.w * .55)); };
+      taskI = mid(0, .5);
+      matches = MATCH.map(function (m) { var bi = blocks.findIndex(function (b) { return b.name === m[0]; }); return { i: mid(bi, .5), name: m[0], sim: m[1] }; });
+      var T0 = tiles[taskI], px = T0.x + ts / 2, py = T0.y + ts / 2;
+      tiles.forEach(function (t) { t.d = Math.hypot(t.x + ts / 2 - px, t.y + ts / 2 - py); });
+      maxD = Math.max.apply(null, tiles.map(function (t) { return t.d; }));
+
+      // Fingerprints per cycle; the match shares most cells with the task
+      fcols = []; mcols = []; avgs = [];
+      for (var c = 0; c < 2; c++) {
+        var f = [], m = [], sum = [0, 0, 0];
+        for (var i = 0; i < NC; i++) {
+          var cc = i % N, r = (i / N) | 0, col = PAL[fpIndex(cc + c * 11, r + c * 5)];
+          f.push(col); sum = [sum[0] + col[0], sum[1] + col[1], sum[2] + col[2]];
+          m.push(rnd(i * 7 + c * 99) < .035 ? PAL[(fpIndex(cc + c * 11, r + c * 5) + 2) % 6] : col);
+        }
+        fcols.push(f); mcols.push(m); avgs.push(sum.map(function (v) { return v / NC; }));
+      }
+
+      // Text cells (start) -> fingerprint grid (end)
+      F = Math.min(H * .72, W * .55); fs = F / N;
+      var tw = Math.min(W * .86, 620), pitch = Math.min(6, Math.sqrt(.68 * H * 2.06 * tw / (6 * NC))), tcols = Math.floor(tw / pitch);
+      tp = [];
+      var line = 0, k = 1;
+      while (tp.length < NC) {
+        var cx0 = 0;
+        while (cx0 < tcols && tp.length < NC) {
+          var len = 3 + Math.floor(rnd(k++) * 11);
+          for (var xx = 0; xx < len && cx0 + xx < tcols; xx++)
+            for (var rr = 0; rr < 3; rr++)
+              if (rnd(k * 7 + xx * 3 + rr) < .86 && tp.length < NC) tp.push([(cx0 + xx) * pitch, line * pitch * 6 + rr * pitch]);
+          cx0 += len + 2;
+        }
+        line++;
+      }
+      var tox = (W - tcols * pitch) / 2, toy = (H - line * pitch * 6) / 2;
+      tp = tp.map(function (q) { return [q[0] + tox, q[1] + toy, pitch * .78]; });
+      gp = [];
+      for (var g = 0; g < NC; g++) gp.push([W / 2 - F / 2 + (g % N) * fs, H / 2 - F / 2 + ((g / N) | 0) * fs]);
+      GAP = narrow ? 72 : Math.max(96, W * .12);
+      F2 = narrow ? Math.min(H * .5, (W - GAP - 12) / 2) : Math.min(H * .5, (W - 140) / 2.4);
+      cv.width = W * D; cv.height = H * D; cv.style.height = H + 'px';
+    }
+
+    function fpDraw(x, y, size, cols, avg, a) {
+      var cs = size / N;
+      if (cs >= 1.4) {
+        for (var i = 0; i < NC; i++) { ctx.fillStyle = rgb(cols[i], a); ctx.fillRect(x + (i % N) * cs, y + ((i / N) | 0) * cs, cs * .86, cs * .86); }
+      } else { ctx.fillStyle = rgb(avg, a); ctx.fillRect(x, y, size, size); }
+    }
+
+    function tileCol(t, u, isMatch) {
+      if (isMatch) return [mix([70, 70, 70], CORAL, u), lerp(.12, 1, u)];
+      var sc = t.s > .6 ? mix(ACC, LILAC, (t.s - .6) / .4) : ACC;
+      return [mix(WHITE, sc, u * clamp(t.s * 1.6)), lerp(.09, .12 + .8 * t.s, u)];
+    }
+
+    // One 12.6s cycle: text folds into a fingerprint (0–4.4s), zoom out to the wall, ripple scores
+    // every square, the closest match turns coral, then both open side by side with their score.
+    function draw(T) {
+      var cyc = Math.floor(T / L) % 2, t = T % L, m = matches[cyc], mt = tiles[m.i], T0 = tiles[taskI];
+      var fcol = fcols[cyc], avg = avgs[cyc];
+      ctx.setTransform(D, 0, 0, D, 0, 0); ctx.clearRect(0, 0, W, H);
+      var fade = clamp(t / .4) * (1 - clamp((t - 12) / .55));
+
+      if (t < 4.4) {
+        var wave = (t - 3.3) * 70 - 10;
+        for (var i = 0; i < NC; i++) {
+          var c = i % N, r = (i / N) | 0, u = eio(clamp((t - 1.4 - c / N * .9) / .95));
+          var a = tp[i], b = gp[i];
+          var x = lerp(a[0], b[0], u), y = lerp(a[1], b[1], u) - Math.sin(Math.PI * u) * 12, sz = lerp(a[2], fs * .86, u);
+          var col = mix(WHITE, fcol[i], u);
+          if (t > 3.3) { var w = Math.abs(c + r - wave); if (w < 4) col = mix(col, WHITE, (1 - w / 4) * .45); }
+          ctx.fillStyle = rgb(col, lerp(.7, 1, u) * fade); ctx.fillRect(x, y, sz, sz);
+        }
+        return;
+      }
+
+      var px = T0.x + ts / 2, py = T0.y + ts / 2;
+      var zu = eio(clamp((t - 4.4) / 1.8)), s = Math.exp(lerp(Math.log(F / ts), 0, zu));
+      var cx = lerp(W / 2, px, zu), cy = lerp(H / 2, py, zu);
+      var X = function (wx) { return cx + (wx - px) * s; }, Y = function (wy) { return cy + (wy - py) * s; }, tsz = ts * s;
+      var pu = eio(clamp((t - 9) / 1.2)); // pair reveal
+      var wallA = clamp((t - 4.7) / .8) * (1 - .82 * pu) * fade;
+      var R = lerp(0, maxD * 1.05, clamp((t - 6.5) / 1.8));
+
+      for (var k = 0; k < tiles.length; k++) {
+        if (k === taskI || k === m.i) continue;
+        var tl = tiles[k], sx = X(tl.x), sy = Y(tl.y);
+        if (sx > W || sy > H || sx + tsz < 0 || sy + tsz < 0) continue;
+        var tc = tileCol(tl, eout(clamp((R - tl.d) / 40)), false);
+        ctx.fillStyle = rgb(tc[0], tc[1] * wallA); ctx.fillRect(sx, sy, tsz, tsz);
+      }
+
+      // Block labels once the wall is at full size
+      var la = clamp((t - 5.9) / .5) * (1 - pu) * fade;
+      if (la > 0) {
+        ctx.font = LF; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+        blocks.forEach(function (b) {
+          var hit = b.name === m.name && t > 7.6;
+          ctx.fillStyle = hit ? rgb(CORAL_T, la) : 'rgba(255,255,255,' + (.5 * la) + ')';
+          ctx.fillText(b.name, X(b.x), Y(b.y) - 7);
+        });
+      }
+      if (t > 6.5 && t < 8.6) {
+        ctx.strokeStyle = 'rgba(255,255,255,' + (.2 * (1 - clamp((t - 6.5) / 2.1)) * fade) + ')'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(X(px), Y(py), R * s, 0, Math.PI * 2); ctx.stroke();
+      }
+      var hitT = 6.5 + 1.8 * (mt.d / (maxD * 1.05)), mu = eout(clamp((t - hitT) / .3));
+      if (t > hitT && t < hitT + 1) {
+        var q = t - hitT;
+        ctx.strokeStyle = rgb(CORAL, (1 - q) * .9 * fade); ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(X(mt.x + ts / 2), Y(mt.y + ts / 2), tsz / 2 + 4 + q * 16, 0, Math.PI * 2); ctx.stroke();
+      }
+
+      // The two squares: positions in the wall -> side by side as full fingerprints
+      var gap = GAP, ly = (H - F2) / 2 - 10;
+      var ax = lerp(X(T0.x), W / 2 - gap / 2 - F2, pu), ay = lerp(Y(T0.y), ly, pu), asz = lerp(tsz, F2, pu);
+      var bx = lerp(X(mt.x), W / 2 + gap / 2, pu), by = lerp(Y(mt.y), ly, pu), bsz = lerp(tsz, F2, pu);
+
+      // Link line from task square to match square
+      if (t > hitT + .2) {
+        var lu = eio(clamp((t - hitT - .2) / .6));
+        var x1 = ax + asz / 2, y1 = ay + asz / 2, x2 = bx + bsz / 2, y2 = by + bsz / 2;
+        ctx.strokeStyle = rgb(CORAL, .7 * fade * (1 - pu)); ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(lerp(x1, x2, lu), lerp(y1, y2, lu)); ctx.stroke();
+      }
+      fpDraw(ax, ay, asz, fcol, mix(avg, WHITE, .15), fade);
+      if (t > 6) {
+        ctx.strokeStyle = 'rgba(255,255,255,' + (.85 * clamp((t - 6) / .5) * fade) + ')'; ctx.lineWidth = 1;
+        var o = lerp(2.5, 4, pu); ctx.strokeRect(ax - o, ay - o, asz + o * 2, asz + o * 2);
+      }
+      if (t > hitT) {
+        if (pu > 0) {
+          fpDraw(bx, by, bsz, mcols[cyc], CORAL, fade * clamp(pu * 3));
+          if (pu < .34) { ctx.fillStyle = rgb(CORAL, (1 - pu * 3) * fade); ctx.fillRect(bx, by, bsz, bsz); }
+        } else { ctx.fillStyle = rgb(CORAL, mu * fade); ctx.fillRect(bx, by, bsz, bsz); }
+        var o2 = lerp(3, 4, pu); ctx.strokeStyle = rgb(CORAL, mu * fade); ctx.lineWidth = 1; ctx.strokeRect(bx - o2, by - o2, bsz + o2 * 2, bsz + o2 * 2);
+      } else {
+        var mc = tileCol(mt, 0, true); ctx.fillStyle = rgb(mc[0], mc[1] * wallA); ctx.fillRect(bx, by, bsz, bsz);
+      }
+
+      // Pair labels: "new task", benchmark name, similarity score, "held for review" tag
+      var pa = clamp((t - 10) / .5) * fade;
+      if (pa > 0) {
+        ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'center';
+        ctx.font = '400 12px Outfit, Arial, sans-serif'; ctx.fillStyle = 'rgba(255,255,255,' + (.7 * pa) + ')';
+        ctx.fillText('new task', ax + F2 / 2, ay + F2 + 24);
+        ctx.fillStyle = rgb(CORAL_T, pa); ctx.fillText(m.name, Math.min(bx + F2 / 2, W - ctx.measureText(m.name).width / 2 - 2), by + F2 + 24);
+        ctx.fillStyle = 'rgba(255,255,255,' + (.55 * pa) + ')'; ctx.font = '400 11px Outfit, Arial, sans-serif'; ctx.fillText('similarity', W / 2, ly + F2 / 2 - 12);
+        ctx.fillStyle = rgb(CORAL_T, pa); ctx.font = '500 18px Outfit, Arial, sans-serif'; ctx.fillText(m.sim, W / 2, ly + F2 / 2 + 10);
+        ctx.font = '500 12px Outfit, Arial, sans-serif';
+        var lbl = 'held for review', lw = ctx.measureText(lbl).width + 26, lx = W / 2 - lw / 2, lyy = ay + F2 + 40;
+        ctx.fillStyle = 'rgba(83,38,38,' + (.5 * pa) + ')'; ctx.fillRect(lx, lyy, lw, 22);
+        ctx.strokeStyle = 'rgba(110,59,59,' + pa + ')'; ctx.strokeRect(lx + .5, lyy + .5, lw - 1, 21);
+        ctx.fillStyle = rgb(CORAL, pa); ctx.fillRect(lx + 9, lyy + 7.5, 7, 7);
+        ctx.fillStyle = rgb(CORAL_T, pa); ctx.textAlign = 'left'; ctx.fillText(lbl, lx + 21, lyy + 15.5);
+      }
+    }
+
+    // Play only while on screen and the tab is visible
+    var raf = 0, t0 = 0, vis = false, still = reduce ? 11 : 3.9;
+    function fit() { var w = innerW(cv.parentElement); if (w > 0 && Math.abs(w - W) > .5) { layout(); return true; } return false; }
+    function loop(now) { if (!t0) t0 = now; fit(); draw((now - t0) / 1000); raf = requestAnimationFrame(loop); }
+    function start() { if (!raf && !reduce) { t0 = 0; raf = requestAnimationFrame(loop); } }
+    function stop() { cancelAnimationFrame(raf); raf = 0; }
+    layout(); draw(still);
+    onView(cv, function (v) { vis = v; if (v && !document.hidden) start(); else stop(); });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (vis) start(); });
+    var refit = function () { if (fit() && !raf) draw(still); };
+    new ResizeObserver(refit).observe(cv.parentElement);
+    addEventListener('resize', refit); addEventListener('orientationchange', refit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); if (!raf) draw(still); });
+  }
+
+  /* ===================== Pipeline: four steps ===================== */
+  function initPipeline(root) {
+    var fig = root.getElementById('fpipe');
+
+    // Build the 8x8 fingerprints; the edited copy has three differing (coral) cells
+    fig.querySelectorAll('.fp').forEach(function (g) {
+      var seed = +g.dataset.seed, edit = g.dataset.edit;
+      for (var k = 0; k < 64; k++) {
+        var c = k % 8, r = (k / 8) | 0, cell = document.createElement('i');
+        var col = PAL[fpIndex(c * 5 + seed, r * 5)];
+        if (edit && (k === 19 || k === 20 || k === 44)) { col = CORAL; cell.className = 'dif'; }
+        cell.style.background = rgb(col, 1); cell.style.setProperty('--k', k); g.appendChild(cell);
+      }
+    });
+
+    // Similarity score counts up in step with the bar
+    var n = root.getElementById('sim-n');
+    function count() {
+      var t0 = performance.now();
+      (function f(now) { var u = eout(clamp((now - t0) / 900)); n.textContent = (u * .94).toFixed(2); if (u < 1) requestAnimationFrame(f); })(t0);
+    }
+    if (reduce) return;
+
+    if (matchMedia('(max-width:560px)').matches) {
+      // Stacked on phones: each step waits for itself and plays with no stagger
+      fig.querySelectorAll('.st').forEach(function (st) {
+        st.style.setProperty('--d', '0ms');
+        var hasScore = !!st.querySelector('#sim-n');
+        if (st.getBoundingClientRect().top > innerHeight) {
+          st.classList.add('wait');
+          var done = false;
+          onView(st, function (v) { if (v && !done) { done = true; st.classList.remove('wait'); if (hasScore) setTimeout(count, 1250); } });
+        } else if (hasScore) setTimeout(count, 1250);
+      });
+    } else {
+      var go = function () { setTimeout(count, 1150 + 1250); };
+      if (fig.getBoundingClientRect().top > innerHeight) {
+        fig.classList.add('wait');
+        var done = false;
+        onView(fig, function (v) { if (v && !done) { done = true; fig.classList.remove('wait'); go(); } });
+      } else go();
+    }
+  }
+
+  /* ===================== Batch: matches leave the batch ===================== */
+  function initBatch(root) {
+    var cv = root.getElementById('batch'), ctx = cv.getContext('2d'), st = root.getElementById('batch-status');
+    var D = 2, END = 3.2;
+    var W, H, cols, rows, p, ts, trayX, trayY, tasks, held, t0 = 0, raf = 0;
+
+    function layout() {
+      W = Math.max(innerW(cv.parentElement), 220);
+      var narrow = W < 560;
+      cols = narrow ? 16 : 30; rows = 10;
+      var gridW = narrow ? W : W * .72;
+      p = Math.floor(gridW / cols); ts = p - 3;
+      var trayW = 6 * (ts + 4);
+      trayX = narrow ? 0 : Math.round(gridW + (W - gridW - trayW) / 2);
+      trayY = narrow ? rows * p + 34 : 24;
+      H = rows * p + (narrow ? 34 + ts + 4 : 0);
+      tasks = []; held = [];
+      var n = cols * rows, picks = new Set();
+      for (var k = 1; picks.size < 6; k++) picks.add(Math.floor(rnd(k * 13 + 5) * n));
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var i = r * cols + c, h = picks.has(i);
+        tasks.push({ c: c, r: r, h: h }); if (h) held.push(i);
+      }
+      cv.width = W * D; cv.height = H * D; cv.style.height = H + 'px';
+    }
+
+    function draw(t) {
+      ctx.setTransform(D, 0, 0, D, 0, 0); ctx.clearRect(0, 0, W, H);
+      var wave = t * (cols + rows + 4) / 1.4, checked = 0;
+      ctx.font = '500 12px Outfit, Arial, sans-serif'; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+      ctx.fillStyle = 'rgba(240,180,171,.9)'; ctx.fillText('held for review', trayX, trayY - 10);
+      held.forEach(function (_, j) { ctx.strokeStyle = 'rgba(232,150,140,.35)'; ctx.lineWidth = 1; ctx.strokeRect(trayX + j * (ts + 4) + .5, trayY + .5, ts - 1, ts - 1); });
+      tasks.forEach(function (tk, i) {
+        var x = tk.c * p, y = tk.r * p, u = clamp((wave - tk.c - tk.r) / 4);
+        if (u >= 1) checked++;
+        var col = u > 0 ? mix(WHITE, tk.h ? CORAL : GREEN, u) : WHITE, al = lerp(.12, tk.h ? 1 : .5, u);
+        if (tk.h) {
+          var j = held.indexOf(i), lu = eio(clamp((t - 1.7 - j * .06) / .8));
+          if (lu > 0) {
+            ctx.strokeStyle = 'rgba(255,255,255,.14)'; ctx.strokeRect(x + .5, y + .5, ts - 1, ts - 1);
+            ctx.fillStyle = rgb(CORAL, 1); ctx.fillRect(lerp(x, trayX + j * (ts + 4), lu), lerp(y, trayY, lu), ts, ts);
+            return;
+          }
+        }
+        ctx.fillStyle = rgb(col, al); ctx.fillRect(x, y, ts, ts);
+      });
+      st.textContent = checked + ' of ' + (cols * rows) + ' checked' + (t >= END ? ' · ' + held.length + ' held for review' : '');
+    }
+
+    function loop(now) { if (!t0) t0 = now; var t = Math.min((now - t0) / 1000, END); draw(t); raf = t < END ? requestAnimationFrame(loop) : 0; }
+    function fit() { var w = innerW(cv.parentElement); if (w > 0 && Math.abs(w - W) > .5) { layout(); return true; } return false; }
+    function play() { fit(); if (reduce) { draw(END); return; } cancelAnimationFrame(raf); t0 = 0; raf = requestAnimationFrame(loop); }
+
+    layout(); draw(END);
+    // Below the fold: show the unchecked grid, play once when it scrolls in
+    if (!reduce && cv.getBoundingClientRect().top > innerHeight) {
+      draw(0);
+      var played = false;
+      onView(cv, function (v) { if (v && !played) { played = true; play(); } });
+    }
+    var refit = function () { if (fit()) draw(raf ? Math.min((performance.now() - t0) / 1000, END) : END); };
+    new ResizeObserver(refit).observe(cv.parentElement);
+    addEventListener('resize', refit); addEventListener('orientationchange', refit);
+  }
+
+  /* ===================== Mount ===================== */
+  // Each block embed is a <div data-fqc="name"> holding its markup, followed by a one-line fqcMount() call.
+  // The markup moves into a shadow root (isolated from the blog's rich-text CSS) with the block styles.
+  // Webflow strips <canvas> and <svg> from rich-text embeds when it publishes, so the markup uses
+  // placeholders that are rebuilt here:
+  //   <div data-canvas="id" aria-label="…">  ->  <canvas id="id" role="img" aria-label="…">
+  //   <i data-icon="name">                    ->  the matching SVG from ICONS
+  var ICONS = {
+    text:  '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2 3h8M2 6h8M2 9h5"/></svg>',
+    code:  '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3 1.5 6 4 9M8 3l2.5 3L8 9"/></svg>',
+    image: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><rect x="1.5" y="1.5" width="9" height="9" rx="1"/><path d="m1.5 9 3-3 2 2 1.5-1.5 2.5 2.5"/><circle cx="8" cy="4.2" r=".9" fill="currentColor" stroke="none"/></svg>',
+    audio: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M1.5 6v0M3.5 4v4M5.5 2v8M7.5 3.5v5M9.5 5v2"/></svg>',
+    video: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><rect x="1.5" y="2.5" width="9" height="7" rx="1"/><path d="M5 4.8v2.4l2.2-1.2z" fill="currentColor" stroke="none"/></svg>'
+  };
+
+  function restorePlaceholders(root) {
+    root.querySelectorAll('[data-canvas]').forEach(function (slot) {
+      var cv = document.createElement('canvas');
+      cv.id = slot.getAttribute('data-canvas');
+      cv.setAttribute('role', 'img');
+      cv.setAttribute('aria-label', slot.getAttribute('aria-label') || '');
+      slot.replaceWith(cv);
+    });
+    root.querySelectorAll('[data-icon]').forEach(function (slot) {
+      var tmp = document.createElement('span');
+      tmp.innerHTML = ICONS[slot.getAttribute('data-icon')] || '';
+      if (tmp.firstChild) slot.replaceWith(tmp.firstChild); else slot.remove();
+    });
+  }
+
+  var FIGURES = { hero: initHero, pipeline: initPipeline, batch: initBatch };
+  var blockCss = document.getElementById('fqc-blocks').textContent;
+
+  window.fqcMount = function (host) {
+    if (!host || host.shadowRoot || !host.dataset.fqc) return;
+    var root = host.attachShadow({ mode: 'open' });
+    var style = document.createElement('style');
+    style.textContent = blockCss;
+    root.appendChild(style);
+    while (host.firstChild) root.appendChild(host.firstChild);
+    restorePlaceholders(root);
+    var init = FIGURES[host.dataset.fqc];
+    if (init) init(root);
+  };
+})();
+</script></div><div data-rt-embed-type='true'><!-- flow qc post · TL;DR box (edit the text below freely) -->
+<div data-fqc='tldr'>
+  <aside class='tldr'>
+    <p class='t'>TL;DR</p>
+    <p><a class='prod' href='/blog/flow-qc'>flow qc</a> checks every task for benchmark contamination and duplication before it ships. Each task is compared with every public benchmark and with every other task in <a href='/blog/introducing-flow'>flow</a>.</p>
+    <ul>
+      <li>Fully multimodal: text, code, images, charts, documents, audio and video.</li>
+      <li>New public benchmarks are collected as they are released, so the index is always current.</li>
+      <li>Checks finish in seconds on micro1's in-house engine, at the moment a task is submitted.</li>
+      <li>Duplicate checks cover every pipeline by default.</li>
+      <li>A match is held for review with the matching item attached. Everything else moves on.</li>
+    </ul>
+  </aside>
+</div>
+<script>fqcMount(document.currentScript.previousElementSibling)</script></div><div data-rt-embed-type='true'><!-- flow qc post · Figure: hero animation, drawn by initHero in the SCRIPT embed.
+     Webflow strips canvas elements from rich text, so data-canvas="field" is a placeholder the script turns into the canvas. -->
+<div data-fqc='hero'>
+  <figure id='f0'>
+    <div class='plate'>
+      <div class='legend hero-legend' aria-hidden='true'>
+        <span><i class='sw-task'></i>new task</span>
+        <span><i class='sw-sim'></i>similar item</span>
+        <span><i class='sw-hold'></i>match held for review</span>
+      </div>
+      <div data-canvas='field' aria-label='Animation: a new task's text folds into a fingerprint. The view zooms out until the task is one square among public benchmarks such as SWE-bench Verified, Humanity's Last Exam, MMMU, MathVista, DocVQA and LibriSpeech, and existing flow tasks. A ripple scores every square, the closest match turns coral, and both squares open into fingerprints side by side with their similarity score.'></div>
+    </div>
+    <figcaption>Illustrative. Each square is one task or benchmark item. A new task is compared with public benchmarks across modalities and with existing flow tasks.</figcaption>
+  </figure>
+</div>
+<script>fqcMount(document.currentScript.previousElementSibling)</script></div><h2>Why it matters</h2><p>A benchmark score only means something if the model has never seen the test.</p><p>When a benchmark item ends up in training data, a model can score well by remembering the answer, and the score alone does not show it. Duplicates inside a dataset do quieter damage: the same task counted twice makes a dataset look larger than it is and gives one problem extra weight.</p><p>Contamination is usually measured after training, on the finished model. flow qc checks the data itself, when a task is created, so a leaked or repeated item never reaches training.</p><h2>How it works</h2><div data-rt-embed-type='true'><!-- flow qc post · Figure: "How it works" four steps (CSS animations; fingerprints built by initPipeline).
+     Webflow strips SVG icons from rich text, so each chip icon is a data-icon placeholder the SCRIPT embed fills in. -->
+<div data-fqc='pipeline'>
+  <figure id='fpipe'>
+    <p class='claim'>Every task goes through the same four steps.</p>
+    <ol class='pipe'>
+
+      <li class='st' style='--d:0ms'>
+        <div class='vis v-cap' aria-hidden='true'>
+          <div class='doc'>
+            <i class='ln' style='--w:100%;--i:0'></i>
+            <i class='ln' style='--w:72%;--i:1'></i>
+            <i class='ln cd' style='--w:86%;--i:2'></i>
+            <i class='ln' style='--w:55%;--i:3'></i>
+            <i class='cur'></i>
+          </div>
+          <div class='chips'>
+            <span class='chip' style='--i:0'><i data-icon='text'></i>text</span>
+            <span class='chip' style='--i:1'><i data-icon='code'></i>code</span>
+            <span class='chip' style='--i:2'><i data-icon='image'></i>image</span>
+            <span class='chip' style='--i:3'><i data-icon='audio'></i>audio</span>
+            <span class='chip' style='--i:4'><i data-icon='video'></i>video</span>
+          </div>
+        </div>
+        <h3>Capture</h3>
+        <p>Text, code, files, images, audio and video are read when the task is submitted.</p>
+      </li>
+
+      <li class='st' style='--d:550ms'>
+        <div class='vis v-idx' aria-hidden='true'>
+          <div class='fpw'><div class='fp' data-seed='7'></div><i class='scan'></i></div>
+        </div>
+        <h3>Index</h3>
+        <p>Each task becomes a fingerprint that covers every modality it contains.</p>
+      </li>
+
+      <li class='st' style='--d:1150ms'>
+        <div class='vis v-cmp' aria-hidden='true'>
+          <div class='pair'><div class='fp' data-seed='7'></div><div class='fp' data-seed='7' data-edit='1'></div><i class='beam'></i></div>
+          <div class='simbar'><span>similarity <span class='n num' id='sim-n'>0.94</span></span></div>
+        </div>
+        <h3>Compare</h3>
+        <p>The fingerprint is checked against all public benchmarks and Flow tasks in seconds. Flow QC reviews matches.</p>
+      </li>
+
+      <li class='st' style='--d:1900ms'>
+        <div class='vis v-flag' aria-hidden='true'>
+          <i class='ck'></i>
+          <div class='q ok' style='--i:0'><i class='sq'></i><i class='bar'></i><span class='tag'>passes</span></div>
+          <div class='q hold' style='--i:1'><i class='sq'></i><i class='bar'></i><span class='tag'>held for review</span></div>
+          <div class='q ok' style='--i:2'><i class='sq'></i><i class='bar'></i><span class='tag'>passes</span></div>
+        </div>
+        <h3>Flag</h3>
+        <p>A confirmed match is held back with the matching item attached. The rest pass.</p>
+      </li>
+
+    </ol>
+  </figure>
+</div>
+<script>fqcMount(document.currentScript.previousElementSibling)</script></div><p>The engine is built in house. It fingerprints every modality a task can carry, so a pasted prompt, a reworded problem, a re-plotted chart or a cropped screenshot still leads back to its source. The internal flow qc agent then reads both items in a close pair and decides whether the new task is a copy, a rewrite or a coincidence.</p><h2>Always current</h2><p>New public benchmarks appear every week. micro1 collects them as they are published and adds them to the index, so a task is checked against a benchmark released yesterday as well as the long-standing ones.</p><h2>Across a batch</h2><div data-rt-embed-type='true'><!-- flow qc post · Figure: "Across a batch", drawn by initBatch in the SCRIPT embed.
+     data-canvas="batch" is a placeholder the script turns into the canvas (Webflow strips canvas elements from rich text). -->
+<div data-fqc='batch'>
+  <figure id='fbatch'>
+    <p class='claim'>Matches leave the batch. Everything else keeps moving.</p>
+    <div class='plate'>
+      <div data-canvas='batch' aria-label='Animation: a check sweeps across a grid of tasks. Most turn green. A few turn coral and move into a tray labelled held for review.'></div>
+      <p class='bstat num' id='batch-status'></p>
+    </div>
+    <figcaption>Illustrative. Counts show the mechanism, not a real batch.</figcaption>
+  </figure>
+</div>
+<script>fqcMount(document.currentScript.previousElementSibling)</script></div><h2>What good data is</h2><p>Good training data teaches a model something it could not already do. A task copied from a benchmark teaches nothing new, and it makes the model look better at the one place progress gets measured. A task repeated twice teaches the same lesson twice and takes the place of one that was never written.</p><p>That makes the value of a task relative. The same problem can be worth a great deal on its own and nothing once it sits in a public test set. A task can only be judged against everything a model may already have seen.</p><div data-rt-embed-type='true'><!-- flow qc post · Closing statement (larger white text; edit freely) -->
+<div data-fqc='closing'>
+  <p class='closing'>Benchmarks are how the field measures progress, and they only work while models have not seen them. Checking every task against every public benchmark keeps micro1's data out of them, so a model trained on it earns its scores.</p>
+</div>
+<script>fqcMount(document.currentScript.previousElementSibling)</script></div>

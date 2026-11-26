@@ -1,0 +1,41 @@
+---
+/**
+ * "Other blogs" recommendations for Blog Detail.
+ * Cards match live micro1 "Other articles" design (not Research Hub cards).
+ * Dynamically picks up to 3 posts from CSV-backed blogPosts, excluding the current slug.
+ */
+import { blogPosts } from "../../data/blogs";
+import { withBase } from "../../lib/paths";
+import BlogOtherCard from "./BlogOtherCard.astro";
+
+interface Props {
+  currentSlug: string;
+  limit?: number;
+}
+
+const { currentSlug, limit = 3 } = Astro.props;
+
+const others = blogPosts
+  .filter((post) => post.id !== currentSlug)
+  .slice(0, limit);
+---
+
+{
+  others.length > 0 ? (
+    <section class="section_blog-other" aria-labelledby="blog-other-title">
+      <div class="blog-other_header">
+        <h2 id="blog-other-title" class="blog-other_heading">
+          Other blogs
+        </h2>
+        <a class="blog-other_all" href={withBase("/")}>
+          View all blogs
+        </a>
+      </div>
+      <div class="blog-other_list">
+        {others.map((blog) => (
+          <BlogOtherCard blog={blog} />
+        ))}
+      </div>
+    </section>
+  ) : null
+}

@@ -1,0 +1,28 @@
+---
+/**
+ * Same card structure/classes as Research `BlogCard.astro`.
+ * Links to local Blog Detail routes.
+ */
+import type { BlogPost } from "../../data/blogs";
+import { withBase } from "../../lib/paths";
+
+interface Props {
+  blog: BlogPost;
+}
+
+const { blog } = Astro.props;
+const image = blog.image?.trim() || "";
+const href = withBase(`/${blog.id}`);
+---
+
+<a class="blog-card_component" href={href}>
+  <div class="blog-card_thumb">
+    {image ? <img src={image} alt="" loading="lazy" /> : null}
+  </div>
+  <div class="blog-card_body">
+    <div class="blog-card_copy">
+      {blog.date ? <p class="blog-card_date">{blog.date}</p> : null}
+      <h3 class="blog-card_title">{blog.title}</h3>
+    </div>
+  </div>
+</a>

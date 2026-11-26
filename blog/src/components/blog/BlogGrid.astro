@@ -1,0 +1,15 @@
+---
+import { blogPosts } from "../../data/blogs";
+import BlogCard from "./BlogCard.astro";
+---
+
+<section class="section_blog-hub" aria-labelledby="blog-hub-title">
+  <div class="padding-global">
+    <div class="container-research">
+      <h2 id="blog-hub-title" class="u-screen-reader">All blog posts</h2>
+      <div class="blog-hub_grid">
+        {blogPosts.map((blog) => <BlogCard blog={blog} />)}
+      </div>
+    </div>
+  </div>
+</section>

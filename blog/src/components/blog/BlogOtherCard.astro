@@ -1,0 +1,63 @@
+---
+/**
+ * Related-article card matching live micro1 "Other articles" blog_item design.
+ * Not the Research/Blog Hub frosted card.
+ */
+import type { BlogPost } from "../../data/blogs";
+import { withBase } from "../../lib/paths";
+
+interface Props {
+  blog: BlogPost;
+}
+
+const { blog } = Astro.props;
+const image = blog.image?.trim() || "";
+const href = withBase(`/${blog.id}`);
+
+/** "NOVEMBER 2026" → "November 2026" (live related-card date style) */
+const cardDate = blog.date
+  ? blog.date
+      .toLowerCase()
+      .replace(/\b\w/g, (char) => char.toUpperCase())
+  : "";
+
+const authorsWithAvatar = blog.authors.filter((author) => author.avatar?.trim());
+---
+
+<a class="blog-other_item" href={href}>
+  <div class="blog-other_img-wrap">
+    {
+      image ? (
+        <img
+          class="blog-other_image"
+          src={image}
+          alt=""
+          loading="lazy"
+        />
+      ) : null
+    }
+    <div class="blog-other_img-overlay" aria-hidden="true"></div>
+  </div>
+  <div class="blog-other_text-wrap">
+    <div class="blog-other_text">
+      {cardDate ? <p class="blog-other_date">{cardDate}</p> : null}
+      <h3 class="blog-other_title text-style-2lines">{blog.title}</h3>
+    </div>
+    {
+      authorsWithAvatar.length > 0 ? (
+        <div class="blog-other_authors" aria-hidden="true">
+          {authorsWithAvatar.map((author) => (
+            <span class="blog-other_author">
+              <img
+                class="blog-other_author-img"
+                src={author.avatar}
+                alt=""
+                loading="lazy"
+              />
+            </span>
+          ))}
+        </div>
+      ) : null
+    }
+  </div>
+</a>

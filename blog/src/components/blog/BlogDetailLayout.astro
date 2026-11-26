@@ -1,0 +1,28 @@
+---
+/**
+ * Blog Detail uses the Research Detail layout/structure/styling unchanged.
+ * Imported from the Research app so Research files are not modified.
+ */
+import ResearchDetailLayout from "../../../../research/src/components/research-detail/ResearchDetailLayout.astro";
+
+interface Author {
+  name: string;
+  role: string;
+  avatar?: string;
+}
+
+interface Props {
+  title: string;
+  date: string;
+  authors: Author[];
+  heroImage?: string;
+  heroImageAlt?: string;
+  description?: string;
+}
+
+const props = Astro.props;
+---
+
+<ResearchDetailLayout {...props}>
+  <slot />
+</ResearchDetailLayout>

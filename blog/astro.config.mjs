@@ -1,6 +1,11 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
+
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
+const researchSrc = path.resolve(rootDir, "../research/src");
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,11 +20,24 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     resolve: {
-      // Use react-dom/server.edge instead of react-dom/server.browser for React 19.
-      // Without this, MessageChannel from node:worker_threads needs to be polyfilled.
       alias: {
         "react-dom/server": "react-dom/server.edge",
       },
+    },
+    server: {
+      fs: {
+        allow: [rootDir, researchSrc, path.resolve(rootDir, "../research")],
+      },
+    },
+    ssr: {
+      // DevLink / Research chrome live outside the blog package root.
+      noExternal: [],
+      optimizeDeps: {
+        enabled: false,
+      },
+    },
+    optimizeDeps: {
+      holdUntilCrawlEnd: true,
     },
   },
 });
