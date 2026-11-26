@@ -1,6 +1,5 @@
 import SiteShell from "./SiteShell";
 import { withBase } from "../lib/paths";
-import { formatBlogMonthYear, type SanityBlogCard } from "../lib/blog";
 
 const papers = [
   {
@@ -19,11 +18,7 @@ const papers = [
   },
 ] as const;
 
-type DevLinkChromeProps = {
-  blogs?: SanityBlogCard[];
-};
-
-export default function DevLinkChrome({ blogs = [] }: DevLinkChromeProps) {
+export default function DevLinkChrome() {
   return (
     <SiteShell>
       <main className="research">
@@ -43,40 +38,6 @@ export default function DevLinkChrome({ blogs = [] }: DevLinkChromeProps) {
             </li>
           ))}
         </ul>
-
-        {blogs.length > 0 && (
-          <section className="research__section" aria-labelledby="blogs-heading">
-            <h2 id="blogs-heading" className="research__title">
-              Blogs
-            </h2>
-            <ul className="research__list">
-              {blogs.map((blog) => (
-                <li key={blog._id}>
-                  <a
-                    className="research__card"
-                    href={withBase(`/blog/${blog.slug}`)}
-                  >
-                    <div className="research__media">
-                      {blog.imageUrl ? (
-                        <img
-                          src={blog.imageUrl}
-                          alt={blog.imageAlt || ""}
-                          loading="lazy"
-                        />
-                      ) : null}
-                    </div>
-                    <div className="research__body">
-                      <p className="research__date">
-                        {formatBlogMonthYear(blog.date)}
-                      </p>
-                      <h3 className="research__name">{blog.title.trim()}</h3>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
 
         <div className="s_h_l"><div className="h_l_main"><div className="h_l_overlay"></div><div className="h_l_wrap"><div className="h_l_text"><h2 className="heading-style-h3">The data research company to accelerate AI in the real world</h2></div></div></div></div>
       </main>
