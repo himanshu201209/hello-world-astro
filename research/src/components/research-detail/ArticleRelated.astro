@@ -14,8 +14,8 @@ const related = (
     ? researchPapers.filter((paper) =>
         slugs.some(
           (slug) =>
-            paper.href.includes(`/research/${slug}`) ||
             paper.href.endsWith(`/${slug}`) ||
+            paper.href.endsWith(`/${slug}/`) ||
             paper.id === slug,
         ),
       )

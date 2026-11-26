@@ -1,12 +1,12 @@
 ---
 /**
- * Dynamic research article route.
- * Add new articles as `src/content/research/<slug>.mdx`, then either:
- * - add a dedicated page like `are-ai-agents-getting-better.astro`, or
- * - rely on this route (Cloudflare prerender isolates getStaticPaths).
+ * Dynamic research article route at site root:
+ * /CLOUD_MOUNT_PATH/<slug>/
+ *
+ * Content: src/content/research/<slug>.mdx
  */
-import ResearchDetailLayout from "../../components/research-detail/ResearchDetailLayout.astro";
-import "../../devlink/css/global.css";
+import ResearchDetailLayout from "../components/research-detail/ResearchDetailLayout.astro";
+import "../devlink/css/global.css";
 
 export const prerender = true;
 
@@ -27,24 +27,29 @@ export function getStaticPaths() {
   // Keep this function fully self-contained — Cloudflare prerender cannot
   // close over helpers or values defined outside getStaticPaths.
   const paths = import.meta.glob<ResearchModule>(
-    "../../content/research/*.{md,mdx}",
+    "../content/research/*.{md,mdx}",
     { eager: true },
   );
 
-  // Pages that already have a dedicated route under /research/*.astro
-  const dedicated = new Set(["are-ai-agents-getting-better"]);
+  // Dedicated root pages that already render these articles.
+  const dedicated = new Set([
+    "are-ai-agents-getting-better",
+    "pii-transformation-for-enterprise-datasets",
+  ]);
 
+  // Prerender every MDX article (including CMS drafts) so local routes exist;
+  // the Research listing still excludes Draft/Hide items via research.ts.
   return Object.keys(paths)
     .map((path) => {
       const slug = path.split("/").pop()?.replace(/\.(md|mdx)$/, "") ?? "";
-      return { slug, draft: paths[path].frontmatter?.draft === true };
+      return { slug };
     })
-    .filter((entry) => !entry.draft && !dedicated.has(entry.slug))
+    .filter((entry) => !dedicated.has(entry.slug))
     .map(({ slug }) => ({ params: { slug } }));
 }
 
 const modules = import.meta.glob<ResearchModule>(
-  "../../content/research/*.{md,mdx}",
+  "../content/research/*.{md,mdx}",
   { eager: true },
 );
 

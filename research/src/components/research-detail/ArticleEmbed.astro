@@ -21,12 +21,10 @@ if (kind !== "iframe" && src) {
     eager: true,
   }) as Record<string, string>;
 
-  const key = Object.keys(modules).find((path) => path.endsWith(src.replace(/^\.\//, "")));
-  // Also match by filename only
   const file = src.split("/").pop() ?? src;
-  const match =
-    key ??
-    Object.keys(modules).find((path) => path.endsWith(`/${file}`) || path.endsWith(file));
+  const match = Object.keys(modules).find(
+    (path) => path.endsWith(`/${file}`) || path.endsWith(file)
+  );
 
   if (match) {
     html = modules[match] ?? "";
@@ -46,6 +44,37 @@ if (kind !== "iframe" && src) {
       />
     </div>
   ) : html ? (
-    <div class="research-detail_embed" set:html={html} />
+    <div class="research-detail_embed" data-research-embed set:html={html} />
+  ) : null
+}
+
+{
+  kind !== "iframe" && html ? (
+    <script>
+      // Re-run embed scripts (Astro set:html does not execute <script> tags).
+      function activateResearchEmbeds() {
+        document.querySelectorAll("[data-research-embed]").forEach((root) => {
+          if (!(root instanceof HTMLElement)) return;
+          if (root.dataset.embedReady === "true") return;
+          root.dataset.embedReady = "true";
+          root.querySelectorAll("script").forEach((oldScript) => {
+            const next = document.createElement("script");
+            for (const attr of oldScript.attributes) {
+              next.setAttribute(attr.name, attr.value);
+            }
+            next.textContent = oldScript.textContent;
+            oldScript.replaceWith(next);
+          });
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", activateResearchEmbeds, {
+          once: true,
+        });
+      } else {
+        activateResearchEmbeds();
+      }
+    </script>
   ) : null
 }

@@ -497,9 +497,9 @@ draft: {str(draft).lower()}
 """
 
     imports = """
-import ArticleFigure from "../../../components/research-detail/ArticleFigure.astro";
-import ArticleTable from "../../../components/research-detail/ArticleTable.astro";
-import ArticleEmbed from "../../../components/research-detail/ArticleEmbed.astro";
+import ArticleFigure from "../../components/research-detail/ArticleFigure.astro";
+import ArticleTable from "../../components/research-detail/ArticleTable.astro";
+import ArticleEmbed from "../../components/research-detail/ArticleEmbed.astro";
 """.lstrip()
 
     extras = []
@@ -507,7 +507,7 @@ import ArticleEmbed from "../../../components/research-detail/ArticleEmbed.astro
         extras.append(
             f'\n<ArticleCallout title="Read the paper">\n\n[{platform or "Full paper"}]({link})\n\n</ArticleCallout>\n'
         )
-        imports += 'import ArticleCallout from "../../../components/research-detail/ArticleCallout.astro";\n'
+        imports += 'import ArticleCallout from "../../components/research-detail/ArticleCallout.astro";\n'
 
     content = frontmatter + "\n" + imports + "\n" + body
     if extras:
@@ -544,7 +544,7 @@ def listing_entries(rows: list[dict[str, str]]) -> str:
         m = re.match(r"^([A-Za-z]+) (\d+), (\d+)$", date)
         list_date = f"{m.group(1)} {m.group(3)}" if m else date
         category = CATEGORY_BY_SLUG.get(slug, "Reasoning")
-        href = f'withBase("/research/{slug}")'
+        href = f'withBase("/{slug}")'
         entries.append(
             "  {\n"
             f'    id: "{slug}",\n'

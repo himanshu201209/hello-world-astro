@@ -1,10 +1,21 @@
 ---
-import { withBase } from "../lib/paths";
+import ResearchDetailLayout from "../components/research-detail/ResearchDetailLayout.astro";
+import {
+  Content,
+  frontmatter,
+} from "../content/research/are-ai-agents-getting-better.mdx";
+import "../devlink/css/global.css";
 
-export const prerender = false;
-
-return Astro.redirect(
-  withBase("/research/are-ai-agents-getting-better"),
-  301,
-);
+export const prerender = true;
 ---
+
+<ResearchDetailLayout
+  title={frontmatter.title}
+  date={frontmatter.date}
+  authors={frontmatter.authors}
+  heroImage={frontmatter.heroImage}
+  heroImageAlt={frontmatter.heroImageAlt}
+  description={frontmatter.description}
+>
+  <Content />
+</ResearchDetailLayout>

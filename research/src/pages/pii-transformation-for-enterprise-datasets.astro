@@ -1,14 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PaperPii from "../components/papers/PaperPii";
-import { withBase } from "../lib/paths";
+import ResearchDetailLayout from "../components/research-detail/ResearchDetailLayout.astro";
+import {
+  Content,
+  frontmatter,
+} from "../content/research/pii-transformation-for-enterprise-datasets.mdx";
 import "../devlink/css/global.css";
 
-export const prerender = false;
+export const prerender = true;
 ---
 
-<Layout title="PII Transformation for Enterprise Datasets | micro1">
-  <PaperPii client:only="react" homeHref={withBase("/")}>
-    <div slot="fallback">Loading…</div>
-  </PaperPii>
-</Layout>
+<ResearchDetailLayout
+  title={frontmatter.title}
+  date={frontmatter.date}
+  authors={frontmatter.authors}
+  heroImage={frontmatter.heroImage}
+  heroImageAlt={frontmatter.heroImageAlt}
+  description={frontmatter.description}
+>
+  <Content />
+</ResearchDetailLayout>
