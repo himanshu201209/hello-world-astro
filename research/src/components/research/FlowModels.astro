@@ -7,10 +7,10 @@ import FlowModelModal from "./FlowModelModal.astro";
 <section class="section_flow-models" aria-labelledby="flow-models-title">
   <div class="padding-global">
     <div class="container-research">
-      <div class="flow-models_header">
+      <div class="flow-models_header" data-reveal>
         <h2 id="flow-models-title" class="heading-research">flow models</h2>
       </div>
-      <div class="flow-models_grid">
+      <div class="flow-models_grid" data-reveal>
         {flowModels.map((model) => <FlowModelCard model={model} />)}
       </div>
     </div>

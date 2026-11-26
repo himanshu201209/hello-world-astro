@@ -1,0 +1,51 @@
+---
+/**
+ * Renders research-article interactive embeds (widgets, charts, iframes)
+ * preserved from the original Micro1 CMS HTML.
+ */
+interface Props {
+  /** Relative path to an HTML fragment under content/research/embeds */
+  src?: string;
+  /** Direct iframe URL when kind="iframe" */
+  kind?: "html" | "iframe";
+  title?: string;
+}
+
+const { src, kind = "html", title = "Embedded content" } = Astro.props;
+
+let html = "";
+if (kind !== "iframe" && src) {
+  const modules = import.meta.glob("../../content/research/embeds/*.html", {
+    query: "?raw",
+    import: "default",
+    eager: true,
+  }) as Record<string, string>;
+
+  const key = Object.keys(modules).find((path) => path.endsWith(src.replace(/^\.\//, "")));
+  // Also match by filename only
+  const file = src.split("/").pop() ?? src;
+  const match =
+    key ??
+    Object.keys(modules).find((path) => path.endsWith(`/${file}`) || path.endsWith(file));
+
+  if (match) {
+    html = modules[match] ?? "";
+  }
+}
+---
+
+{
+  kind === "iframe" && src ? (
+    <div class="research-detail_embed is-iframe">
+      <iframe
+        class="research-detail_iframe"
+        src={src}
+        title={title}
+        loading="lazy"
+        allowfullscreen
+      />
+    </div>
+  ) : html ? (
+    <div class="research-detail_embed" set:html={html} />
+  ) : null
+}

@@ -1,0 +1,123 @@
+---
+title: "Robotics is entering a phase of rapid diversification"
+date: "July 23, 2026"
+description: "Discover how micro1’s Annotation Engine delivers specialized, high-quality post-training data for diverse, production-ready robotics applications."
+category: "Robotics"
+platform: ""
+paperLink: ""
+authors:
+  - name: "Mitali Potnis"
+    role: "micro1"
+  - name: "Andrew Maas"
+    role: "micro1"
+  - name: "Arian Sadeghi"
+    role: "micro1"
+heroImage: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a679acda05be61bc3e9e26b_v3%20(1)%20(1).png"
+heroImageAlt: "Robotics is entering a phase of rapid diversification"
+thumbnail: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a679acda05be61bc3e9e26b_v3%20(1)%20(1).png"
+draft: false
+---
+
+import ArticleFigure from "../../components/research-detail/ArticleFigure.astro";
+import ArticleTable from "../../components/research-detail/ArticleTable.astro";
+import ArticleEmbed from "../../components/research-detail/ArticleEmbed.astro";
+
+## Introduction
+
+Robotics is entering a phase of rapid diversification. Capable hardware platforms and reusable baseline perception and control software now make it possible to prototype embodied applications in settings that, only a few years ago, could not have justified the cost of building perception and control from scratch, such as factories, homes, vehicles, and aerial platforms, among many others. As the marginal cost of standing up a new application falls, the field fans out across a long tail of domains and tasks, and with it the kind of data each application needs.
+
+This creates two pressures at once: the proliferation of viable robots generates enormous demand for **specialized post-training data,** and the quality and diversity of that data, rather than model architecture, is what ultimately gates production-quality, often safety-critical, robotic systems. The micro1 Annotation Engine is our response to exactly these two pressures.
+
+## The Need for Specialized Post-Training Data in Robotics
+
+The democratization of robotic prototyping has a direct consequence: a surge in demand for training and evaluation data tailored to a specific domain and a specific set of tasks. A usable baseline can now be assembled from pretrained components: general-purpose visual foundation models for detection, segmentation, and tracking [1], together with off-the-shelf perception models that can be orchestrated to label robot data without task-specific training [2], so that general-purpose perception gets a new application off the ground. But the remaining gaps in performance, reliability, and generalizability, the gaps that separate a demo from a product, are closed by data that reflects the particular conditions the robot will face. **Specialized data yields specialized behaviors,** and specialized behaviors are what allow a system to handle the full range of real-world variation it will encounter in deployment.
+
+We frame this as a need for post-training data, drawing a deliberate analogy to the recent trajectory of large language models. There, the field shifted from training predominantly on large collections of scraped or found internet data toward deliberately collected and annotated post-training datasets that supply the final adaptation needed for strong performance on specific tasks. Robotics is undergoing an analogous shift; increasingly, modern systems adopt a fused approach in which perception and reasoning over visual and other sensor inputs are combined with the production of control signals, high-level plans, and an ongoing estimate of what is happening in the world. The scarcity of natural-language and structured annotations for diverse robot data is by now a recognized bottleneck for exactly this kind of adaptation [2, 3], and in-the-wild demonstration data is now being collected faster than it can be labeled. That widening gap between what is collected and what is usable is precisely the load our annotation pipeline is built to carry.
+
+Data collection and data annotation are the means of producing post-training data, and requirements for building production-grade machine learning datasets apply. Data samples must be drawn from a distribution that matches the real-world conditions a robot will actually experience, so that performance and generalization hold across the full expected operating domain rather than only a convenient slice of it. Further, the annotations/labels must be fit for the task. Depending on the domain, an application may call for specialized annotation types: bounding boxes, object trajectories, and manipulation-phase boundaries for grounded manipulation [3]; natural-language instructions for language-conditioned control [2]; spatio-temporal masks for object-centric video understanding [1]; first-person expert guidance and question answering over procedural activities [4]; or fine-grained, instruction-conditioned captions over fused audio and visual streams [5]. Each brings its own guidelines and specifications: what is annotated, how it is annotated, and what the expected output behavior is for edge cases. **The diversity of robotic applications thus propagates directly into a diversity of annotation types and conventions, with no single schema serving all tasks**. This data-centric perspective is central to real-world performance: training and evaluation datasets are precisely the signal by which a robot is adapted to perceive and act as intended.
+
+## Flow: The micro1 Annotation Engine
+
+The engine composes annotation pipelines that mix machine and human steps rather than running a single labeling model or a fixed crowd pipeline. Flow operates using a library of strong individual models and research-backed refinement steps. A configuration procedure selects and orders them for a given task without model retraining, and a tunable layer of human quality control allows for arbitrarily detailed and accurate final annotations.
+
+### Design principles
+
+Both as software and human-in-the-loop data improvement processes, Flow is engineered to meet the needs of modern robotics data projects:
+
+- No single annotation guideline is correct, even for superficially similar tasks: each robotic application carries its own annotation types and conventions. The engine treats the guideline as a living specification that adapts per task and grows as edge cases surface, which raises the consistency of both human and model-based annotation over time. Precisely specifying constraints, and filtering out constraints a reference cannot actually support, materially improves output fidelity [5].
+- Every task begins from model-based annotations; humans engage later, working on top of the machine output rather than from a blank slate. Leveraging ML models and multi-step annotation approaches can cut per-frame human cost by nearly an order of magnitude at constant quality [1]. Depending on the task, annotation in Flow uses collaborative frameworks where models act as pre-annotators, real-time assistants, and reviewers [6]; and zero-shot foundation-model labelers provide initial annotations at a fraction of crowd-sourced cost [2]. Starting from machine output reframes the human's job from production to verification and correction, which is cheaper and, per the earlier argument, the higher-value activity.
+- Any single model carries its own biases and failure modes, even a frontier VLM. Combining model-based annotation with deterministic consistency checks and, optionally, model-based verification, editing, and review yields a pipeline substantially better than any single model. Recent research has found a vast array of components for annotation pipelines: self-consistency samples several reasoning paths and marginalizes over them, improving reliability and yielding a free confidence signal [7]; chain-of-verification drafts an answer, plans verification questions, answers them independently, and regenerates, roughly doubling list precision [8]; trained verifiers that re-rank candidates let a much smaller model outperform a far larger one [9]; and LLM judges can be used effectively when self-bias is controlled [10]. micro1 treats annotation pipeline steps as hyper-parameters. For any new task, the engine searches over configurations (which models, which refinement and verification steps, in which order) to maximize quality on a small curated set of gold examples, then applies the winning configuration at scale. Note this configuration yields improved annotations without training or fine-tuning a VLM/model.
+- Human review scales to how a dataset will be used. Pre-training corpora and very large collections need only light review; high-specificity training or evaluation sets, where label errors directly distort what a model learns or how it is scored, get deeper multi-step editing to a target quality. A verifier's reliability score decides how much re-annotation each item receives, concentrating effort where the machine is least trustworthy [11]; rubric-based gates route low-scoring items automatically to redo [6]. Reframing automatic labeling as selective prediction, flagging uncertain labels rather than emitting them blindly, is exactly what lets one dataset be served at several quality tiers [3].
+- Specialized tasks demand training and expertise, such as step-by-step instructions for healthcare and medical procedures, or industrial settings with specialized equipment and safety concerns, that non-expert annotators often cannot supply, lacking the tools, working process, or intermediate steps. micro1 sources human domain experts across a wide breadth of areas, so annotators can be matched precisely to a dataset when required, enabling highly specialized evaluation and training data for safety-critical or regulated robotics applications.
+- Cognitive load and tool ergonomics materially affect annotation quality and throughput, so the engine invests in interfaces tuned per modality (video alone, video with depth, video with audio) that guide the annotator's focus and make reviewing and editing model output easy. The interface is also a correctness safeguard: shown model output, humans can anchor on it and absorb its errors, an effect where a real-time assistant raised handling time and regressed honesty when annotators uncritically accepted hallucinated detail [6], and which the human-model collaboration literature studies directly as a re-annotation bias [11].
+- When task and data volume justify it, the engine can fine-tune specific models to a domain, modality, or annotation output. It is an optional layer, more labor-intensive than composing off-the-shelf components, reserved for frequently encountered tasks such as egocentric video captioning of human-demonstration data. Instruction-tuning a base model on a purpose-built dataset closes much of the gap to proprietary systems on the target captioning task [5], and off-the-shelf models still fall short of expert-level assistance on the first-person procedural data such a captioner would target [4].
+
+### Working process & software components
+
+Flow effectively “compiles” a concrete instantiation of an annotation pipeline using the configuration search approach. For most tasks, model-based initial annotations are more accurate when models are directed in targeted ways rather than simply labeling everything at once. The ultimate annotation pipeline from Flow is comprised of:
+
+- A living document specifying the desired annotation types and human-readable rules for when to apply them. It is used directly by annotators and contains gold samples (carefully labeled examples agreed with the customer) that train annotators, seed few-shot prompts, and form the held-out set that candidate configurations are scored against. It is extended to remove ambiguity as edge cases appear.
+- A library spanning VLMs (for example Gemini, Qwen, and micro1 fine-tuned open-source models) and non-VLM computer-vision and robotics components: 3D segmentation, promptable video segmentation and tracking [1], foundation models for hand, face, and skeleton detection, and pose estimation. Several admit few-shot prompting and adapt to the active guideline without retraining. Ensembles of frozen foundation models for zero-shot robot labeling [2] and structured spatial annotators that compose detectors, segmenters, and trackers [3] are the kind of interchangeable building blocks it draws on.
+- On top of raw model outputs: multi-model voting [7]; ensembling of complementary models, or one model over different views, whose distinct annotations are then fused [2]; downstream VLM/LLM review and editing that takes the input plus multiple candidates and emits a single combined annotation [8, 9, 10]; and programmatic, deterministic consistency checks. Pairing an LLM that extracts structured elements with rule-based tools that score them objectively is a particularly effective verification design [5], and this component produces the per-item reliability signal that drives variable-depth human QC.
+
+Consistent with the configuration-as-hyper-parameter view, the choice of which models to include, which refinement and verification steps to apply, and in what order, is made by **searching for the configuration that maximizes quality on the guideline's gold samples**, with no VLM training required. Human quality review and editing/improving initial Flow annotations is inserted where needed depending on the task and dataset.
+
+## Example Flow pipeline configuration
+
+A flow pipeline often decomposes video annotation into stages with deliberately restricted views of the evidence. Figure 1 shows the machine annotation logic of a Flow pipeline for egocentric video annotation. Using multiple passes of VLM, the pipeline produces time segments and detailed per-segment action descriptions.
+
+The example pipeline first runs event detection for observable hand-object events. A temporal segmentation step converts these events into overlapping temporal windows. With event temporal scaffolding in place, a next step drafts text captions for each window in isolation. A verification step produces yes or no propositions, and an independent verification stage evaluates these propositions against the raw footage alone, blind to the drafts that produced them, so that agreement between draft and verdict is less biased.
+
+Claims that fail are returned for redrafting; claims that survive are composed into the final track under a style prior that is deliberately stripped of episode-specific content, ensuring that stylistic regularity cannot introduce factual leakage. The result is a caption track in which every assertion has been independently checked against the pixels before it is written down.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a6236c38143e8f743cb01ea_main-graphic-flow.webp" alt="" />
+
+## Case study: Annotating demonstration videos with Flow
+
+We compare three annotation systems on a set of manipulation episodes, each producing timestamped, hand-by-hand action labels from identical video + sensor inputs. We compare annotations to understand the impact of configurable pipelines over a single-pass annotation model, and how far machine pipeline output sits from human annotation quality.
+
+- One model call per episode: the full video, sampled at 3 fps, is paired with a detailed annotation prompt that specifies atomic 1 to 3 second segmentation, per-hand attribution, kinematic verification rules, and a strict JSON output schema. The model must get everything right in a single read.
+- Replaces the single read with our multi-stage draft-and-verify pipeline: it localizes hand-object events, divides the timeline into overlapping windows, drafts captions per window with surrounding temporal context, and independently re-checks every claim against the footage before assembling the final track. No human touches the output.
+- Takes the machine-only output as a starting point and routes it through trained experts, who review, correct, and sign off on each episode, giving us a human-verified reference at a fraction of from-scratch labeling cost.
+
+<ArticleEmbed src="./embeds/robotics-is-entering-a-phase-of-rapid-diversification-1.html" />
+
+<ArticleEmbed src="./embeds/robotics-is-entering-a-phase-of-rapid-diversification-2.html" />
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a62371d30780db1755c6893_ffdr.webp" alt="" />
+
+Human experts independently reviewed both sets of machine annotations on these videos, marking every edit needed to make the full annotation track correct. Table 1 breaks down the human corrections by category for each episode, and Figure 3 visualizes the per-episode totals. Across the five episodes, the single-pass baseline required 72 corrections over its 62 segments (1.16 edits per segment), while Flow pipeline required 24 over 29 segments (0.83), a third of the raw correction load, and 1.4x less even after normalizing for segment count. As Figure 3 shows, Flow pipeline annotations require fewer human edits on every episode. The reduction in human intervention required translates to improved throughput and reduced human quality review time overall for annotation work.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a629e16ba76a79d9b318be0_43cscs.webp" alt="" />
+
+## Conclusion
+
+Robotics applications are expanding faster than any single model, benchmark, or labeling recipe can follow, and the systems that reach production will be the ones whose data can be trusted. Production-grade robotics data means being drawn from the right distribution, annotated to the right specification, and checked for errors/noise. The micro1 Annotation Engine turns annotation into something configurable rather than fixed. Flow turns machine annotation components into powerful building blocks to empower human experts to focus on the right samples, questions, and data review tasks in order to produce high-throughput, high-quality specialized data across a range of robotics applications.
+
+Trustworthy robots start with trustworthy data. That is what we build.
+
+## References
+
+[1] Nikhila Ravi et al. SAM 2: Segment Anything in Images and Videos, 2024.
+[https://arxiv.org/abs/2408.00714](https://arxiv.org/abs/2408.00714)
+
+[2] Nils Blank et al. Scaling Robot Policy Learning via Zero-Shot Labeling with Foundation Models, 2024. [https://arxiv.org/abs/2410.17772](https://arxiv.org/abs/2410.17772)
+
+[3] Nils Blank et al. SPARC: Reliable Spatial Annotations from Robot Demonstrations at Scale, 2026.
+[https://arxiv.org/abs/2606.13497](https://arxiv.org/abs/2606.13497)
+
+[4] Francesco Ragusa et al. Ego-EXTRA: A Video-Language Egocentric Dataset for Expert-Trainee Assistance, 2025. [https://arxiv.org/abs/2512.13238](https://arxiv.org/abs/2512.13238)
+
+[5] Jiahao Wang et al. OmniCap-IF: Benchmarking and Improving Instruction Following Abilities for Omni-Video Captioning, 2026. [https://arxiv.org/abs/2606.08572](https://arxiv.org/abs/2606.08572)
+
+[6] Yifan Wang et al. Model-in-the-Loop (MILO): Accelerating Multimodal AI Data Annotation with LLMs, 2024. [https://arxiv.org/abs/2409.10702](https://arxiv.org/abs/2409.10702)
+
+[7] Xuezhi Wang et al. Self-Consistency Improves Chain of Thought Reasoning in Language Models. ICLR, 2022. [https://arxiv.org/abs/2203.11171](https://arxiv.org/abs/2203.11171)
+
+[8] Shehzaad Dhuliawala et al. Chain-of-Verification Reduces Hallucination in Large Language Models, 2023. [https://arxiv.org/abs/2309.11495](https://arxiv.org/abs/2309.11495)
+
+[9] Karl Cobbe et al. Training Verifiers to Solve Math Word Problems, 2021. [https://arxiv.org/abs/2110.14168](https://arxiv.org/abs/2110.14168)
+
+[10] Lianmin Zheng et al. Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. NeurIPS Datasets & Benchmarks, 2023. [https://arxiv.org/abs/2306.05685](https://arxiv.org/abs/2306.05685)
+
+[11] Xinru Wang et al. Human-LLM Collaborative Annotation Through Effective Verification of LLM Labels. CHI, 2024. [https://doi.org/10.1145/3613904.3641960](https://doi.org/10.1145/3613904.3641960)

@@ -1,0 +1,515 @@
+---
+title: "PII Transformation for Enterprise Datasets"
+date: "September 24, 2026"
+description: "Identity-preserving transformation and the Transformation Quality Index"
+category: "Enterprise"
+platform: ""
+paperLink: ""
+authors:
+  - name: "Aruj Mahajan"
+    role: "micro1"
+  - name: "Andrew Maas"
+    role: "micro1"
+  - name: "Yongchao Zhou"
+    role: "micro1"
+  - name: "Rajeev Joshi"
+    role: "micro1"
+heroImage: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab54b8f411538e83b82764d_Post%20(3)%20(1).jpg"
+heroImageAlt: "PII Transformation for Enterprise Datasets"
+thumbnail: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab54b8f411538e83b82764d_Post%20(3)%20(1).jpg"
+draft: false
+---
+
+import ArticleFigure from "../../components/research-detail/ArticleFigure.astro";
+import ArticleTable from "../../components/research-detail/ArticleTable.astro";
+import ArticleEmbed from "../../components/research-detail/ArticleEmbed.astro";
+
+<p class="research-detail_lead">
+
+Identity-preserving transformation and the Transformation Quality Index
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-intro-1.html" />
+
+</p>
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-1.html" />
+
+## Abstract
+
+Enterprises have data that captures decision making, communications, tools, and the execution of projects and processes. This data is valuable for training AI systems because it contains long-running workflows and relationships that are hard to find in public datasets. The challenge is that enterprise data also contains personally identifiable information (PII). Redaction and masking can reduce this risk, but they can also remove useful context and break the relationships between records.
+
+We introduce flow-transform 1.0, a framework for transforming real identities into consistent synthetic identities while preserving the information value of the dataset. The problem is broader than detecting PII. We also need to preserve semantic utility, entity consistency, file structure and coverage across the corpus.
+
+This problem deserves benchmarks that measure the final transformed dataset, not only whether a detector found individual PII spans. We therefore introduce an enterprise de-identification bench with repeated identities, hostile formatting, decoys and complete ground truth, and evaluate it using Privacy, Utility, Fidelity, Coverage, Coherence to derive a Transformation Quality Index (TQI). On this benchmark micro1’s flow-transform 1.0 improves over NVIDIA’s NeMo Anonymizer baseline, with the TQI increasing from 74.9 to 84.1 without agentic review and 88.9 with agentic review. On component level evaluations, PrivacyBench offers a useful public reference for both detection and transformation quality: flow-transform 1.0 is 96.00% F1 versus 94.5% for Tonic Textual on the same metric, and 95.46% combined transformation accuracy versus 92.0% for Tonic Textual + Opus 4.8. On Nemotron-PII, flow-transform 1.0 is 88.33% F1 versus NeMo Anonymizer 87.84%, while on AI4Privacy it is 83.74% F1 versus 73.08% for NeMo Anonymizer. However, our position is that anonymization should be treated as an end-to-end corpora transformation task, rather than a span detection task.
+
+## 1. Full-Dataset PII Transformation: Defining the Problem
+
+### **1.1 Objectives**
+
+We first state the goals of full-dataset PII transformation informally. The next section formalizes them.
+
+#### Identity protection
+
+Any protected entity that can identify a real person directly or indirectly should be transformed so that the delivered corpus no longer retains that real-world identity.
+
+#### Semantic utility preservation
+
+The transformation should preserve useful meaning and context. Non-sensitive information should remain unchanged, while replacements should fit the PII type and surrounding content.
+
+#### Cross-document/entity consistency
+
+The same source entity should map to the same synthetic identity across the corpus, while different entities should remain separate. This preserves referential integrity without keeping the original identifying values.
+
+### **1.2 Problem statement**
+
+#### **A corpus is not a set of independent files**
+
+Let the source corpus be
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-2.html" />
+
+where each xᵢ is an artifact such as a message thread, document, spreadsheet, database record, image, audio file or video. These artifacts are not independent. They are connected through recurring people, accounts, projects and relationships.
+
+Let E = \{e₁, …, eₖ\} be the set of real-world entities represented in the corpus. Each entity e has a set of observed mentions
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-3.html" />
+
+A mention can be a name, email, username, employee identifier, face, voice or another value that refers to the same entity. η(m) identifies which source entity a mention belongs to, while λ(m) identifies its PII class.
+
+The corpus also contains relationships between these entities. Let L denote the set of relationship types between entities:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-4.html" />
+
+where (eₐ, ℓ, e_b) represents a relationship such as reports-to, assigned-to or corresponded-with. The goal is to preserve the relationships that are allowed to remain after the identities themselves are changed.
+
+#### **Identity-preserving transformation**
+
+The transformation produces
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-5.html" />
+
+We separate the transformation into two steps. First, each source entity is mapped to a synthetic entity:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-6.html" />
+
+Second, that mapping is applied to each observed mention:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-7.html" />
+
+where η(m) identifies the source entity, ϕ selects its synthetic identity, and π is the mention-realization function that produces the context-appropriate transformed mention. The same identity can therefore appear as a full name, first name, email, or username depending on the original mention.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-8.html" />
+
+#### Consistency requirements
+
+Same entity: mentions that refer to the same source entity should still refer to the same synthetic entity after transformation.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-9.html" />
+
+Different entities: mentions that refer to different source entities should remain distinct after transformation.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-10.html" />
+
+Here, ϕ defines who the synthetic entity is, while π defines how that identity appears in each mention. The transformed mentions M′ are what appear in D′ and what we ultimately evaluate.
+
+For relationships that are allowed to remain, we preserve the same graph after relabeling the identities:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-11.html" />
+
+This does not mean keeping the original identifying values. It means changing who the records refer to while keeping the useful roles and links between them.
+
+The overall objective is to maximize privacy, utility, fidelity, processing coverage and identity linkage:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-12.html" />
+
+Here P is privacy protection, U is semantic utility, F is artifact fidelity, C is coverage and L is entity-linkage quality and consistency, see the five pillar section (3.2) for detailed explanation. The trade-offs depend on the deployment policy rather than being fixed for every dataset.
+
+*These equations describe the transformation goal, not measured benchmark results.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab4468bdc34e265f0005a5b_original%20(1).png" alt="" caption="We transform one real-world entity into one synthetic identity, maintaining the same mapping across all sources" />
+
+## 2. Approach
+
+### 2.1 Stages
+
+The pipeline is built around shared corpus state rather than independent per-file calls. At a high level it includes inventory and segmentation, corpus-wide detection and entity resolution, identity mapping and transformation, and final reconstruction and validation. An agentic review layer, described in Section 2.2, sits between detection and transformation to handle the cases that fixed detectors get wrong.
+
+#### 2.1.1 Segmentation and inventory
+
+We first inventory every eligible input, identify its format and modality, record the metadata needed to rebuild it, and split large artifacts into manageable segments. The inventory also becomes the denominator for Coverage, so a file that times out, is rejected or disappears cannot silently fall out of the evaluation.
+
+#### 2.1.2 Corpus sweep, detection and entity resolution
+
+Specialized detectors and models identify candidate PII. A corpus-level sweep then links aliases and contextual mentions that may belong to the same entity. Workers share a controlled identity store containing the canonical entity, known aliases, PII types, confidence and relevant context. This separates finding a sensitive value from deciding which identity it belongs to.
+
+#### 2.1.3 Identity mapping and transformation
+
+For each protected entity, we create a synthetic identity bundle rather than generating unrelated replacements field by field. A bundle can include a coherent name, email, username, employer, address and other permitted attributes. The mapping stays fixed during the run so the same source entity receives the same counterpart across workers, segments and artifacts.
+
+#### 2.1.4 Artifact reconstruction and validation
+
+Finally, transformed segments are reassembled using the metadata captured during ingestion. Format-aware checks verify that expected outputs are delivered and that important structure is preserved, such as rows and columns, sheet names, page counts, subtitle timings or archive members. This is separate from semantic correctness: a file can open successfully and still contain the wrong synthetic identity.
+
+### 2.2 Agentic support & review
+
+The stages above make a fixed set of decisions: a detector either flags a span or it does not, and a mapping either has an entry for an entity or it does not. An optional agentic support layer removes that restriction. An LLM agent examines candidates together with their surrounding context and the shared identity store, and it can make open-ended modifications to the document collection rather than choosing from a closed menu. It can confirm, reject or relabel a candidate, merge two aliases that belong to one person, split a false merge, resolve a degraded or hostilely formatted value back to its identity, and take general editing actions to detect and transform PII across the dataset.
+
+The scope and complexity of the agent have a large effect on how useful and costly this step is. A narrow agent that only adjudicates low-confidence spans behaves like a second detector with limited scope. A broader agent with access to cross-artifact context can resolve cases that no span-level model can see, but it costs more per candidate and can introduce new errors of its own, for example linking two ambiguous variants that should have stayed apart.
+
+We found in practice that focusing the agentic layer on adjudication and additional review of data to be a good trade-off that allows open-ended actions while avoiding circuitous or irrelevant work.  The main experiment runs the full pipeline with and without this layer as a control to quantify the contribution of agentic actions.
+
+### 2.3 Human annotation in practice
+
+Human expertise touches upon four points in the evaluation process. First, reviewers assist in establishing the PII taxonomy, provide canonical examples, and ground entity mappings and transformations against known references when available. Second, they perform a failure-mode analysis to identify repeated errors, such as sensitive bank information leaking throughout a specific region of an invoice. Third, they evaluate properties not amenable to deterministic rules, including contextual appropriateness, coherence, and visual fidelity. Finally, reviewed cases are fed into the development loop as training examples, rules, or regression tests for future transformations.
+
+Category errors are treated separately from transformation failures in the audit. For instance, a phone number that is correctly transformed but assigned an incorrect PII category should have the label corrected without marking the case either as exposed PII or an unnecessary transformation.
+
+Reviewers evaluate whether the transformed artifact is comprehensible and preserves the overall presentation and context of the original. While automated validation can check for file integrity, structural consistency, expected outputs, and replacement fidelity, human review is required for qualities that demand contextual articulation.
+
+In addition to individual errors, reviewers identify recurring patterns across the evaluated sample. While these patterns do not carry an additional penalty unless they manifest additional measured failures, such insights can be informative in understanding systemic weaknesses. In practice, enterprise data sets seldom contain ground truth and are too large to permit exhaustive manual review. Evaluation therefore begins from the full input inventory, from which a representative set of review units is selected. Large artifacts are segmented when needed, and sampling can be informed by considerations including source type, modality, PII density, model confidence, and known challenging cases.
+
+Reviewers compare transformed outputs to their inputs and annotate exposed PII, unnecessary transformations, incorrect labels, fragmented replacements, identity collisions, and coherence or presentation issues. Concurrently, the automated validation process checks for file integrity, structural preservation, expected output generation, and replacement consistency.
+
+Importantly, sampling is performed from the input inventory, not the successfully transformed outputs. This ensures that failed, incomplete, or missing transformations are not discarded from the measurement.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab4469bb43fd87fa466632d_input%20list%20(1).png" alt="" caption="Workflow of the evaluation framework with human review" />
+
+### 2.4 Architectural design
+
+The architecture begins with enterprise data from multiple sources, and ends with reporting and audit deliverables. Security and configuration controls are applied, sensitive information is identified and understood, and relevant entities are consistently transformed across the data set. The transformed artifacts are reconstructed, validated and quality-controlled for delivery. Supporting services such as security, metadata, identity resolution and monitoring span the entire pipeline.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab4463c8ed8b517031f7b89_connect%20data%20(1).png" alt="" caption="Privacy-preserving data transformation: a secure path from enterprise source data to useful, privacy-safe outputs." />
+
+### 2.5 Comparison with other approaches
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-13.html" />
+
+*We have not covered structural consistency here because it doesn’t apply to traditional detection methods
+
+Traditional PII systems mainly optimize removal or masking. Our task is broader: protect identities while preserving the source corpus, its relationships and its usefulness.
+
+## 3. Evaluation on a Realistic PII Transformation Task
+
+The transformation problem deserves a benchmark that measures the dataset after transformation, not only whether PII was detected. We therefore created a synthetic enterprise-style tabular benchmark - enterprise de-identification bench that tests protection of real PII, preservation of useful information and identity consistency across records. Since the NeMo Anonymizer evaluated here supports CSV and Parquet for this workflow, the common comparison is intentionally limited to structured tabular data.
+
+### 3.1 The Enterprise De-Identification Bench
+
+#### Dataset creation
+
+The dataset is generated deterministically from templates, with no LLM calls used to create the benchmark. Free-text columns are filled from fixed template pools with parameterized spans where PII is planted from static entity lists. Every planted value is recorded before any obfuscation is applied.
+
+We then add two adversarial layers. Hostile formatting changes the PII itself using typos, homoglyphs, spacing, zero-width characters and similar noise. Oddities and decoys are added separately around the planted PII to test whether a system can avoid transforming values that only look sensitive. The generator keeps a canonical entity_id so names, emails, addresses and other fields remain linked to the same underlying identity.
+
+The main purpose of the dataset is to measure referential integrity, not writing realism. The same entity_id is reused across files and hostile variants, so the scorer can check whether an anonymizer keeps those occurrences connected to one synthetic identity or fragments them when the surface text becomes messy.
+
+#### Dataset composition
+
+The dataset represents one company across HR, Finance, Technology, Logs and customers, with 600 employees and 420 customers. It is script generated using templates with planted PII. Every planted value, its PII type and its underlying identity are recorded, allowing all systems to be evaluated on exactly the same ground truth and taxonomy.
+
+We deliberately add the type of messiness we see in enterprise datasets:
+
+- : spaced numbers, spelled-out digits, OCR noise, odd separators, Unicode characters, obfuscated emails, homoglyphs, zero-width characters, line splits and Base64.
+- : values that look like PII but are not, such as part numbers shaped like SSNs, versions shaped like IP addresses, Kafka topics and feature flags.
+- : misspellings, dropped words, double spaces, missing values, null and N/A.
+- : information that may only become identifying when understood together with its surrounding context.
+
+The same employees and customers appear across multiple records. This allows us to test whether the same real identity continues to map to the same synthetic identity across the dataset.
+
+#### Systems compared
+
+We compare three systems on this benchmark: the NeMo Anonymizer as the baseline, flow-transform 1.0 without agentic review, and flow-transform 1.0 with agentic review (Section 2.2). Running flow-transform 1.0 both ways isolates what the review layer contributes. The NeMo Anonymizer was configured as its default configuration with hash mode and entity validator.
+
+### 3.2 Transformation Quality Index: Measuring End-to-End Transformation Performance
+
+We introduce an evaluation methodology to measure the full dataset transformation task. The goal is for a final enterprise dataset to be private, complete, structurally intact, coherent and useful in representing real-world company processes. Real enterprise datasets make this harder because they can be terabytes in size, contain many file types and usually do not come with complete ground truth.
+
+For real datasets, the evaluation therefore starts from the full input inventory, draws a representative review sample and gives reviewers access to both the original and transformed artifacts. Human findings from the review process described in Section 2.3 are combined with automated checks and coverage accounting.
+
+The framework is built around five questions: did we protect the real identities, preserve useful information, preserve the files and their structure, process everything we were supposed to process, and does the transformed dataset still make sense as one connected corpus?
+
+These questions map to five pillars: Privacy, Utility, Fidelity, Coverage and Coherence. Entity consistency sits inside coherence and is also reported separately when we have reliable identity ground truth.
+
+### The five pillars
+
+#### Privacy
+
+Privacy measures how much real PII remains exposed after transformation. Misses are weighted by the harm of exposure, so a missed government identifier, bank account or recognizable face carries a larger penalty than a lower-risk date or organization mentioned. It's essentially a weighted recall. If G is the reviewed set of sensitive instances and aλ(g) is the severity weight for instance g:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-14.html" />
+
+#### Utility
+
+Utility measures the harm caused by changing information that should have remained. Reviewers mark unnecessary transformations and weight them by how much useful meaning they remove. Replacing a product name throughout an invoice, for example, can be more damaging than replacing one harmless numeric token. It's essentially a weighted precision. If P is the reviewed set of transformations and bλ(p) is the utility-loss weight:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-15.html" />
+
+The privacy and Utility weights are part of the evaluation policy. They should be recorded with the result and can be adjusted to the risk profile of the dataset; they are not universal constants.
+
+#### Fidelity
+
+Fidelity asks whether each delivered artifact is still an intact, working version of the original. Depending on the format, automated checks can compare rows, columns, formulas, sheet names, page counts, subtitle timings, archive members and content outside the intended replacement regions and presentation. If dᵢ indicates that a complete output was delivered and vᵢ indicates that it passed the required integrity checks. It's essentially a structural precision.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-16.html" />
+
+#### Coverage
+
+Coverage asks whether the expected inputs were actually processed. Its denominator comes from the original input manifest, so a system cannot improve its score by silently dropping difficult files. It's essentially a structural recall.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-17.html" />
+
+#### Coherence
+
+Coherence covers whether the final corpus is internally coherent. Whether transformed artifacts still read naturally and preserve the intended presentation. A coherent collection preserves identity linkage and mentions across documents. References that belong to the same real entity should keep the same synthetic identity, while references to different entities should remain separate.
+
+We describe the two directions as Linkage Recall and Linkage Precision. Recall measures whether references to the same source entity stay together. Precision measures whether references to different source entities stay separate. We summarize both with Linkage F1:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-18.html" />
+
+A corpus can have strong identity consistency but poor presentation, or look natural while fragmenting identities across files.
+
+### Full Transformation Quality Index
+
+The five component scores and reviewer findings are the primary result. TQI is a compact summary of the overall transformation quality:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-19.html" />
+
+The geometric form means that one excellent area cannot completely hide a serious failure somewhere else. The weights *- w<sub>n</sub>*  are tuneable here according to the requirement. One should publish the five component scores, weights, sampling design, and reviewer rubric.  Small differences in TQI should not be interpreted without a sensitivity analysis.
+
+TQI is useful for comparing runs under the same policy, but the individual pillars still explain why a system scored the way it did.
+
+### How the benchmark adapts the framework
+
+The real-world framework depends on representative human review because enterprise data does not have complete labels. In the enterprise de-identification bench every planted PII value, decoy, source identity and expected output is already known, so most review decisions can be replaced with exact ground truth for a reproducible comparison.
+
+privacy uses severity-weighted planted PII instead of reviewer-discovered exposed PII. Utility uses planted non-PII and decoys instead of reviewer-marked unnecessary transformations. Fidelity uses tabular schema and content-integrity checks, while Coverage uses the generated input manifest and expected output set.
+
+The important distinction is that the real-world TQI combines human review with automated checks, while the enterprise de-identification bench uses complete planted ground truth and an automated coherence score. The same five ideas are being tested, but the evidence available in this setting is different.
+
+### 3.3 Results
+
+#### Transformation evaluation
+
+We score all three systems on the five pillars defined in Section 3.2: privacy, Utility, Fidelity, Coverage and coherence. Together they form the Transformation Quality Index (TQI). For this controlled benchmark, the pillars are scored from planted ground truth and automated checks rather than human review.
+
+For this benchmark, Fidelity and Coverage are 1.0 for all systems because all expected tabular data was processed and the structure of the output was preserved. But these may be very important metrics in complex file structure.
+
+We set the TQI eval weights to reflect an emphasis on privacy (P) with coherence (L) and utility (U) as secondary while minimizing the score contribution of coverage and fidelity (C, F) since they are fixed in this evaluation.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-20.html" />
+
+This gives a TQI score of 74.9 for NeMo Anonymizer, 84.1 for flow-transform 1.0 without the agentic layer and 88.9 for flow-transform 1.0 agentic. See Table 1 for full results.
+
+The TQI single number captures what traditional detection metrics, reported in Section 3.4, do not. We find the score differences correspond to noticeable privacy transformation quality differences. For example, the agentic layer finds more real PII, avoids more unnecessary transformations and still preserves identity linkage across the dataset, resulting in the highest overall transformation score.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-21.html" />
+
+Privacy quantifies how much of real PII is exposed, weighted by severity of miss. Utility quantifies unnecessary transformations. Fidelity quantifies if output is an intact version of input, and Coverage quantifies whether the expected dataset was actually processed.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab445f41d0abeddcb90894a_tqi%20(1).png" alt="" caption="The figure summarizes the five pillars and their reference weights. The percentages are scoring weights, not measured performance." />
+
+#### Coherence and identity consistency
+
+For this benchmark, the primary automated coherence signal is whether synthetic identities remain consistent across the data set. Per our coherence definition, this consists of replacement consistency, collisions and fragmented replacements.
+
+We combine the two directions of linkage into Linkage F1:
+
+- : did references belonging to the same identity stay together?
+- : did references belonging to different identities stay separate?
+
+This gives us:
+
+- 0.947
+- 0.977
+- 0.974
+
+The slight drop from flow-transform 1.0  without the agentic layer to agentic comes from resolving more challenging examples.
+
+For reference:
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-22.html" />
+
+We can resolve many of these degraded forms back to the same identity, but Ms and Mx can both finally collapse to M. At this point we don’t have enough information to differentiate, so linking M. would create a collision, or not linking it would fragment the identity.
+
+The agentic system attempts to resolve more of these challenging cases, bumping linkage substantially but also introducing a few additional collisions. 2355 out of 730034 resolved occurrences are collision affected in the agentic run, which means 99.68% remain collision-free.
+
+This is why we’re using Linkage F1 instead of just looking at collisions. We correctly link far more of these trouble cases than we collide, and both sides of that trade-off should be measured.
+
+### 3.4 Additional measures and controls
+
+#### Traditional detection metrics
+
+We also evaluate all three systems using standard Precision, Recall and F1, so the benchmark can be read alongside conventional PII evaluation.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-23.html" />
+
+flow-transform 1.0 without agentic review boosts F1 from 0.678 to 0.758. Adding an agentic review increases it further to 0.829.
+
+More importantly, the recall increases from 0.743 to 0.892, and the precision also improves from 0.624 to 0.775, which means that the extra recall is not coming from simply finding everything.
+
+#### Decoys
+
+We separately measure how often each system transforms the planted decoys. Lower is better here, because these values are not PII.
+
+- : 72.3%
+- : 65.2%
+- : 40.0%
+
+The agentic review reduces the decoy transformation rate substantially while also increasing recall. It’s important because a system could, otherwise, improve privacy by transforming everything that looks sensitive, which would reduce Utility.
+
+## 4. Component Evaluation on Existing Public Benchmarks
+
+The enterprise benchmark in Section 3 evaluates the whole transformation. The benchmarks in this section evaluate one component of it, the PII detector, under the standard span-level metrics used in prior work. They establish that the detector underneath the system is competitive on its own terms, and they place flow-transform 1.0 next to existing systems on data we did not create.
+
+### 4.1 Tonic PrivacyBench
+
+#### The dataset
+
+PrivacyBench is Tonic.ai’s benchmark of PII de-identification on unstructured text. It consists of 21 fully synthetic Slack/email exports each centered around a fictional protagonist in a different industry. There are 17,917 messages in total, with each export averaging 25,000 words and 24 characters. There are five entity types covered: given name, family name, email, username and organization. Names are split into separate given name and family name spans. There are two different ground truths.
+
+The generated gold covers all 21 datasets and is generated from original characters and employers which were used to generate the data. It isn’t exhaustive, so precision measurement is not done against it.
+
+The human-annotated gold covers 6 datasets of 21, with 5,198 messages and 8,805 annotated spans. It is exhaustive, so we measure both precision and recall against it. We compare two different capabilities here, pure detection capabilities and full transformation capabilities.
+
+#### Detection evaluation metrics
+
+We evaluate our model using overlap scoring and exact-match scores. Overlap scoring simply measures whether the model finds the correct PII, while exact matching is more strict and requires that the model identifies the exact span of the PII. We report the Precision, Recall and F1 for both.
+
+#### Results
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-24.html" />
+
+The important result is not only the higher F1, but where the improvement comes from. We compare flow-transform 1.0 against three different approaches to PII detection: Tonic Textual, a purpose built PII detection system, general-purpose LLMs used directly for NER, including Opus 4.8, Sonnet 4.6 and Haiku 4.5 and traditional/open-source NER approaches, represented here by Presidio and GLiNER2. This gives us a comparison across specialized systems, frontier LLMs and more conventional entity detection models.
+
+Across these approaches, there is a clear precision-recall tradeoff. Some models are very precise but conservative. Haiku 4.5, for example, reaches 97.6% precision but only 79.9% recall, while Sonnet 4.6 reaches 97.0% precision and 85.0% recall. For PII transformation this is an important limitation because a model can look very accurate when it makes a prediction while still leaving a meaningful amount of PII undetected.
+
+flow-transform 1.0 maintains 96.95% precision while reaching 95.07% recall, compared with 96.5% precision and 92.6% recall for Tonic Textual. This gives flow-transform 1.0 an F1 of 96.00%, compared with 94.5% for Tonic Textual and below 92% for the other approaches evaluated. The same pattern holds under the stricter exact-match evaluation, where flow-transform 1.0 reaches 93.40% F1. The main improvement therefore comes from finding more of the PII without increasing false positives, which is the balance we care about for safe transformation.
+
+#### Transformation evaluation metrics
+
+Detection recall evaluates how much of the ground-truth PII was detected, according to matching spans and correct labels. The detection of a span of text under an incorrect PII label is considered a false positive (recall measures only positive instances).
+
+Synthesis accuracy measures whether the generated entities are coherent with the same synthetic identity.
+
+For example, if the entities are a person’s name, email, employer, and username, they should all have been replaced by the same fake identity in the output, and not different, unrelated ones. Claude Opus evaluates this on a character-by-character basis.
+
+Combined accuracy multiplies detection recall and synthesis accuracy. The reason that combined accuracy is important is that, without it, synthesis accuracy could be artificially inflated by transforming fewer entities and thus having less to go wrong.
+
+#### Full transformation results
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-25.html" />
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6ab52911749190fc469d6d2e_1%20(4)%20(1).png" alt="" />
+
+On this benchmark, flow-transform 1.0 achieves 97.13% recall, 96.00% human F1, 98.28% synthesis accuracy and 95.46% combined accuracy for comparison with 95.0%, 94.5%, 97.0% and 92.0% respectively for Tonic Textual + Opus 4.8. The combined score is particularly helpful because it takes into account both the recall of the PII and the transformation of it into coherent form. A system cannot achieve a high final score just by transforming fewer entities and doing so well.
+
+### 4.2 NVIDIA GLiNER-PII: Nemotron-PII and AI4Privacy
+
+#### Datasets
+
+NVIDIA Nemotron-PII — synthetic PII dataset from NVIDIA with 100,000 English records spanning across 50+ industries and more than 55 PII/PHI categories. It is officially listed as the training data for NVIDIA’s PII model. We evaluate on a fresh sample of 500 documents from the test split.
+
+AI4Privacy Open PII Masking 500k — a third-party PII dataset that is also listed as the training data for NVIDIA’s PII model. We use a fresh sample of 500 English records from the validation split.
+
+#### Evaluation metrics and results
+
+This benchmark reports Precision, Recall and F1 using strict exact-span matching. Precision reflects the ratio of identified tokens that are actually PII. Recall reflects the ratio of actual PII tokens that are identified. F1 summarizes the two. Exact-span matching makes it harder to get true positives since detecting a span of text as an entity counts only if the predicted span matches exactly the actual span in the text.
+
+<ArticleEmbed src="./embeds/pii-transformation-for-enterprise-datasets-26.html" />
+
+On Nemotron (NVIDIA’s own dataset, included as part of the training data), the results are relatively close. flow-transform 1.0  precision is slightly better at 83.64% compared to NeMo Anonymizer  82.92%, and flow-transform 1.0  recall is slightly higher at 93.59% versus 93.38%. This gives us an F1 of 88.33% compared to NeMo Anonymizer  87.84%.
+
+The results on the other dataset, AI4Privacy, demonstrate a more substantial difference. flow-transform 1.0  precision is 83.25%, and flow-transform 1.0  recall is 84.25%, compared to NeMo Anonymizer 70.28% and 76.11%. Thus flow-transform 1.0 achieves an F1-score of 83.74% compared to NeMo Anonymizer 73.08%. The reason for this discrepancy is not that we are being more “aggressive” in our identification of PII. flow-transform 1.0  is actually producing fewer false positives than NeMo Anonymizer. At the same time, flow-transform 1.0 is correctly detecting more PII entries than NeMo Anonymizer.
+
+### 4.3 Benchmarks interpretation
+
+The enterprise de-identification bench is the main benchmark for this work because it tests the problem we actually want to solve: whether the final dataset is safe, useful and still connected after transformation. The public benchmarks are supporting tests. They tell us whether the underlying detector is also strong under standard Precision, Recall and F1.
+
+On the enterprise de-identification bench, F1 improves from 0.678 for NeMo Anonymizer  to 0.758 for flow-transform 1.0 without agentic review and 0.829 with agentic review. But the more important result is what happens to the transformed dataset. Privacy improves from 0.703 to 0.835 and 0.902, Utility from 0.632 to 0.726 and 0.788, and TQI from 74.9 to 84.1 and 88.9. The decoy transformation rate also drops from 72.3% to 65.2% and then 40.0%, so the higher recall is not coming from simply transforming everything that looks sensitive.
+
+coherence stays high across all three systems: 0.947 for NeMo Anonymizer, 0.977 for flow-transform 1.0 without agentic review and 0.974 with agentic review. The small drop after adding the agentic layer is a real tradeoff. The reviewer resolves more difficult and degraded identity variants, which improves privacy and recall, but some values become genuinely ambiguous and can create extra collisions. We report that rather than hiding it because identity consistency is part of the transformation problem.
+
+The public benchmarks then give us an independent check on the detector. flow-transform 1.0 reaches 96.00% F1 and 93.40% exact-match F1 on PrivacyBench. On Nemotron the results are close to NeMo Anonymizer while on AI4Privacy flow-transform 1.0 reaches 83.74% F1 compared with NeMo Anonymizer 73.08%. These results support the same picture from a different direction: the detector is strong, but detector accuracy alone is not the final goal.
+
+#### What the experiments establish
+
+The experiments show three things. First, we can improve recall without simply increasing false positives, which is also visible in the lower decoy transformation rate. Second, identity linkage can be measured separately from detection, so a system cannot look good by detecting PII while scattering one person across several synthetic identities. Third, the agentic review layer adds value beyond the base detector by improving privacy, Utility and F1 while keeping a high linkage score.
+
+The bigger point is that transformation needs to be evaluated as a corpus problem. Strong detection is necessary, but the delivered dataset also needs consistent identities, preserved structure, full processing coverage and human review for failures that cannot be reduced to a span label.
+
+#### Limits of the evidence
+
+The enterprise de-identification bench is still synthetic, structured and limited to tabular data as we wanted a fair comparison. That is what gives us complete ground truth, but it also means Fidelity and Coverage are 1.0 for all systems and the benchmark cannot test audio quality or reconstruction of complex files. The TQI values also use the reference weights defined in this paper, so the five component scores should always be read alongside the final index.
+
+Real enterprise data is the better test of the full problem, but it usually cannot be released because it contains the PII we are trying to transform. In practice we therefore need both: reproducible synthetic benchmarks that can be shared publicly, and controlled evaluations on real  data using representative human review.
+
+## 5. Conclusion
+
+PII transformation should be treated as a corpus problem, not as a sequence of independent detection calls. The goal is to create a private counterpart of an enterprise dataset where protected identities change, useful relationships remain, unnecessary enterprise transformations are minimized, files remain usable and every expected input is accounted for.
+
+The enterprise de-identification bench is our main controlled test of this idea. flow-transform 1.0 with agentic review reaches 0.829 detection F1 and a TQI of 88.9, compared with 0.678 F1 and 74.9 TQI for the NeMo Anonymizer  baseline. flow-transform 1.0  without agentic review reaches 0.758 F1 and 84.1 TQI, which also helps isolate what the review layer contributes.
+
+The public benchmarks are supporting evidence that the detector underneath the system is also strong under conventional PII evaluation. But the broader result is about evaluation itself: Precision, Recall and F1 tell us whether PII was found; they do not tell us whether the dataset we deliver is private, coherent and still useful.
+
+There are still important gaps, especially around complex formats, multimodal transformation, artifact recreation and ambiguous identity linkage. The longer-term goal is to make this transformation layer part of the enterprise data pipeline itself: raw enterprise data comes in, and training-ready data comes out with identities changed while the useful structure, context and relationships are preserved.
+
+### 5.1 Current gaps
+
+Some complex formats are still difficult to transform reliably. Photoshop, Figma and other layered or binary application files require us to understand the structure of the artifact, not only find the PII inside it. We also need to continue improving the tradeoff between consistency and collisions as the number of aliases and ambiguous references grows across a corpus.
+
+The media introduces another set of technical and ethical problems. Faces can be detected and removed from images or video, but replacing them changes the generative status of the content. Audio can use a synthetic voice, but reproducing the exact characteristics of the original speaker would move toward voice cloning. These cases need different policies from text or tabular data.
+
+We also want to improve artifact recreation for formats we already support so that the transformed file stays as close as possible to the original layout, design and behavior.
+
+### 5.2 What’s next
+
+The next step is to expand the enterprise de-identification beyond tabular data into more file types, modalities, PII densities and identity patterns. We want more benchmark cases where the same identity appears across several artifacts, because this is where corpus-level transformation becomes meaningfully different from ordinary PII detection.
+
+Where possible, we also want to release the benchmark generator and scoring code so that the transformation task can be reproduced independently. Automated scores should then be checked against blinded human review on real enterprise artifacts.
+
+A final downstream test is also important: compare models trained on the original corpus, redacted data, independently generated synthetic data and identity-preserving transformed data. That would test the central utility claim directly: whether preserving relationships and context actually produces better training data while removing the connection to real-world identities.
+
+## 6. About micro1
+
+micro1 is a data research lab that combines domain-matched human experts with AI-powered tools to create, enrich, and review data for AI systems. Because of the scale and complexity of micro1 datasets, we are in a unique position to work on the problem of PII transformation. We work directly with enterprises to acquire and structure large-scale datasets for model training. This means that we do not look at the problem of privacy as an isolated PII detection task. We look at the data as it comes from enterprises like slack and email exports, documents, databases, spreadsheets, images, audio, video and many other internal systems, often connected to each other, and how this data is used in the context of developing frontier AI systems.
+
+micro1 has developed data ingestion and processing pipelines as well as annotation and evaluation processes with granular data security and access controls. PII transformation fits with the tools and processes we apply to many frontier AI dataset projects. For PII transformation, we ingest raw enterprise data, break it down into workable units, transform it, reconstruct the artifacts and run human and automated evaluations before the dataset is ready for further use. This is quite different from building a PII model in isolation. Particular detection and transformation models are just one part of the whole system needed to transform terabytes of messy enterprise data reliably, and we regularly update our transformation workflows as components improve.
+
+## References
+
+[1] AI4Privacy. PII Masking 500k dataset card. Hugging Face dataset card, 2023. URL. [https://huggingface.co/datasets/ai4privacy/open-pii-masking-500k-ai4privacy](https://huggingface.co/datasets/ai4privacy/open-pii-masking-500k-ai4privacy) Accessed 19 September 2026.
+
+[2] Nicholas Carlini, Daphne Ippolito, Matthew Jagielski, Katherine Lee, Florian Tramèr, and Chiyuan Zhang. Quantifying memorization across neural language models. In *International Conference on Learning Representations*, 2023. URL [https://arxiv.org/abs/2202.07646](https://arxiv.org/abs/2202.07646).
+
+[3] Cynthia Dwork. Differential privacy. In *Automata, Languages and Programming*, volume 4052 of *Lecture Notes in Computer Science*, pages 1–12. Springer, 2006. doi: 10.1007/11787006_1.
+
+[4] Jie Huang, Hanyin Shao, and Kevin Chen-Chuan Chang. Are large pre-trained language models leaking your personal information? In *Findings of the Association for Computational Linguistics: EMNLP 2022*, pages 2038–2047. Association for Computational Linguistics, 2022. doi: 10.18653/v1/2022.findings-emnlp.148. URL [https://aclanthology.org/2022.findings-emnlp.148/](https://aclanthology.org/2022.findings-emnlp.148/).
+
+[5] Nils Lukas, Ahmed Salem, Robert Sim, Shruti Tople, Lukas Wutschitz, and Santiago Zanella Béguelin. Analyzing leakage of personally identifiable information in language models. In *2023 IEEE Symposium on Security and Privacy*, pages 346–363. IEEE, 2023. doi: 10.1109/SP46215.2023.10179300.
+
+[6] Xiaoqiang Luo. On coreference resolution performance metrics. In *Proceedings of Human Language Technology Conference and Conference on Empirical Methods in Natural Language Processing*, pages 25–32. Association for Computational Linguistics, 2005. doi: 10.3115/1220575.1220579. URL [https://aclanthology.org/H05-1004/](https://aclanthology.org/H05-1004/).
+
+[7] Ashwin Machanavajjhala, Daniel Kifer, Johannes Gehrke, and Muthuramakrishnan Venkitasubramaniam. *ℓ*-diversity: Privacy beyond *k*-anonymity. *ACM Transactions on Knowledge Discovery from Data*, 1(1), 2007. doi: 10.1145/1217299.1217302.
+
+[8] Microsoft. Presidio: Context-aware, pluggable and customizable data protection and de identification sdk. Software documentation, 2026. URL [https://microsoft.github.io/presidio/](https://microsoft.github.io/presidio/). Accessed 19 September 2026.
+
+[9] NVIDIA. GLiNER-PII model card. Hugging Face model card, 2025. URL [https://huggingface.co/nvidia/gliner-pii](https://huggingface.co/nvidia/gliner-pii). Accessed 19 September 2026.
+
+[10] Noseong Park, Mahmoud Mohammadi, Kshitij Gorde, Sushil Jajodia, Hongkyu Park, and Youngmin Kim. Data synthesis based on generative adversarial networks. *Proceedings of the VLDB Endowment*, 11(10):1071–1083, 2018. doi: 10.14778/3231751.3231757.
+
+[11] Ildikó Pilán, Pierre Lison, Lilja Øvrelid, Anthi Papadopoulou, David Sánchez, and Montserrat Batet. The text anonymization benchmark (TAB): A dedicated corpus and evaluation framework for text anonymization. *Computational Linguistics*, 48(4):1053–1101, 2022. doi: 10.1162/coli_a_00458.
+
+[12] Luc Rocher, Julien M. Hendrickx, and Yves-Alexandre de Montjoye. Estimating the success of re-identifications in incomplete datasets using generative models. *Nature Communications*, 10:3069, 2019. doi: 10.1038/s41467-019-10933-3.
+
+[13] Pierangela Samarati. Protecting respondents’ identities in microdata release. *IEEE Transactions on Knowledge and Data Engineering*, 13(6):1010–1027, 2001. doi: 10.1109/69.971193.
+
+[14] Theresa Stadler, Bristena Oprisanu, and Carmela Troncoso. Synthetic data—anonymisation groundhog day. In *31st USENIX Security Symposium (USENIX Security 22)*, pages 1451–1468. USENIX Association, 2022. URL [https://www.usenix.org/conference/usenixsecurity22/presentation/stadler](https://www.usenix.org/conference/usenixsecurity22/presentation/stadler).
+
+[15] Amber Stubbs, Christopher Kotfila, and Özlem Uzuner. Automated systems for the de identification of longitudinal clinical narratives: Overview of 2014 i2b2/UTHealth shared task track 1. *Journal of Biomedical Informatics*, 58:S11–S19, 2015. doi: 10.1016/j.jbi.2015.06.007.
+
+[16] Xavier Tannier, Perceval Wajsbürt, Alice Calliger, Basile Dura, Alexandre Mouchet, Martin Hilka, and Romain Bey. Development and validation of a natural language processing algorithm to pseudonymize documents in the context of a clinical data warehouse. *Methods of Information in Medicine*, 2024. doi: 10.1055/s-0044-1778693.
+
+[17] Tonic.ai. Privacybench dataset card. Hugging Face dataset card, 2026. URL [https://huggingface.co/datasets/TonicAI/Privacy-Bench](https://huggingface.co/datasets/TonicAI/Privacy-Bench). Accessed 19 September 2026.
+
+[18] Lei Xu, Maria Skoularidou, Alfredo Cuesta-Infante, and Kalyan Veeramachaneni. Modeling tabular data using conditional GAN. In *Advances in Neural Information Processing Systems*, volume 32, 2019. URL [https://papers.nips.cc/paper/8953-modeling-tabular-data-using-conditional-gan](https://papers.nips.cc/paper/8953-modeling-tabular-data-using-conditional-gan).
+
+[19] Urchade Zaratiana, Nadi Tomeh, Pierre Holat, and Thierry Charnois. GLiNER: Generalist model for named entity recognition using bidirectional transformer. In *Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies*, pages 5364–5376. Association for Computational Linguistics, 2024. doi: 10.18653/v1/2024.naacl-long.300.

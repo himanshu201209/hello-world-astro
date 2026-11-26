@@ -1,0 +1,43 @@
+---
+title: "Zara: An LLM-based Candidate Interview Feedback System"
+date: "April 1, 2025"
+description: "Zara converts a recruiter bottleneck into an automated value‑add for applicants. High satisfaction scores rose in tandem with objective quality metrics, indicating that a supportive recruitment pipeline, along with richer, clearer questioning feels better to candidates."
+category: "Agents"
+platform: "Arxiv"
+paperLink: "https://arxiv.org/abs/2507.02869"
+authors:
+  - name: "micro1"
+    role: "Research"
+heroImage: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a268a79b9176595d190e2f3_rectangle_828775%20(16).webp"
+heroImageAlt: "Zara: An LLM-based Candidate Interview Feedback System"
+thumbnail: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a268a79b9176595d190e2f3_rectangle_828775%20(16).webp"
+draft: false
+---
+
+import ArticleFigure from "../../components/research-detail/ArticleFigure.astro";
+import ArticleTable from "../../components/research-detail/ArticleTable.astro";
+import ArticleEmbed from "../../components/research-detail/ArticleEmbed.astro";
+import ArticleCallout from "../../components/research-detail/ArticleCallout.astro";
+
+Traditionally, recruiters have struggled to deliver individualized candidate feedback due to logistical and legal constraints, resulting in widespread candidate dissatisfaction. Zara is micro1’s AI‑recruiter with candidate‑support that pairs GPT‑4o with retrieval‑augmented generation to deliver fully personalised practice interviews, generate tailored skill profiles, provide detailed strengths‑and‑gaps reports to every rejected applicant, along with conducting fully dynamic interviews for any skill at any level. Deployed natively inside micro1’s hiring platform, Zara attacks the single biggest pain‑point in recruiting, lack of post-interview actionable feedback, without adding manual recruiter load.
+
+## Design and workflow
+
+The system runs in four phases. Candidates first take a role‑specific mock interview generated on the fly; they then have a 20‑40 minute AI‑led interview whose questioning branches in real time. Immediately afterwards Zara creates a structured skills report (technical + CEFR‑style soft‑skill rubric) and offers follow‑up feedback at the candidates request. Finally, any email query is routed through a vector‑search FAQ and answered by GPT‑4o; low‑confidence matches escalate to humans. The entire stack is exposed through modular APIs, with recruiters seeing only the finished artefacts: scores, transcript, the video recording, and the tailored interview feedback.
+
+## Operational results (three‑day production window)
+
+- Volume handled: 4,820 interviews, of which 10.7 % requested a full feedback letter.
+- Query automation: 75 % of all candidate emails were resolved end‑to‑end without any human in the loop.
+- Candidate sentiment: Net‑Promoter‑style Experience Rating averaged 4.37 / 5.
+
+## What the numbers mean
+
+Zara converts a recruiter bottleneck into an automated value‑add for applicants. High satisfaction scores rose in tandem with objective quality metrics, indicating that a supportive recruitment pipeline, along with richer, clearer questioning feels better to candidates. By closing 75 % of inbound emails and building rich candidate profiles, the agent frees human staff for judgement calls instead of inbox triage.
+
+
+<ArticleCallout title="Read the paper">
+
+[Arxiv](https://arxiv.org/abs/2507.02869)
+
+</ArticleCallout>

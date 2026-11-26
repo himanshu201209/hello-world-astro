@@ -1,0 +1,15 @@
+---
+interface Props {
+  title?: string;
+  tone?: "default" | "muted";
+}
+
+const { title, tone = "default" } = Astro.props;
+---
+
+<aside class:list={["research-detail_callout", `is-${tone}`]}>
+  {title ? <p class="research-detail_callout-title">{title}</p> : null}
+  <div class="research-detail_callout-body">
+    <slot />
+  </div>
+</aside>

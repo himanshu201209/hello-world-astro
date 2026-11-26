@@ -1,0 +1,37 @@
+---
+title: "Evaluating Speech-to-Text × LLM × Text-to-Speech Combinations for AI Interview Systems"
+date: "July 29, 2025"
+description: "We analyse four live speech‑to‑text × large‑language‑model × text‑to‑speech stacks that drive micro1’s voice interviewer, using a corpus of more than 300 000 job‑interview transcripts spanning eleven languages and lasting twenty to thirty minutes each."
+category: "Multi-model"
+platform: "Arxiv"
+paperLink: "https://arxiv.org/abs/2507.16835"
+authors:
+  - name: "micro1"
+    role: "Research"
+heroImage: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a268b0b3a1922e703013eeb_rectangle_828775%20(21).webp"
+heroImageAlt: "Evaluating Speech-to-Text × LLM × Text-to-Speech Combinations for AI Interview Systems"
+thumbnail: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a268b0b3a1922e703013eeb_rectangle_828775%20(21).webp"
+draft: true
+---
+
+import ArticleFigure from "../../components/research-detail/ArticleFigure.astro";
+import ArticleTable from "../../components/research-detail/ArticleTable.astro";
+import ArticleEmbed from "../../components/research-detail/ArticleEmbed.astro";
+import ArticleCallout from "../../components/research-detail/ArticleCallout.astro";
+
+We analyse four live speech‑to‑text × large‑language‑model × text‑to‑speech stacks that drive micro1’s voice interviewer, using a corpus of more than 300 000 job‑interview transcripts spanning eleven languages and lasting twenty to thirty minutes each. The experiment isolates component effects by holding the OpenAI TTS layer fixed while swapping the speech engine and the LLM. Google’s streaming STT paired with GPT‑4.1 supplied 5 000 interviews, whereas Google + GPT‑4o, Whisper 3 + GPT‑4o and Whisper 3 + Grok‑2 contributed 500 interviews apiece.
+
+Across this traffic Zara delivered markedly different conversations that are plotted below. The Google + GPT‑4.1 configuration produced a mean conversational‑quality score of 8.70 and a technical-question‑quality score of 8.69 on a ten‑point scale, edging Google + GPT‑4o (8.64 and 8.63) and leaving Whisper‑based stacks in the low‑eights. Because conversational and technical scores track assessment accuracy closely (correlations around 0.70), the best stack also generated the sharpest skill judgements. Yet experience ratings barely moved: candidates awarded every configuration between 4.32 and 4.44 stars, and the correlation between quality metrics and satisfaction never rose above 0.08.
+
+<ArticleFigure src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1242/6a268b1617a2bfa17b3ded49_68b095121300aebde21abcbf_Frame%25201538233473%2520(12).webp" alt="" />
+
+That disconnect echoes a central insight of the paper: Human-LLM voice interaction depends on far more than raw transcription fidelity or prompt logic. Though conversational dynamics and technical question quality are key, the expectation setting, response timing, voice timbre and the stakes of the conversation all modulate how users feel about the exchange. In practical terms, upgrading from Whisper to Google STT and from GPT‑4o to GPT‑4.1 materially improves dialogue clarity, flow and diagnostic power without harming perceived experience—but pushing satisfaction higher will require design choices that go beyond model selection.
+
+Component choice therefore matters. Speech recognition remains the bottleneck in cascaded voice agents, and a modest uplift in the LLM layer still yields measurable gains once that bottleneck is relieved. At the same time, the weak link between objective scores and user sentiment warns practitioners that optimising isolated technical metrics may deliver diminishing returns unless the full interaction stack is tuned with the human listener in mind.
+
+
+<ArticleCallout title="Read the paper">
+
+[Arxiv](https://arxiv.org/abs/2507.16835)
+
+</ArticleCallout>

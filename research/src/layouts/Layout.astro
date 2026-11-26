@@ -20,8 +20,15 @@ const { title = "Research papers | micro1" } = Astro.props;
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline>
+      document.documentElement.classList.add("js-reveal");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-reduced-motion");
+      }
+    </script>
   </head>
   <body>
     <slot />
   </body>
 </html>
+

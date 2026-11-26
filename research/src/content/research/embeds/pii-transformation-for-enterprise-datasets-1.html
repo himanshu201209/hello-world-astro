@@ -1,0 +1,196 @@
+<div data-rt-embed-type="true"><style>
+
+.rb {
+  --rb-bg: #121212;
+  --rb-white-90: rgba(255, 255, 255, 0.9);
+  --rb-white-80: rgba(255, 255, 255, 0.8);
+  --rb-white-60: rgba(255, 255, 255, 0.6);
+  --rb-white-6: rgba(255, 255, 255, 0.06);
+  --rb-header-bg: rgba(255, 255, 255, 0.06);
+  --rb-cell-bg: transparent;
+  --rb-accent: #4a6cf7;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: min(53.5rem, 100%);
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+  color: var(--rb-white-80);
+  font-family: "Outfit", sans-serif;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.rb *,
+.rb *::before,
+.rb *::after {
+  box-sizing: border-box;
+}
+
+.rb__title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--rb-accent);
+  letter-spacing: -0.02em;
+}
+
+.rb-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+}
+
+.rb-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.rb-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rb-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.rb table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 36rem;
+  font-size: 14px;
+  letter-spacing: -0.14px;
+  background: transparent;
+}
+
+.rb th,
+.rb td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--rb-white-6);
+  font-weight: 400;
+}
+
+.rb th {
+  background: var(--rb-header-bg);
+  color: var(--rb-white-80);
+  font-weight: 400;
+}
+
+.rb td {
+  background: var(--rb-cell-bg);
+  color: var(--rb-white-60);
+}
+
+.rb td:first-child {
+  color: var(--rb-white-80);
+  white-space: nowrap;
+}
+
+.rb td.num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.rb + .rb {
+  margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+
+  .rb::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2.5rem;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(18, 18, 18, 0), var(--rb-bg));
+  }
+
+  .rb td:first-child {
+    white-space: normal;
+  }
+}
+</style>
+
+
+<style id="meq-shared">
+  @import url("https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap");
+
+  .meq {
+    --meq-bg: rgba(255, 255, 255, 0.04);
+    --meq-text: rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 1rem;
+  }
+
+  .meq *,
+  .meq *::before,
+  .meq *::after {
+    box-sizing: border-box;
+  }
+
+  .meq__frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+    background: var(--meq-bg);
+  }
+
+  .meq__eq {
+    margin: 0;
+    font-family: "STIX Two Math", "Times New Roman", Times, serif;
+    font-size: 19px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.35;
+    color: var(--meq-text);
+    text-align: center;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    margin-bottom: 0 !important;
+  }
+
+  .meq__eq sub {
+    font-size: 0.65em;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.3em;
+  }
+
+  .meq__eq sup {
+    font-size: 0.65em;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.55em;
+  }
+
+  .meq__gap {
+    white-space: pre;
+  }
+
+  @media (max-width: 480px) {
+    .meq__eq {
+      font-size: 16px;
+    }
+
+    .meq__eq .meq__gap {
+      display: inline-block;
+      width: 0.5em;
+    }
+  }
+</style></div>

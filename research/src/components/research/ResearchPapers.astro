@@ -15,7 +15,7 @@ import PaperCard from "./PaperCard.astro";
 >
   <div class="padding-global">
     <div class="container-research">
-      <div class="research-papers_header">
+      <div class="research-papers_header" data-reveal>
         <h2 id="research-papers-title" class="heading-research">research papers</h2>
         <div class="research-papers_filters" role="tablist" aria-label="Paper categories">
           {
@@ -37,7 +37,7 @@ import PaperCard from "./PaperCard.astro";
         </div>
       </div>
 
-      <div class="research-papers_list-wrap">
+      <div class="research-papers_list-wrap" data-reveal>
         <div class="research-papers_list" data-papers-list>
           {
             researchPapers.map((paper, index) => (
@@ -45,6 +45,9 @@ import PaperCard from "./PaperCard.astro";
             ))
           }
         </div>
+        <p class="research-papers_empty" data-papers-empty hidden>
+          No research paper match your filter.
+        </p>
         <img
           class="research-papers_fade"
           src={asset("/research/papers-fade.png")}
@@ -54,7 +57,7 @@ import PaperCard from "./PaperCard.astro";
         />
       </div>
 
-      <div class="research-papers_actions">
+      <div class="research-papers_actions" data-reveal>
         <button
           type="button"
           class="button-research is-primary"

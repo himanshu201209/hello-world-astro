@@ -1,0 +1,547 @@
+<div data-rt-embed-type="true">
+<div id="flow-examples-widget">
+<div class="page">
+  <article class="example-card" id="example-card" aria-live="polite">
+    <div class="example-top">
+      <div class="video-pane" id="video-pane" role="button" tabindex="0" aria-label="Play example video">
+        <img class="thumb" id="video-thumb" src="assets/thumb.jpg" alt="">
+        <div class="dim" aria-hidden="true"></div>
+        <button type="button" class="play" id="play-btn" aria-label="Play video">
+          <img src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293d725ff6bc11487bcd1_play-btn.svg" alt="">
+        </button>
+        <div id="video-embed" hidden></div>
+      </div>
+
+      <div class="example-meta">
+        <div class="meta-top">
+          <div class="title-row">
+            <h1 class="example-title" id="example-title">Example task 1</h1>
+            <div class="slider-nav" role="group" aria-label="Example navigation">
+              <button type="button" class="nav-btn prev" id="prev-btn" aria-label="Previous example">
+                <img src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293d73ed79b159114288b_caret-left.svg" alt="">
+              </button>
+              <button type="button" class="nav-btn next" id="next-btn" aria-label="Next example">
+                <img src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293d73ed79b159114288b_caret-left.svg" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="duration-row">
+            <span class="duration-label">Duration:</span>
+            <span class="duration-pill" id="example-duration">30s</span>
+          </div>
+        </div>
+        <p class="example-desc" id="example-desc"></p>
+      </div>
+    </div>
+
+    <div class="flows" id="flows"></div>
+    <p class="sr-only" id="slide-status" aria-live="polite"></p>
+  </article>
+</div>
+</div>
+<script>
+(function(){
+
+/* Generated from Robotics Blog samples JSON + summary_captions_and_source.txt */
+const EXAMPLES = [
+{
+    title: "Example task 1",
+    taskName: "M1 robotics task 900007",
+    videoFile: "Small Device Repair.mp4",
+    duration: "30s",
+    description: "Overhead view of a cluttered electronics repair bench against a bright green padded backing. A person holds a disassembled smartphone steady with the left hand while the right hand uses a green screwdriver to pick up small screws and drive them into the phone body, repeating the pick-position-tighten cycle across several screws.",
+    thumb: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293a780b5e24799847c86_01.jpg",
+    vimeo: "https://player.vimeo.com/video/1212364990?autoplay=1",
+    flows: [
+      {
+        title: "Human + Machine Flow Annotations",
+        summary: "A person uses a green screwdriver to load and tighten screws onto a disassembled smartphone on a workbench, with the left hand steadying the phone and repositioning screws on the screwdriver tip.",
+        objects: ["disassembled smartphone", "smartphone cover", "green screwdriver", "workbench"],
+        actions: [
+          { ts: "00:00.000 – 00:02.467", cap: "The left hand touches the edge of the disassembled smartphone on the workbench while the right hand picks up the green screwdriver." },
+          { ts: "00:02.467 – 00:03.867", cap: "The left hand continues touching the edge of the disassembled smartphone on the workbench while the right hand picks up a screw kept on the disassembled smartphone with the tip of the green screwdriver and positions the screw near the left hand." },
+          { ts: "00:03.867 – 00:05.800", cap: "The left hand positions the screw properly on the tip of the green screwdriver held by the right hand." },
+          { ts: "00:05.800 – 00:06.689", cap: "The left hand holds the disassembled smartphone while the right hand positions the green screwdriver with the screw at its tip on the disassembled smartphone." },
+          { ts: "00:06.689 – 00:09.667", cap: "The right hand brings the green screwdriver with the screw at its tip toward the left hand, and the left hand repositions the screw on the tip of the green screwdriver." },
+          { ts: "00:09.667 – 00:15.367", cap: "The right hand brings the green screwdriver back to the disassembled smartphone and turns the screw to tighten it while the left hand holds the disassembled smartphone securely." },
+          { ts: "00:15.367 – 00:16.400", cap: "The left hand rests on the disassembled smartphone while the right hand picks up a screw kept on the smartphone cover on the right and positions the tip of the green screwdriver toward the left hand." },
+          { ts: "00:16.400 – 00:19.033", cap: "The left hand rests on the disassembled smartphone while the right hand picks up a screw kept on the smartphone cover on the right and positions it on the tip of the green screwdriver toward the left hand." },
+          { ts: "00:19.033 – 00:24.433", cap: "The right hand turns the screw using the green screwdriver to tighten it on the disassembled smartphone while the left hand holds the disassembled smartphone." },
+          { ts: "00:24.433 – 00:25.933", cap: "The left hand rests on the disassembled smartphone while the right hand picks up a screw kept on the smartphone cover on the right and positions it on the tip of the green screwdriver toward the left hand." },
+          { ts: "00:25.933 – 00:28.800", cap: "The left hand positions the screw properly on the tip of the green screwdriver held by the right hand." },
+          { ts: "00:28.800 – 00:30.000", cap: "The right hand brings the green screwdriver to the disassembled smartphone to start driving in the screw while the left hand holds the disassembled smartphone steady on the workbench." }
+        ]
+      },
+      {
+        title: "Machine-only Flow",
+        summary: "A person picks up and tightens successive screws on a disassembled smartphone with a green screwdriver while the left hand holds the phone steady.",
+        objects: ["disassembled smartphone", "smartphone cover", "green screwdriver", "workbench"],
+        actions: [
+          { ts: "00:00.000 – 00:03.400", cap: "The left hand touches the edge of the disassembled smartphone on the workbench while the right hand picks up the green screwdriver and picks up a screw with it, then begins adjusting the screw using the left hand." },
+          { ts: "00:03.400 – 00:05.867", cap: "The right hand points the tip of the green screwdriver toward the left hand while the left hand adjusts the screw to secure it properly on the screwdriver tip." },
+          { ts: "00:05.867 – 00:10.000", cap: "The right hand points the tip of the green screwdriver down to the disassembled smartphone while the left hand holds the disassembled smartphone securely." },
+          { ts: "00:10.000 – 00:15.367", cap: "The right hand turns the screw to tighten it while the left hand holds the disassembled smartphone securely." },
+          { ts: "00:15.367 – 00:19.433", cap: "The right hand picks up a screw lying on the smartphone cover with the green screwdriver while the left hand rests on the edge of the disassembled smartphone. The right hand then points the tip of the green screwdriver toward the left hand, and the left hand repositions the screw on the tip." },
+          { ts: "00:19.433 – 00:23.976", cap: "The right hand turns a screw on the disassembled smartphone with the green screwdriver to tighten it while the left hand rests along the edge of the disassembled smartphone." },
+          { ts: "00:23.976 – 00:28.800", cap: "The right hand picks up a screw kept on the smartphone cover with the green screwdriver, and the left hand repositions the screw on the tip of the green screwdriver." },
+          { ts: "00:28.800 – 00:30.000", cap: "The right hand brings the green screwdriver to the disassembled smartphone to start driving in the screw while the left hand holds the disassembled smartphone steady on the workbench." }
+        ]
+      },
+      {
+        title: "One Pass Machine Annotations",
+        summary: "A person picks up a green screwdriver and works it along the top edge of a smartphone screen and body while the left hand holds each part steady on the workbench.",
+        objects: ["Green Screwdriver", "Smartphone Screen", "Smartphone Body", "Workbench"],
+        actions: [
+          { ts: "00:00.000 – 00:01.333", cap: "Right hand enters the frame and reaches towards the Green Screwdriver on the right side of the Workbench." },
+          { ts: "00:01.333 – 00:02.800", cap: "Right hand reaches for and grasps the Green Screwdriver." },
+          { ts: "00:02.800 – 00:04.133", cap: "Right hand lifts the Green Screwdriver. Left hand enters and reaches for the Smartphone Screen." },
+          { ts: "00:04.133 – 00:05.800", cap: "Left hand grasps the Smartphone Screen. Right hand brings the Green Screwdriver towards the Smartphone Screen." },
+          { ts: "00:05.800 – 00:07.800", cap: "Left hand holds the Smartphone Screen steady. Right hand uses the Green Screwdriver on the top edge of the Smartphone Screen." },
+          { ts: "00:07.800 – 00:09.800", cap: "Left hand continues holding the Smartphone Screen. Right hand continues using the Green Screwdriver on the top edge." },
+          { ts: "00:09.800 – 00:11.800", cap: "Right hand moves the Green Screwdriver away. Left hand places the Smartphone Screen down on the Workbench." },
+          { ts: "00:11.800 – 00:13.800", cap: "Left hand reaches for the Smartphone Body. Right hand moves the Green Screwdriver towards the Smartphone Body." },
+          { ts: "00:13.800 – 00:15.800", cap: "Left hand grasps and holds the Smartphone Body. Right hand positions the Green Screwdriver on the top part of the Smartphone Body." },
+          { ts: "00:15.800 – 00:17.800", cap: "Left hand holds the Smartphone Body steady. Right hand uses the Green Screwdriver on the top part of the Smartphone Body." },
+          { ts: "00:17.800 – 00:19.800", cap: "Left hand continues holding the Smartphone Body. Right hand continues using the Green Screwdriver." },
+          { ts: "00:19.800 – 00:21.800", cap: "Right hand moves the Green Screwdriver slightly away. Left hand adjusts its grip on the Smartphone Body." },
+          { ts: "00:21.800 – 00:23.800", cap: "Right hand brings the Green Screwdriver back to the top part of the Smartphone Body. Left hand holds it steady." },
+          { ts: "00:23.800 – 00:25.800", cap: "Left hand holds the Smartphone Body. Right hand uses the Green Screwdriver on the top part of the Smartphone Body." },
+          { ts: "00:25.800 – 00:27.800", cap: "Left hand continues holding the Smartphone Body. Right hand continues using the Green Screwdriver." },
+          { ts: "00:27.800 – 00:29.800", cap: "Right hand moves the Green Screwdriver away from the Smartphone Body. Left hand holds the Smartphone Body." }
+        ]
+      }
+    ]
+  },
+{
+    title: "Example task 2",
+    taskName: "M1 robotics task 900006",
+    videoFile: "Plumbing (1).mp4",
+    duration: "30s",
+    description: "Overhead view of a stainless steel kitchen sink set into a black-tiled countertop. A person grips a long thin metal wire (a drain snake) at both ends over the sink, detangles and straightens it, then feeds its tip into the sink drain hole and pushes and twists it down to clear the drain.",
+    thumb: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293a7a94603799ab5083c_02.jpg",
+    vimeo: "https://player.vimeo.com/video/1212364988?autoplay=1",
+    flows: [
+      {
+        title: "Human + Machine Flow Annotations",
+        summary: "A person detangles and straightens a thin metal wire over a stainless steel sink, then inserts it into the drain hole and pushes and twists it down to clear the drain.",
+        objects: ["thin metal wire", "stainless steel sink", "sink drain hole"],
+        actions: [
+          { ts: "00:00.000 – 00:01.635", cap: "Both hands are idle." },
+          { ts: "00:01.635 – 00:03.804", cap: "The left hand reaches for, grasps, and lifts the thin metal wire while the right hand grasps the opposite end of the thin metal wire over the stainless steel sink." },
+          { ts: "00:03.804 – 00:11.144", cap: "Both hands detangle the thin metal wire over the stainless steel sink." },
+          { ts: "00:11.144 – 00:13.113", cap: "Both hands straighten the thin metal wire over the stainless steel sink." },
+          { ts: "00:13.113 – 00:15.649", cap: "Both hands lower the thin metal wire and insert its tip into the sink drain hole of the stainless steel sink." },
+          { ts: "00:15.649 – 00:16.817", cap: "The left hand releases its grip and rests on the side of the stainless steel sink while the right hand continues lowering the thin metal wire into the sink drain hole of the stainless steel sink." },
+          { ts: "00:16.817 – 00:30.000", cap: "The right hand pushes and twists the thin metal wire down inside the sink drain hole while the left hand stays idle." }
+        ]
+      },
+      {
+        title: "Machine-only Flow",
+        summary: "A person adjusts and detangles a thin metal wire over a stainless steel sink, then lowers it into the drain hole and works it up and down inside the drain.",
+        objects: ["thin metal wire", "stainless steel sink", "sink drain hole"],
+        actions: [
+          { ts: "00:00.000 – 00:03.804", cap: "The left hand reaches for, grasps, and lifts the thin metal wire, the right hand grasps the opposite end, and both hands adjust their grip on the thin metal wire over the stainless steel sink." },
+          { ts: "00:03.804 – 00:11.144", cap: "Both hands detangle the thin metal wire over the stainless steel sink." },
+          { ts: "00:11.144 – 00:13.563", cap: "Both hands hand lower the thin metal wire and insert its tip into the sink drain hole of the stainless steel sink.." },
+          { ts: "00:13.563 – 00:16.817", cap: "The left hand releases its grip and rests on the side of the stainless steel sink while the right hand continues lowering the thin metal wire into the sink drain hole of the stainless steel sink." },
+          { ts: "00:16.817 – 00:30.000", cap: "The right hand pushes and pulls the thin metal wire up and down inside the sink drain hole while the left hand stays idle." }
+        ]
+      },
+      {
+        title: "One Pass Machine Annotations",
+        summary: "A person holds a thin wire over the sink with both hands and repeatedly wipes it with a cloth held in the right hand (note: this pipeline misreads the task as wiping rather than clearing the drain).",
+        objects: ["Thin Wire", "Blue Cloth", "Sink"],
+        actions: [
+          { ts: "00:00.000 – 00:02.803", cap: "Reach towards the Sink with both hands." },
+          { ts: "00:02.803 – 00:04.805", cap: "Pick up the Thin Wire from the left side of the Sink with the left hand." },
+          { ts: "00:04.805 – 00:07.808", cap: "Grasp the other end of the Thin Wire with the right hand while the left hand holds it." },
+          { ts: "00:07.808 – 00:10.811", cap: "Hold the Thin Wire with both hands over the Sink." },
+          { ts: "00:10.811 – 00:13.814", cap: "Reach for the Blue Cloth on the right side of the Sink with the right hand." },
+          { ts: "00:13.814 – 00:16.817", cap: "Pick up the Blue Cloth with the right hand and bring it to the Thin Wire held by the left hand." },
+          { ts: "00:16.817 – 00:19.820", cap: "Wipe the Thin Wire with the Blue Cloth using the right hand while the left hand holds the wire." },
+          { ts: "00:19.820 – 00:22.823", cap: "Wipe the Thin Wire with the Blue Cloth using the right hand while the left hand holds the wire." },
+          { ts: "00:22.823 – 00:25.826", cap: "Wipe the Thin Wire with the Blue Cloth using the right hand while the left hand holds the wire." },
+          { ts: "00:25.826 – 00:28.829", cap: "Wipe the Thin Wire with the Blue Cloth using the right hand while the left hand holds the wire." },
+          { ts: "00:28.829 – 00:29.830", cap: "Wipe the Thin Wire with the Blue Cloth using the right hand while the left hand holds the wire." }
+        ]
+      }
+    ]
+  },
+{
+    title: "Example task 3",
+    taskName: "M1 robotics task 900005",
+    videoFile: "Musical Instrument Maintenance.mp4",
+    duration: "30s",
+    description: "Overhead view of a black acoustic guitar lying on a dark table. A person opens a small glass bottle of cleaner, applies it to a white circular pad, and rubs the pad along the guitar fretboard and body to clean and condition it.",
+    thumb: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293a7750d6c4668edb583_03.jpg",
+    vimeo: "https://player.vimeo.com/video/1212364987?autoplay=1",
+    flows: [
+      {
+        title: "Human + Machine Flow Annotations",
+        summary: "A person opens a small glass bottle, applies its contents to a white circular pad, and rubs the pad across the acoustic guitar fretboard to condition it.",
+        objects: ["white circular pad", "small glass bottle", "acoustic guitar", "black bottle cap"],
+        actions: [
+          { ts: "00:00.000 – 00:05.239", cap: "The right hand grasps and holds a small glass bottle kept on the table and holds it steady while the left hand unscrews its black bottle cap." },
+          { ts: "00:05.239 – 00:07.127", cap: "The left hand places the black bottle cap on the table and picks up a white circular pad kept on the table while the right hand holds the small glass bottle steady." },
+          { ts: "00:07.127 – 00:12.000", cap: "The right hand tilts the small glass bottle to pour liquid onto the white circular pad to make it wet while the left hand holds the white circular pad in the air." },
+          { ts: "00:12.000 – 00:13.113", cap: "The right hand places the small glass bottle on the table and picks up the black bottle cap and places it on the small glass bottle while the left hand keeps the white circular pad on the table." },
+          { ts: "00:13.113 – 00:16.750", cap: "The left hand screws the black cap back onto the small glass bottle while the right hand holds the small glass bottle steady." },
+          { ts: "00:16.750 – 00:19.319", cap: "The right hand places the small glass bottle on the table and both hands grasp and lift the white circular pad kept on the table." },
+          { ts: "00:19.319 – 00:21.514", cap: "The left hand assists in folding the white circular pad and releases its grip to hold the neck of the black acoustic guitar while the right hand holds the folded white circular pad and brings it closer to the black acoustic guitar fretboard." },
+          { ts: "00:21.514 – 00:30.000", cap: "The right hand presses the white circular pad against the acoustic guitar fretboard and rubs it back and forth while the left hand firmly holds the guitar neck." }
+        ]
+      },
+      {
+        title: "Machine-only Flow",
+        summary: "A person opens a small glass bottle and uses a white circular pad to rub cleaner along the acoustic guitar fretboard.",
+        objects: ["white circular pad", "small glass bottle", "acoustic guitar", "black cap"],
+        actions: [
+          { ts: "00:00.000 – 00:05.239", cap: "The right hand grasps and holds a small glass bottle kept on the table steady while the left hand unscrews its black cap." },
+          { ts: "00:05.239 – 00:07.127", cap: "The left hand places the black cap on the table and picks up a white circular pad kept on the table while the right hand holds the small glass bottle steady." },
+          { ts: "00:07.127 – 00:12.000", cap: "The right hand tilts the small glass bottle to pour liquid onto the white circular pad while the left hand holds the white circular pad in the air." },
+          { ts: "00:12.000 – 00:16.750", cap: "The left hand screws the black cap back onto the small glass bottle while the right hand holds the small glass bottle steady and later places it onto the table." },
+          { ts: "00:16.750 – 00:19.319", cap: "The right hand places the small glass bottle on the table and both hands grasp and lift the white circular pad kept on the table." },
+          { ts: "00:19.319 – 00:30.000", cap: "The right hand presses the white circular pad against the acoustic guitar fretboard and rubs it back and forth while the left hand firmly holds the guitar neck." }
+        ]
+      },
+      {
+        title: "One Pass Machine Annotations",
+        summary: "A person twists open a small bottle, loads a white pad, and rubs the pad along the neck and fretboard of the guitar on the table.",
+        objects: ["small bottle", "bottle cap", "white pad", "guitar", "table"],
+        actions: [
+          { ts: "00:00.000 – 00:02.803", cap: "The right hand twists the bottle cap to open the small bottle while the left hand holds the white pad." },
+          { ts: "00:02.803 – 00:05.806", cap: "The right hand removes the bottle cap and places it on the table while the left hand continues holding the white pad." },
+          { ts: "00:05.806 – 00:08.809", cap: "The right hand tilts the small bottle to pour liquid onto the white pad held by the left hand." },
+          { ts: "00:08.809 – 00:11.812", cap: "The right hand continues to pour liquid from the small bottle onto the white pad held by the left hand." },
+          { ts: "00:11.812 – 00:14.815", cap: "The right hand places the small bottle on the table, then reaches for and picks up the bottle cap." },
+          { ts: "00:14.815 – 00:17.818", cap: "The right hand picks up the small bottle and twists the bottle cap onto it to close it." },
+          { ts: "00:17.818 – 00:20.821", cap: "The right hand places the closed small bottle on the table, then takes the white pad from the left hand while the left hand reaches for the guitar neck." },
+          { ts: "00:20.821 – 00:23.824", cap: "The left hand holds the guitar neck to stabilize it while the right hand rubs the white pad on the first fret." },
+          { ts: "00:23.824 – 00:26.827", cap: "The left hand holds the guitar neck while the right hand moves down and rubs the white pad on the second fret." },
+          { ts: "00:26.827 – 00:29.830", cap: "The left hand holds the guitar neck while the right hand moves down and rubs the white pad on the third fret." }
+        ]
+      }
+    ]
+  },
+{
+    title: "Example task 4",
+    taskName: "M1 robotics task 900008",
+    videoFile: "Disassembly & Reassembly.mp4",
+    duration: "30s",
+    description: "Overhead view of a person in a magenta top seated over an open black tool kit resting on cardboard. They pick up and assemble the sections of a white selfie stick, fitting parts together and retrieving a thin metal pin and tool bits from the kit as they work.",
+    thumb: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293a78ebec09ce5c9914c_04.jpg",
+    vimeo: "https://player.vimeo.com/video/1212365164?autoplay=1",
+    flows: [
+      {
+        title: "Human + Machine Flow Annotations",
+        summary: "A person assembles a white selfie stick from parts on the cardboard surface, fitting sections together and placing a thin metal pin into the assembly using tools from the black toolbox.",
+        objects: ["white selfie stick", "black toolbox", "thin metal pin"],
+        actions: [
+          { ts: "00:00.000 – 00:02.603", cap: "Both hands are idle and hovering in the air." },
+          { ts: "00:02.603 – 00:09.243", cap: "Both hands reach out, grasp the white selfie stick from the cardboard surface, and lift it, and the left hand opens the folded portion of the selfie stick and closes it back." },
+          { ts: "00:09.243 – 00:14.314", cap: "The right hand pries open the folded tripod legs of the white selfie stick while the left hand holds the stick steady." },
+          { ts: "00:14.314 – 00:21.722", cap: "The right hand pulls the folded center telescoping pole down to elongate the white selfie stick, releases it, then pulls the tripod legs further out to open them fully while the left hand holds the stick steady." },
+          { ts: "00:21.722 – 00:24.858", cap: "The right hand pinches a thin metal pin from the cardboard surface and places it back down while the left hand holds the stick." },
+          { ts: "00:24.858 – 00:30.000", cap: "The right hand picks up a thin metal pin from the cardboard surface and puts the thin metal pin onto the placeholder in the black toolbox, while the left hand holds the white selfie stick." }
+        ]
+      },
+      {
+        title: "Machine-only Flow",
+        summary: "A person lifts and assembles a white selfie stick and retrieves a small tool bit from the black toolbox to work on it.",
+        objects: ["white selfie stick", "black toolbox", "thin metal pin"],
+        actions: [
+          { ts: "00:00.000 – 00:09.243", cap: "Both hands reach out, grasp the white selfie stick from the cardboard surface, and lift it, and the left hand opens the folded portion of the selfie stick and closes it back." },
+          { ts: "00:09.243 – 00:21.722", cap: "The right hand pries open the folded tripod legs and pulls the folded center telescoping pole down to elongate the white selfie stick, releases it, then pulls the tripod legs further out to open them fully while the left hand holds the stick steady." },
+          { ts: "00:21.722 – 00:24.858", cap: "The right hand pinches a small metal pin from the cardboard surface and places it back down while the left hand holds the stick." },
+          { ts: "00:24.858 – 00:30.000", cap: "The right hand reaches into the black toolbox, grasps and lifts a small tool bit, and brings it toward the white selfie stick held by the left hand." }
+        ]
+      },
+      {
+        title: "One Pass Machine Annotations",
+        summary: "A person reaches to a white stand on the cardboard, works with parts from the tool kit, and picks up a small black pin (note: this pipeline labels the selfie stick a 'stand').",
+        objects: ["White Stand", "Cardboard", "Tool Kit", "Small Black Pin"],
+        actions: [
+          { ts: "00:00.000 – 00:02.469", cap: "Reach towards the White Stand resting on the Cardboard with both hands." },
+          { ts: "00:02.469 – 00:04.471", cap: "Grasp the White Stand with both hands." },
+          { ts: "00:04.471 – 00:06.807", cap: "Lift the White Stand with both hands and rotate it." },
+          { ts: "00:06.807 – 00:09.476", cap: "Hold the White Stand with the right hand while the left hand unfolds the first leg outwards." },
+          { ts: "00:09.476 – 00:12.145", cap: "Rotate the White Stand with both hands." },
+          { ts: "00:12.145 – 00:14.815", cap: "Hold the White Stand with the left hand while the right hand unfolds the second leg outwards." },
+          { ts: "00:14.815 – 00:17.484", cap: "Rotate the White Stand with both hands." },
+          { ts: "00:17.484 – 00:20.153", cap: "Hold the White Stand with the left hand while the right hand unfolds the third leg outwards." },
+          { ts: "00:20.153 – 00:22.823", cap: "Place the unfolded White Stand onto the Cardboard with both hands." },
+          { ts: "00:22.823 – 00:25.492", cap: "Adjust the position of the White Stand on the Cardboard with both hands." },
+          { ts: "00:25.492 – 00:27.828", cap: "Hold the White Stand with the left hand while the right hand reaches towards the Tool Kit." },
+          { ts: "00:27.828 – 00:29.830", cap: "Pick up a Small Black Pin from the Tool Kit with the right hand." }
+        ]
+      }
+    ]
+  },
+{
+    title: "Example task 5",
+    taskName: "M1 robotics task 900009",
+    videoFile: "Wall & Surface Care.mp4",
+    duration: "30s",
+    description: "Overhead-to-angled view of a person handling a red and black cordless drill at a desk beside a boxed item. They fit a silver drill bit into the drill, adjust it, and press the running drill against a white shelf/cabinet surface as if drilling or mounting.",
+    thumb: "https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6a6293a78fe971cb46f35b6e_05.jpg",
+    vimeo: "https://player.vimeo.com/video/1212364989?autoplay=1",
+    flows: [
+      {
+        title: "Human + Machine Flow Annotations",
+        summary: "A person lifts a red and black drill from the desk, fits a silver drill bit, and presses and holds it against a white shelf with both hands.",
+        objects: ["red and black drill", "silver drill bit", "white shelf"],
+        actions: [
+          { ts: "00:00.000 – 00:02.433", cap: "The right hand grasps and lifts the red and black drill from the desk by holding its handle while the left hand holds the chuck of the red and black drill." },
+          { ts: "00:02.433 – 00:04.167", cap: "The left hand holds the red and black drill and places it on the desk while the right hand picks up a silver drill bit and inserts it into the red and black drill." },
+          { ts: "00:04.167 – 00:16.733", cap: "The left hand holds the silver drill bit while the right hand twists the front chuck to tighten the silver drill bit onto the red and black drill." },
+          { ts: "00:16.733 – 00:19.433", cap: "The left hand repeatedly twists the front chuck of the red and black drill to secure the silver drill bit while the right hand holds the handle." },
+          { ts: "00:19.433 – 00:22.217", cap: "The left hand holds the handle of the red and black drill and transfers it to the right hand." },
+          { ts: "00:22.217 – 00:24.117", cap: "Turn and walk towards the white shelf and stop in front of it with the red and black drill in the right hand and the left hand being idle." },
+          { ts: "00:24.117 – 00:30.000", cap: "The left hand grasps the front of the red and black drill, and both hands press and hold the silver drill bit steadily against the white shelf." }
+        ]
+      },
+      {
+        title: "Machine-only Flow",
+        summary: "A person picks up a red and black drill, seats a silver drill bit, and presses it against a white shelf.",
+        objects: ["red and black drill", "silver drill bit", "white shelf"],
+        actions: [
+          { ts: "00:00.000 – 00:02.433", cap: "The right hand grasps and lifts the red and black drill from the desk by holding its handle while the left hand holds the chuck of the red and black drill." },
+          { ts: "00:02.433 – 00:04.167", cap: "The left hand holds the red and black drill and places it on the desk while the right hand picks up a silver drill bit and inserts it into the red and black drill." },
+          { ts: "00:04.167 – 00:09.911", cap: "The left hand holds the silver drill bit while the right hand twists the front chuck to tighten the silver drill bit onto the red and black drill." },
+          { ts: "00:09.911 – 00:19.433", cap: "The left hand repeatedly twists the front chuck of the red and black drill to secure the silver drill bit while the right hand holds the handle." },
+          { ts: "00:19.433 – 00:24.117", cap: "Turn and walk towards the white shelf and stop in front of it with the red and black drill in the right hand and the left hand being idle." },
+          { ts: "00:24.117 – 00:30.000", cap: "The left hand grasps the front of the red and black drill, and both hands press and hold the silver drill bit steadily against the white shelf." }
+        ]
+      },
+      {
+        title: "One Pass Machine Annotations",
+        summary: "A person rests both hands by a red and black drill on the table, fits the drill bit, and holds the drill steady against a white cabinet wall (note: this pipeline calls the shelf a 'cabinet').",
+        objects: ["Red and Black Drill", "Drill Bit", "Table", "White Cabinet"],
+        actions: [
+          { ts: "00:00.000 – 00:01.333", cap: "Rest both hands on the Table next to the Red and Black Drill." },
+          { ts: "00:01.333 – 00:03.333", cap: "Grasp the body of the Red and Black Drill with the left hand and the chuck with the right hand, then lift it off the Table." },
+          { ts: "00:03.333 – 00:05.333", cap: "Hold the Red and Black Drill with the left hand while the right hand reaches for and grasps the Drill Bit from the Table." },
+          { ts: "00:05.333 – 00:07.333", cap: "Insert the Drill Bit into the chuck of the Red and Black Drill with the right hand while the left hand holds the drill." },
+          { ts: "00:07.333 – 00:10.333", cap: "Hold the Drill Bit in place with the right hand while the left hand rotates the chuck of the Red and Black Drill to tighten it." },
+          { ts: "00:10.333 – 00:13.333", cap: "Continue rotating the chuck of the Red and Black Drill with the left hand while the right hand holds the Drill Bit." },
+          { ts: "00:13.333 – 00:16.333", cap: "Grasp the chuck of the Red and Black Drill with the right hand to assist the left hand in tightening." },
+          { ts: "00:16.333 – 00:19.333", cap: "Rotate the chuck of the Red and Black Drill with both hands to secure the Drill Bit." },
+          { ts: "00:19.333 – 00:21.333", cap: "Adjust grip on the Red and Black Drill, holding the handle with the right hand and the body with the left hand." },
+          { ts: "00:21.333 – 00:23.333", cap: "Walk towards the White Cabinet while holding the Red and Black Drill in the right hand." },
+          { ts: "00:23.333 – 00:25.333", cap: "Approach the White Cabinet and lift the Red and Black Drill with the right hand." },
+          { ts: "00:25.333 – 00:27.333", cap: "Position the Red and Black Drill against the White Cabinet wall, supporting the front with the left hand and holding the handle with the right hand." },
+          { ts: "00:27.333 – 00:29.800", cap: "Hold the Red and Black Drill steady against the White Cabinet wall with both hands." }
+        ]
+      }
+    ]
+  }
+];
+
+const els = {
+  title: document.getElementById("example-title"),
+  duration: document.getElementById("example-duration"),
+  desc: document.getElementById("example-desc"),
+  flows: document.getElementById("flows"),
+  thumb: document.getElementById("video-thumb"),
+  pane: document.getElementById("video-pane"),
+  embed: document.getElementById("video-embed"),
+  play: document.getElementById("play-btn"),
+  prev: document.getElementById("prev-btn"),
+  next: document.getElementById("next-btn"),
+  status: document.getElementById("slide-status"),
+};
+
+let index = 0;
+let playing = false;
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function isMobile() {
+  return window.matchMedia("(max-width: 900px)").matches;
+}
+
+function syncFlowOpenState() {
+  const openOnDesktop = !isMobile();
+  els.flows.querySelectorAll("details.flow-col").forEach((el) => {
+    el.open = openOnDesktop;
+  });
+}
+
+function bindActionScrollFades() {
+  els.flows.querySelectorAll(".actions-shell").forEach((shell) => {
+    const wrap = shell.querySelector(".actions-wrap");
+    if (!wrap || wrap.dataset.fadeBound === "1") return;
+    wrap.dataset.fadeBound = "1";
+
+    const update = () => {
+      const atEnd =
+        wrap.scrollHeight <= wrap.clientHeight + 4 ||
+        wrap.scrollTop + wrap.clientHeight >= wrap.scrollHeight - 4;
+      shell.classList.toggle("is-scrolled-end", atEnd);
+    };
+
+    wrap.addEventListener("scroll", update, { passive: true });
+    requestAnimationFrame(update);
+  });
+
+  els.flows.querySelectorAll("details.flow-col").forEach((details) => {
+    if (details.dataset.fadeToggleBound === "1") return;
+    details.dataset.fadeToggleBound = "1";
+    details.addEventListener("toggle", () => {
+      requestAnimationFrame(() => {
+        details.querySelectorAll(".actions-wrap").forEach((wrap) => {
+          wrap.dispatchEvent(new Event("scroll"));
+        });
+      });
+    });
+  });
+}
+
+function renderFlow(flow) {
+  const objects =
+    flow.objects && flow.objects.length
+      ? flow.objects.map((o) => `<span class="obj">${escapeHtml(o)}</span>`).join("")
+      : `<p class="empty-note">Objects pending</p>`;
+
+  const actions =
+    flow.actions && flow.actions.length
+      ? flow.actions
+          .map(
+            (a) => `
+      <div class="action">
+        <div class="action-rail" aria-hidden="true"></div>
+        <div class="action-body">
+          <div class="action-ts">${escapeHtml(a.ts)}</div>
+          <p class="action-cap">${escapeHtml(a.cap)}</p>
+        </div>
+      </div>`
+          )
+          .join("")
+      : `<p class="empty-note">Atomic action labels pending</p>`;
+
+  return `
+    <details class="flow-col">
+      <summary>
+        <div class="flow-summary-bar">
+          <h2 class="flow-title">${escapeHtml(flow.title)}</h2>
+          <svg class="flow-chevron" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </summary>
+      <div class="flow-body">
+        <div class="flow-head">
+          <p class="flow-summary">${escapeHtml(flow.summary)}</p>
+        </div>
+        <div class="objects-box">
+          <p class="objects-label">Objects identified</p>
+          <div class="objs">${objects}</div>
+        </div>
+        <p class="actions-label">Atomic action labels</p>
+        <div class="actions-shell">
+          <div class="actions-wrap">
+            <div class="actions">
+              <div class="actions-inner">
+                <div class="timeline-line" aria-hidden="true"></div>
+                ${actions}
+              </div>
+            </div>
+          </div>
+          <div class="actions-fade" aria-hidden="true"></div>
+        </div>
+      </div>
+    </details>`;
+}
+
+function stopVideo() {
+  playing = false;
+  els.pane.classList.remove("is-playing");
+  els.embed.hidden = true;
+  els.embed.innerHTML = "";
+}
+
+function playVideo() {
+  const example = EXAMPLES[index];
+  playing = true;
+  els.pane.classList.add("is-playing");
+  els.embed.hidden = false;
+
+  if (example.vimeo) {
+    els.embed.innerHTML = `<iframe title="Example video" src="${escapeHtml(
+      example.vimeo
+    )}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+    return;
+  }
+
+  if (example.video) {
+    els.embed.innerHTML = `<video src="${escapeHtml(
+      example.video
+    )}" controls autoplay playsinline></video>`;
+    return;
+  }
+}
+
+function render(i) {
+  index = ((i % EXAMPLES.length) + EXAMPLES.length) % EXAMPLES.length;
+  const example = EXAMPLES[index];
+  stopVideo();
+
+  els.title.textContent = example.title;
+  const hasDuration = Boolean(example.duration);
+  els.duration.textContent = example.duration || "—";
+  els.duration.hidden = !hasDuration;
+  const durationRow = els.duration.closest(".duration-row");
+  if (durationRow) durationRow.hidden = !hasDuration;
+  els.desc.textContent = example.description;
+  els.thumb.src = example.thumb;
+  els.thumb.alt = example.title;
+  els.flows.innerHTML = example.flows.map(renderFlow).join("");
+  syncFlowOpenState();
+  bindActionScrollFades();
+  els.status.textContent = `${example.title} (${index + 1} of ${EXAMPLES.length})`;
+
+  const multi = EXAMPLES.length > 1;
+  els.prev.disabled = !multi;
+  els.next.disabled = !multi;
+}
+
+els.prev.addEventListener("click", () => render(index - 1));
+els.next.addEventListener("click", () => render(index + 1));
+
+function togglePlay() {
+  if (playing) stopVideo();
+  else playVideo();
+}
+
+els.play.addEventListener("click", (e) => {
+  e.stopPropagation();
+  togglePlay();
+});
+els.pane.addEventListener("click", () => {
+  if (!playing) playVideo();
+});
+els.pane.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    togglePlay();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.target.matches("input, textarea, [contenteditable]")) return;
+  if (e.key === "ArrowLeft") render(index - 1);
+  if (e.key === "ArrowRight") render(index + 1);
+});
+
+window.matchMedia("(max-width: 900px)").addEventListener("change", syncFlowOpenState);
+
+render(0);
+
+})();
+</script></div>

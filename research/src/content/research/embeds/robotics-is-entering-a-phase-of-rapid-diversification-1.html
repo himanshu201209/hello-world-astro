@@ -1,0 +1,611 @@
+<div data-rt-embed-type="true"><style>
+
+#flow-examples-widget {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.9);
+  font-family: "Outfit", Arial, ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+#flow-examples-widget *, #flow-examples-widget *::before, #flow-examples-widget *::after { box-sizing: border-box; }
+#flow-examples-widget .page { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+#flow-examples-widget .example-card { width: 100%; }
+
+
+  #flow-examples-widget {
+    --bg: #000;
+    --card-border: rgba(255, 255, 255, 0.16);
+    --col-bg: rgba(255, 255, 255, 0.05);
+    --col-border: rgba(255, 255, 255, 0.11);
+    --obj-bg: rgba(255, 255, 255, 0.06);
+    --line: rgba(255, 255, 255, 0.2);
+    --text: rgba(255, 255, 255, 0.9);
+    --text-80: rgba(255, 255, 255, 0.8);
+    --text-60: rgba(255, 255, 255, 0.6);
+    --muted: rgba(174, 174, 174, 0.9);
+    --accent: #7065f0;
+    --radius-card: 8px;
+    --radius-surface: 8px;
+    --radius-btn: 6px;
+    --max: 856px;
+  }
+
+  #flow-examples-widget * { box-sizing: border-box; }
+
+  #flow-examples-widget {
+    margin: 0;
+    color: var(--text);
+    font-family: "Outfit", Arial, ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+  }
+
+  #flow-examples-widget .page {
+    max-width: calc(var(--max) + 48px);
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  #flow-examples-widget .example-card {
+    background: #000;
+    border: 1.8px solid var(--card-border);
+    border-radius: var(--radius-card);
+    padding: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow: hidden;
+  }
+
+  #flow-examples-widget /* —— Header: video + meta —— */
+  .example-top {
+    display: flex;
+    gap: 33px;
+    align-items: flex-start;
+  }
+
+  #flow-examples-widget .video-pane {
+    position: relative;
+    flex: 0 0 309px;
+    width: 309px;
+    height: 164px;
+    border-radius: var(--radius-surface);
+    overflow: hidden;
+    background: #0d0d0d;
+    cursor: pointer;
+    isolation: isolate;
+  }
+
+  #flow-examples-widget .video-pane img.thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+  }
+
+  #flow-examples-widget .video-pane .dim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  #flow-examples-widget .video-pane .play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  #flow-examples-widget .video-pane .play img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #flow-examples-widget .video-pane iframe, #flow-examples-widget .video-pane video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #000;
+    border-radius: inherit;
+  }
+
+  #flow-examples-widget .video-pane.is-playing .thumb, #flow-examples-widget .video-pane.is-playing .dim, #flow-examples-widget .video-pane.is-playing .play {
+    display: none;
+  }
+
+  #flow-examples-widget .example-meta {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 4px;
+  }
+
+  #flow-examples-widget .meta-top {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  #flow-examples-widget .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  #flow-examples-widget .example-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  #flow-examples-widget .slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  #flow-examples-widget .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 27px;
+    padding: 7px 9px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-btn);
+    background: rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: background 0.15s ease, opacity 0.15s ease;
+  }
+
+  #flow-examples-widget .nav-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  #flow-examples-widget .nav-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  #flow-examples-widget .nav-btn img {
+    display: block;
+    width: 13px;
+    height: 13px;
+  }
+
+  #flow-examples-widget /* Asset chevron points right; flip for previous. */
+  .nav-btn.prev img {
+    transform: rotate(180deg);
+  }
+
+  #flow-examples-widget .duration-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  #flow-examples-widget .duration-label {
+    font-size: 11.3px;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  #flow-examples-widget .duration-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 19px;
+    padding: 0 8px;
+    border: 0.4px solid var(--line);
+    border-radius: 3px;
+    background: #000;
+    font-size: 9.7px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  #flow-examples-widget .example-desc {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-80);
+    height: auto;
+  }
+
+  #flow-examples-widget /* —— Columns —— */
+  .flows {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  #flow-examples-widget .flow-col {
+    background: var(--col-bg);
+    border: 1px solid var(--col-border);
+    border-radius: var(--radius-surface);
+    padding: 10.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    height: 417px;
+    overflow: hidden;
+  }
+
+  #flow-examples-widget .flow-col > summary {
+    list-style: none;
+    cursor: default;
+    flex: 0 0 auto;
+  }
+
+  #flow-examples-widget .flow-col > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #flow-examples-widget .flow-summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  #flow-examples-widget .flow-chevron {
+    display: none;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-60);
+    transition: transform 0.2s ease;
+  }
+
+  #flow-examples-widget .flow-col[open] .flow-chevron {
+    transform: rotate(180deg);
+  }
+
+  #flow-examples-widget /* details flex children don't reliably fill remaining height — size body/actions explicitly on desktop */
+  .flow-#flow-examples-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    flex: 0 0 auto;
+    min-height: 0;
+  }
+
+  #flow-examples-widget .flow-head {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    flex: 0 0 auto;
+  }
+
+  #flow-examples-widget .flow-title {
+    margin: 0;
+    font-size: 11.3px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  #flow-examples-widget .flow-summary {
+    margin: 0;
+    font-size: 8.9px;
+    font-weight: 400;
+    color: var(--text-60);
+  }
+
+  #flow-examples-widget .objects-box {
+    background: var(--obj-bg);
+    border-radius: 4.4px;
+    padding: 6.6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6.6px;
+    flex: 0 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #flow-examples-widget .objects-label, #flow-examples-widget .actions-label {
+    margin: 0;
+    font-size: 8.9px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    flex: 0 0 auto;
+  }
+
+  #flow-examples-widget .actions-label {
+    text-transform: uppercase;
+  }
+
+  #flow-examples-widget .objs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.6px;
+  }
+
+  #flow-examples-widget .obj {
+    display: inline-flex;
+    align-items: center;
+    height: 19px;
+    padding: 0 8px;
+    border: 0.4px solid var(--line);
+    border-radius: 3.2px;
+    font-size: 8.9px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  #flow-examples-widget .actions-shell {
+    --rail-size: 6px;
+    --dot-size: 5.5px;
+    --line-width: 1.1px;
+    position: relative;
+    flex: 0 0 auto;
+    height: 236px;
+    overflow: hidden;
+  }
+
+  #flow-examples-widget .actions-wrap {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    padding: 3px 12px 3px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.55) rgba(255, 255, 255, 0.08);
+  }
+
+  #flow-examples-widget /* Custom scrollbar — desktop WebKit */
+  .actions-wrap::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  #flow-examples-widget .actions-wrap::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    margin: 4px 0;
+  }
+
+  #flow-examples-widget .actions-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 99px;
+  }
+
+  #flow-examples-widget .actions-wrap::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  #flow-examples-widget .actions {
+    position: relative;
+  }
+
+  #flow-examples-widget .actions-inner {
+    position: relative;
+  }
+
+  #flow-examples-widget /* Continuous dashed spine centered through the dots. */
+  .timeline-line {
+    position: absolute;
+    left: calc((var(--rail-size) - var(--line-width)) / 2);
+    top: 6.75px;
+    bottom: 28px;
+    width: var(--line-width);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0 2.2px,
+      transparent 2.2px 4.4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #flow-examples-widget .action {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding-bottom: 12px;
+  }
+
+  #flow-examples-widget .action:last-child {
+    padding-bottom: 40px;
+  }
+
+  #flow-examples-widget .action-rail {
+    position: relative;
+    flex: 0 0 var(--rail-size);
+    width: var(--rail-size);
+    min-height: 14px;
+    padding-top: 4px;
+  }
+
+  #flow-examples-widget .action-rail::before {
+    content: "";
+    display: block;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    margin-inline: auto;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  #flow-examples-widget .action-#flow-examples-widget {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  #flow-examples-widget .action-ts {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  #flow-examples-widget .action-cap {
+    margin: 0;
+    font-size: 8.9px;
+    font-weight: 400;
+    color: var(--text-60);
+  }
+
+  #flow-examples-widget /* Fade sits outside the scrollport so it stays pinned to the bottom */
+  .actions-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 72px;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0) 0%,
+      rgba(13, 13, 13, 0.72) 48%,
+      rgb(13, 13, 13) 100%
+    );
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  #flow-examples-widget .actions-shell:hover .actions-fade, #flow-examples-widget .actions-shell:focus-within .actions-fade, #flow-examples-widget .actions-shell.is-scrolled-end .actions-fade {
+    opacity: 0;
+  }
+
+  #flow-examples-widget .empty-note {
+    margin: 0;
+    font-size: 8.9px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  #flow-examples-widget .duration-pill[hidden], #flow-examples-widget .duration-row[hidden] {
+    display: none;
+  }
+
+  #flow-examples-widget .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 900px) {
+    #flow-examples-widget .example-top {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 18px;
+    }
+
+    #flow-examples-widget .video-pane {
+      flex: none;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-surface);
+    }
+
+    #flow-examples-widget .example-meta {
+      gap: 12px;
+      padding-top: 0;
+    }
+
+    #flow-examples-widget .example-title {
+      white-space: normal;
+    }
+
+    #flow-examples-widget .flows {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    #flow-examples-widget .flow-col {
+      height: auto;
+      min-height: 0;
+      max-height: none;
+      overflow: visible;
+      padding: 0;
+      gap: 0;
+    }
+
+    #flow-examples-widget .flow-col > summary {
+      cursor: pointer;
+      padding: 14px 14px;
+      user-select: none;
+    }
+
+    #flow-examples-widget .flow-chevron {
+      display: block;
+    }
+
+    #flow-examples-widget .flow-#flow-examples-widget {
+      display: none;
+      padding: 0 14px 14px;
+      gap: 11px;
+      flex: none;
+      overflow: visible;
+    }
+
+    #flow-examples-widget .actions-wrap {
+      height: 100%;
+    }
+
+    #flow-examples-widget .actions-shell {
+      height: 280px;
+    }
+
+    #flow-examples-widget .flow-col[open] .flow-#flow-examples-widget {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 901px) {
+    #flow-examples-widget .flow-col > summary {
+      pointer-events: none;
+    }
+
+    #flow-examples-widget .flow-col .flow-#flow-examples-widget {
+      display: flex;
+    }
+
+    #flow-examples-widget .flow-col .actions-shell {
+      height: 236px;
+    }
+  }
+
+</style></div>

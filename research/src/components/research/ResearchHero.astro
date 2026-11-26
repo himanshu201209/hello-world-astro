@@ -1,37 +1,17 @@
 ---
 import { asset } from "../../lib/asset";
 
-const risoTexture = asset("/research/riso-texture.png");
+const heroImage = asset("/research/Hero-Image.png");
 ---
 
 <section class="section_research-hero" aria-labelledby="research-hero-title">
   <div class="research-hero_bg" aria-hidden="true">
-    <div class="research-hero_glow is-top">
-      <img
-        src={asset("/research/hero-glow-top.svg")}
-        alt=""
-        loading="eager"
-      />
-    </div>
-    <div class="research-hero_glow is-center">
-      <div class="research-hero_glow-spin">
-        <div class="research-hero_glow-frame">
-          <img
-            src={asset("/research/hero-glow-center.svg")}
-            alt=""
-            loading="eager"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="research-hero_texture">
-      <div class="research-hero_texture-rotate">
-        <div
-          class="research-hero_texture-fill"
-          style={`background-image: url("${risoTexture}")`}
-        ></div>
-      </div>
-    </div>
+    <img
+      class="research-hero_bg-img"
+      src={heroImage}
+      alt=""
+      loading="eager"
+    />
   </div>
   <div class="padding-global">
     <div class="container-research">

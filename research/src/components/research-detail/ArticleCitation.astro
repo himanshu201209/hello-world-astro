@@ -1,0 +1,21 @@
+---
+interface Props {
+  text: string;
+  apa?: string;
+}
+
+const { text, apa } = Astro.props;
+---
+
+<section class="research-detail_citation">
+  <h2 class="research-detail_heading">Citation</h2>
+  <p class="research-detail_text">{text}</p>
+  {
+    apa ? (
+      <blockquote class="research-detail_quote is-citation">
+        <p>{apa}</p>
+      </blockquote>
+    ) : null
+  }
+  <slot />
+</section>

@@ -1,0 +1,74 @@
+---
+/**
+ * Dynamic research article route.
+ * Add new articles as `src/content/research/<slug>.mdx`, then either:
+ * - add a dedicated page like `are-ai-agents-getting-better.astro`, or
+ * - rely on this route (Cloudflare prerender isolates getStaticPaths).
+ */
+import ResearchDetailLayout from "../../components/research-detail/ResearchDetailLayout.astro";
+import "../../devlink/css/global.css";
+
+export const prerender = true;
+
+type ResearchModule = {
+  default: (props?: Record<string, unknown>) => unknown;
+  frontmatter: {
+    title: string;
+    date: string;
+    description?: string;
+    authors: { name: string; role: string; avatar?: string }[];
+    heroImage?: string;
+    heroImageAlt?: string;
+    draft?: boolean;
+  };
+};
+
+export function getStaticPaths() {
+  // Keep this function fully self-contained — Cloudflare prerender cannot
+  // close over helpers or values defined outside getStaticPaths.
+  const paths = import.meta.glob<ResearchModule>(
+    "../../content/research/*.{md,mdx}",
+    { eager: true },
+  );
+
+  // Pages that already have a dedicated route under /research/*.astro
+  const dedicated = new Set(["are-ai-agents-getting-better"]);
+
+  return Object.keys(paths)
+    .map((path) => {
+      const slug = path.split("/").pop()?.replace(/\.(md|mdx)$/, "") ?? "";
+      return { slug, draft: paths[path].frontmatter?.draft === true };
+    })
+    .filter((entry) => !entry.draft && !dedicated.has(entry.slug))
+    .map(({ slug }) => ({ params: { slug } }));
+}
+
+const modules = import.meta.glob<ResearchModule>(
+  "../../content/research/*.{md,mdx}",
+  { eager: true },
+);
+
+const slug = Astro.params.slug ?? "";
+const match = Object.entries(modules).find(([path]) => {
+  const id = path.split("/").pop()?.replace(/\.(md|mdx)$/, "") ?? "";
+  return id === slug;
+});
+
+if (!match) {
+  return new Response(null, { status: 404, statusText: "Not Found" });
+}
+
+const [, article] = match;
+const { frontmatter, default: Content } = article;
+---
+
+<ResearchDetailLayout
+  title={frontmatter.title}
+  date={frontmatter.date}
+  authors={frontmatter.authors}
+  heroImage={frontmatter.heroImage}
+  heroImageAlt={frontmatter.heroImageAlt}
+  description={frontmatter.description}
+>
+  <Content />
+</ResearchDetailLayout>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  number: string | number;
+  title: string;
+  intro?: string;
+}
+
+const { number, title, intro } = Astro.props;
+---
+
+<section class="research-detail_finding">
+  <p class="research-detail_finding-label">Finding {number}</p>
+  <h2 class="research-detail_heading">{title}</h2>
+  {intro ? <p class="research-detail_lead">{intro}</p> : null}
+  <slot />
+</section>

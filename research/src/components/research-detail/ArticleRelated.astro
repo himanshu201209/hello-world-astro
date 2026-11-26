@@ -1,0 +1,47 @@
+---
+import { withBase } from "../../lib/paths";
+import { researchPapers } from "../../data/research";
+
+interface Props {
+  slugs?: string[];
+  limit?: number;
+}
+
+const { slugs = [], limit = 3 } = Astro.props;
+
+const related = (
+  slugs.length
+    ? researchPapers.filter((paper) =>
+        slugs.some(
+          (slug) =>
+            paper.href.includes(`/research/${slug}`) ||
+            paper.href.endsWith(`/${slug}`) ||
+            paper.id === slug,
+        ),
+      )
+    : researchPapers.filter(
+        (paper) => !paper.href.includes("are-ai-agents-getting-better"),
+      )
+).slice(0, limit);
+---
+
+{
+  related.length > 0 ? (
+    <section class="research-detail_related">
+      <div class="research-detail_related-header">
+        <h2 class="research-detail_heading">Other research</h2>
+        <a class="research-detail_related-all" href={withBase("/")}>
+          View all research
+        </a>
+      </div>
+      <div class="research-detail_related-list">
+        {related.map((paper) => (
+          <a class="research-detail_related-card" href={paper.href}>
+            <p class="research-detail_related-date">{paper.date}</p>
+            <h3 class="research-detail_related-title">{paper.title}</h3>
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null
+}

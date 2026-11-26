@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  integrations: [react()],
+  integrations: [react(), mdx()],
   vite: {
     resolve: {
       // Use react-dom/server.edge instead of react-dom/server.browser for React 19.
@@ -21,5 +22,16 @@ export default defineConfig({
         "react-dom/server": "react-dom/server.edge",
       },
     },
+    // Cloudflare workerd + Windows often races Vite SSR dep optimization and
+    // 500s pages with missing deps_ssr chunks / virtual:astro:* modules.
+    ssr: {
+      optimizeDeps: {
+        enabled: false,
+      },
+    },
+    optimizeDeps: {
+      holdUntilCrawlEnd: true,
+    },
   },
 });
+

@@ -1,0 +1,101 @@
+---
+import { SiteNav, SiteFooter } from "../SiteChrome";
+import { withBase } from "../../lib/paths";
+import "../../styles/research-detail.css";
+
+interface Author {
+  name: string;
+  role: string;
+  avatar?: string;
+}
+
+interface Props {
+  title: string;
+  date: string;
+  authors: Author[];
+  heroImage?: string;
+  heroImageAlt?: string;
+  description?: string;
+}
+
+const {
+  title,
+  date,
+  authors,
+  heroImage,
+  heroImageAlt = "",
+  description,
+} = Astro.props;
+
+const homeHref = withBase("/");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    {description ? <meta name="description" content={description} /> : null}
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={`${(import.meta.env.BASE_URL || "/").replace(/\/$/, "")}/astro.svg`}
+    />
+    <title>{title} | micro1</title>
+  </head>
+  <body class="page_research-detail">
+    <SiteNav client:only="react">
+      <div slot="fallback"></div>
+    </SiteNav>
+
+    <main class="section_research-detail">
+      <div class="padding-global">
+        <div class="container-research-detail">
+          <a class="research-detail_back" href={homeHref}>← Back</a>
+          <p class="research-detail_date">{date}</p>
+          <h1 class="research-detail_title">{title}</h1>
+
+          <ul class="research-detail_authors">
+            {
+              authors.map((author) => (
+                <li class="research-detail_author">
+                  {author.avatar ? (
+                    <img
+                      class="research-detail_author-avatar"
+                      src={author.avatar}
+                      alt=""
+                      width="40"
+                      height="40"
+                      loading="eager"
+                    />
+                  ) : null}
+                  <div class="research-detail_author-copy">
+                    <span class="research-detail_author-name">{author.name}</span>
+                    <span class="research-detail_author-role">{author.role}</span>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+
+          {
+            heroImage ? (
+              <figure class="research-detail_hero">
+                <img src={heroImage} alt={heroImageAlt} loading="eager" />
+              </figure>
+            ) : null
+          }
+
+          <article class="research-detail_body">
+            <slot />
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <SiteFooter client:only="react">
+      <div slot="fallback"></div>
+    </SiteFooter>
+  </body>
+</html>

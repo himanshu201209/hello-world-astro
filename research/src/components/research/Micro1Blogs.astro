@@ -7,13 +7,13 @@ import BlogCard from "./BlogCard.astro";
 <section class="section_micro1-blogs" aria-labelledby="micro1-blogs-title">
   <div class="padding-global">
     <div class="container-research">
-      <div class="micro1-blogs_header">
+      <div class="micro1-blogs_header" data-reveal>
         <h2 id="micro1-blogs-title" class="heading-research">micro1 blogs</h2>
       </div>
-      <div class="micro1-blogs_grid">
+      <div class="micro1-blogs_grid" data-reveal>
         {researchBlogs.map((blog) => <BlogCard blog={blog} />)}
       </div>
-      <div class="micro1-blogs_actions">
+      <div class="micro1-blogs_actions" data-reveal>
         <a
           class="button-research is-primary"
           href="https://www.micro1.ai/blog"

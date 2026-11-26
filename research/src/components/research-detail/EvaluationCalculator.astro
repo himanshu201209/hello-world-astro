@@ -1,0 +1,263 @@
+---
+---
+
+<section
+  class="research-detail_calculator"
+  data-eval-calculator
+  aria-label="Evaluation program calculator"
+>
+  <div class="research-detail_calculator-controls">
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Recordings per batch
+        <strong data-eval-display="recordings">300</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="recordings"
+        min="50"
+        max="800"
+        step="10"
+        value="300"
+      />
+    </label>
+
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Weeks between batches
+        <strong data-eval-display="interval">2</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="interval"
+        min="1"
+        max="8"
+        step="1"
+        value="2"
+      />
+    </label>
+
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Unlogged movement per week, in SD
+        <strong data-eval-display="drift">0.086</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="drift"
+        min="0.02"
+        max="0.2"
+        step="0.002"
+        value="0.086"
+      />
+    </label>
+
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Drift big enough to act on, in SD
+        <strong data-eval-display="actOn">0.20</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="actOn"
+        min="0.05"
+        max="0.5"
+        step="0.01"
+        value="0.2"
+      />
+    </label>
+    <p class="research-detail_control-note">
+      The smallest unlogged shift in the index that would make you hold a release
+      or open an incident. For scale: this agent's largest single deploy moved
+      the index 0.20 SD, its whole five-month improvement was 0.53 SD, and its
+      two reviewers differed by 0.79 SD.
+    </p>
+
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Program cost per month
+        <strong data-eval-display="cost">$7,800</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="cost"
+        min="1000"
+        max="20000"
+        step="100"
+        value="7800"
+      />
+    </label>
+
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Cost of one escalation
+        <strong data-eval-display="escalation">$100</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="escalation"
+        min="25"
+        max="500"
+        step="5"
+        value="100"
+      />
+    </label>
+
+    <label class="research-detail_control">
+      <span class="research-detail_control-label">
+        Escalations avoided per month
+        <strong data-eval-display="avoided">428</strong>
+      </span>
+      <input
+        type="range"
+        data-eval-input="avoided"
+        min="50"
+        max="1000"
+        step="1"
+        value="428"
+      />
+    </label>
+
+    <button type="button" class="research-detail_calculator-reset" data-eval-reset>
+      Reset to this agent
+    </button>
+  </div>
+
+  <div class="research-detail_calculator-results">
+    <div class="research-detail_stat">
+      <p class="research-detail_stat-value" data-eval-out="precision">0.052 SD</p>
+      <p class="research-detail_stat-label">
+        precision of one batch (standard error of its mean, in SD)
+      </p>
+    </div>
+    <div class="research-detail_stat">
+      <p class="research-detail_stat-value" data-eval-out="detect">0.14 SD</p>
+      <p class="research-detail_stat-label">
+        Smallest change two consecutive batches can tell apart (95%)
+      </p>
+    </div>
+    <div class="research-detail_stat">
+      <p class="research-detail_stat-value" data-eval-out="weeks">5.2 weeks</p>
+      <p class="research-detail_stat-label">
+        Weeks after a batch until uncertainty reaches the drift you would act on
+      </p>
+    </div>
+    <div class="research-detail_stat">
+      <p class="research-detail_stat-value" data-eval-out="credit">18%</p>
+      <p class="research-detail_stat-label">
+        Credit for the avoided escalations the program needs to cover its cost
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initEvalCalculator(root: HTMLElement) {
+    const defaults = {
+      recordings: 300,
+      interval: 2,
+      drift: 0.086,
+      actOn: 0.2,
+      cost: 7800,
+      escalation: 100,
+      avoided: 428,
+    };
+
+    const inputs = {
+      recordings: root.querySelector<HTMLInputElement>('[data-eval-input="recordings"]'),
+      interval: root.querySelector<HTMLInputElement>('[data-eval-input="interval"]'),
+      drift: root.querySelector<HTMLInputElement>('[data-eval-input="drift"]'),
+      actOn: root.querySelector<HTMLInputElement>('[data-eval-input="actOn"]'),
+      cost: root.querySelector<HTMLInputElement>('[data-eval-input="cost"]'),
+      escalation: root.querySelector<HTMLInputElement>('[data-eval-input="escalation"]'),
+      avoided: root.querySelector<HTMLInputElement>('[data-eval-input="avoided"]'),
+    };
+
+    const displays = {
+      recordings: root.querySelector('[data-eval-display="recordings"]'),
+      interval: root.querySelector('[data-eval-display="interval"]'),
+      drift: root.querySelector('[data-eval-display="drift"]'),
+      actOn: root.querySelector('[data-eval-display="actOn"]'),
+      cost: root.querySelector('[data-eval-display="cost"]'),
+      escalation: root.querySelector('[data-eval-display="escalation"]'),
+      avoided: root.querySelector('[data-eval-display="avoided"]'),
+    };
+
+    const outputs = {
+      precision: root.querySelector('[data-eval-out="precision"]'),
+      detect: root.querySelector('[data-eval-out="detect"]'),
+      weeks: root.querySelector('[data-eval-out="weeks"]'),
+      credit: root.querySelector('[data-eval-out="credit"]'),
+    };
+
+    const reset = root.querySelector("[data-eval-reset]");
+    const k = 0.052 * Math.sqrt(300);
+
+    function money(n: number) {
+      return `$${Math.round(n).toLocaleString("en-US")}`;
+    }
+
+    function read() {
+      return {
+        recordings: Number(inputs.recordings?.value ?? defaults.recordings),
+        interval: Number(inputs.interval?.value ?? defaults.interval),
+        drift: Number(inputs.drift?.value ?? defaults.drift),
+        actOn: Number(inputs.actOn?.value ?? defaults.actOn),
+        cost: Number(inputs.cost?.value ?? defaults.cost),
+        escalation: Number(inputs.escalation?.value ?? defaults.escalation),
+        avoided: Number(inputs.avoided?.value ?? defaults.avoided),
+      };
+    }
+
+    function render() {
+      const v = read();
+      if (displays.recordings) displays.recordings.textContent = String(v.recordings);
+      if (displays.interval) displays.interval.textContent = String(v.interval);
+      if (displays.drift) displays.drift.textContent = v.drift.toFixed(3);
+      if (displays.actOn) displays.actOn.textContent = v.actOn.toFixed(2);
+      if (displays.cost) displays.cost.textContent = money(v.cost);
+      if (displays.escalation) displays.escalation.textContent = money(v.escalation);
+      if (displays.avoided) displays.avoided.textContent = String(v.avoided);
+
+      const precision = k / Math.sqrt(Math.max(v.recordings, 1));
+      const detect = 1.96 * Math.SQRT2 * precision;
+      const weeks = Math.max(
+        0,
+        (v.actOn * v.actOn - precision * precision) / (v.drift * v.drift),
+      );
+      const credit =
+        v.avoided * v.escalation > 0
+          ? (v.cost / (v.avoided * v.escalation)) * 100
+          : 0;
+
+      if (outputs.precision) {
+        outputs.precision.textContent = `${precision.toFixed(3)} SD`;
+      }
+      if (outputs.detect) {
+        outputs.detect.textContent = `${detect.toFixed(2)} SD`;
+      }
+      if (outputs.weeks) {
+        outputs.weeks.textContent = `${weeks.toFixed(1)} weeks`;
+      }
+      if (outputs.credit) {
+        outputs.credit.textContent = `${Math.round(credit)}%`;
+      }
+    }
+
+    Object.values(inputs).forEach((input) => {
+      input?.addEventListener("input", render);
+    });
+
+    reset?.addEventListener("click", () => {
+      Object.entries(defaults).forEach(([key, value]) => {
+        const input = inputs[key as keyof typeof inputs];
+        if (input) input.value = String(value);
+      });
+      render();
+    });
+
+    render();
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-eval-calculator]").forEach(initEvalCalculator);
+</script>

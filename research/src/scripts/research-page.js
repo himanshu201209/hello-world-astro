@@ -12,6 +12,8 @@ function initPaperFilters() {
   );
   const loadMore = section.querySelector("[data-papers-load-more]");
   const fade = section.querySelector("[data-papers-fade]");
+  const empty = section.querySelector("[data-papers-empty]");
+  const actions = section.querySelector(".research-papers_actions");
 
   let activeFilter = "ALL";
   let visibleCount = PAGE_SIZE;
@@ -25,6 +27,8 @@ function initPaperFilters() {
 
   function render() {
     const matches = matchingCards();
+    const hasMatches = matches.length > 0;
+
     cards.forEach((card) => {
       card.hidden = true;
     });
@@ -32,12 +36,19 @@ function initPaperFilters() {
       card.hidden = index >= visibleCount;
     });
 
+    if (empty) {
+      empty.hidden = hasMatches;
+    }
+
     const remaining = matches.length - visibleCount;
     if (loadMore) {
-      loadMore.hidden = remaining <= 0;
+      loadMore.hidden = !hasMatches || remaining <= 0;
     }
     if (fade) {
-      fade.hidden = remaining <= 0;
+      fade.hidden = !hasMatches || remaining <= 0;
+    }
+    if (actions) {
+      actions.hidden = !hasMatches;
     }
   }
 

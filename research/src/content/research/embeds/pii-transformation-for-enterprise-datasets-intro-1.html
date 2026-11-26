@@ -1,0 +1,260 @@
+<div data-rt-embed-type="true">
+<div class="hv2" data-hv2>
+  <style>
+    .hv2 {
+      --hv2-bg: #0b0b0b;
+      --hv2-border: rgba(255, 255, 255, 0.09);
+      --hv2-nav-border: rgba(255, 255, 255, 0.11);
+      --hv2-tab-hover: rgba(255, 255, 255, 0.14);
+      --hv2-tab-active: rgba(255, 255, 255, 0.67);
+      --hv2-tab-active-text: #000000;
+      --hv2-white: #ffffff;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 856px;
+      margin: 0 auto;
+      font-family: inherit;
+      color: var(--hv2-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hv2 *,
+    .hv2 *::before,
+    .hv2 *::after {
+      box-sizing: border-box;
+    }
+
+    .hv2__frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 824 / 515;
+      min-height: 475px;
+      background: var(--hv2-bg);
+      border: 1px solid var(--hv2-border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hv2__nav-wrap {
+      position: relative;
+      flex-shrink: 0;
+      width: fit-content;
+      max-width: calc(100% - 24px);
+      margin: 20px auto 0;
+      z-index: 3;
+      isolation: isolate;
+    }
+
+    .hv2__nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 4px;
+      border: 1px solid var(--hv2-nav-border);
+      border-radius: 4px;
+      white-space: nowrap;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+
+    .hv2__nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hv2__tab {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      margin: 0;
+      padding: 4px 9px;
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: -0.39px;
+      color: var(--hv2-white);
+      opacity: 0.5;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: color 0.15s ease, opacity 0.15s ease, background-color 0.15s ease, font-weight 0.15s ease;
+    }
+
+    .hv2__tab:hover:not([aria-selected="true"]) {
+      background: var(--hv2-tab-hover);
+    }
+
+    .hv2__tab[aria-selected="true"] {
+      background: var(--hv2-tab-active);
+      color: var(--hv2-tab-active-text);
+      font-weight: 500;
+      opacity: 1;
+    }
+
+    .hv2__panels {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+    }
+
+    .hv2__panel {
+      display: none;
+      position: absolute;
+      inset: 0;
+      padding: 32px 16px 16px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hv2__panel[data-hv2-active="true"] {
+      display: flex;
+    }
+
+    .hv2__media {
+      display: block;
+      width: 78%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 640px) {
+      .hv2__frame {
+        aspect-ratio: auto;
+        min-height: 70vw;
+        height: auto;
+        padding-bottom: 12px;
+      }
+
+      .hv2__media {
+        width: 90%;
+      }
+
+      .hv2__nav-wrap {
+        margin: 16px auto 0;
+        max-width: calc(100% - 16px);
+      }
+
+      .hv2__nav-wrap::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2.5rem;
+        pointer-events: none;
+        z-index: 2;
+        border-radius: 0 4px 4px 0;
+        background: linear-gradient(to right, rgba(11, 11, 11, 0), var(--hv2-bg));
+      }
+
+      .hv2__tab {
+        padding: 4px 10px;
+        font-size: 12px;
+      }
+
+      .hv2__panels {
+        position: relative;
+        flex: none;
+        min-height: 0;
+      }
+
+      .hv2__panel {
+        position: relative;
+        inset: auto;
+        padding: 24px 8px 4px;
+      }
+
+      .hv2__panel[data-hv2-active="true"] {
+        display: flex;
+      }
+    }
+  </style>
+
+  <div class="hv2__frame">
+    <div class="hv2__nav-wrap">
+      <div class="hv2__nav" role="tablist" aria-label="Benchmark charts">
+        <button type="button" class="hv2__tab" role="tab" id="hv2-tab-0" aria-controls="hv2-panel-0" aria-selected="true" tabindex="0" data-hv2-tab="0">PrivacyBench — Detection</button>
+        <button type="button" class="hv2__tab" role="tab" id="hv2-tab-1" aria-controls="hv2-panel-1" aria-selected="false" tabindex="-1" data-hv2-tab="1">Enterprise De-Identification Bench</button>
+        <button type="button" class="hv2__tab" role="tab" id="hv2-tab-2" aria-controls="hv2-panel-2" aria-selected="false" tabindex="-1" data-hv2-tab="2">PrivacyBench — Transformation</button>
+        <button type="button" class="hv2__tab" role="tab" id="hv2-tab-3" aria-controls="hv2-panel-3" aria-selected="false" tabindex="-1" data-hv2-tab="3">AI4Privacy</button>
+        <button type="button" class="hv2__tab" role="tab" id="hv2-tab-4" aria-controls="hv2-panel-4" aria-selected="false" tabindex="-1" data-hv2-tab="4">Nemotron-PII</button>
+      </div>
+    </div>
+
+    <div class="hv2__panels">
+      
+      <div class="hv2__panel" id="hv2-panel-0" role="tabpanel" aria-labelledby="hv2-tab-0" data-hv2-active="true">
+        <img class="hv2__media" src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6ab52838ac5a08c76d207f83_PrivacyBench%20%E2%80%94%20Detection%20(2).png" alt="PrivacyBench — Detection chart" width="1024" height="639" decoding="async">
+      </div>
+
+      
+      <div class="hv2__panel" id="hv2-panel-1" role="tabpanel" aria-labelledby="hv2-tab-1" data-hv2-active="false" hidden>
+        <img class="hv2__media" src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6ab54f8333890c7c8b2e1e6c_Enterprise%20De-Identification%20Bench%20(1)%20(1).png" alt="Enterprise De-Identification Bench chart" width="1024" height="639" decoding="async">
+      </div>
+
+      
+      <div class="hv2__panel" id="hv2-panel-2" role="tabpanel" aria-labelledby="hv2-tab-2" data-hv2-active="false" hidden>
+        <img class="hv2__media" src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6ab54ea14bd4bff600d4175e_PrivacyBench%20%E2%80%94%20Transformation%20(2).png" alt="PrivacyBench — Transformation chart" width="1024" height="639" decoding="async">
+      </div>
+
+      
+      <div class="hv2__panel" id="hv2-panel-3" role="tabpanel" aria-labelledby="hv2-tab-3" data-hv2-active="false" hidden>
+        <img class="hv2__media" src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6ab54ea1bcc2bbda221e1ac7_AI4Privacy%20(1)%20(1).png" alt="AI4Privacy chart" width="1024" height="639" decoding="async">
+      </div>
+
+      
+      <div class="hv2__panel" id="hv2-panel-4" role="tabpanel" aria-labelledby="hv2-tab-4" data-hv2-active="false" hidden>
+        <img class="hv2__media" src="https://cdn.prod.website-files.com/6a04bd23eb9d40f76dac1249/6ab5283813bf0988084035f0_Nemotron-PII.png" alt="Nemotron-PII chart" width="1024" height="639" decoding="async">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.querySelector("[data-hv2]");
+      if (!root) return;
+      var tabs = root.querySelectorAll("[data-hv2-tab]");
+      var panels = root.querySelectorAll(".hv2__panel");
+
+      function activate(index) {
+        tabs.forEach(function (tab) {
+          var on = tab.getAttribute("data-hv2-tab") === String(index);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (panel, i) {
+          var on = i === index;
+          panel.setAttribute("data-hv2-active", on ? "true" : "false");
+          if (on) panel.removeAttribute("hidden");
+          else panel.setAttribute("hidden", "");
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          activate(Number(tab.getAttribute("data-hv2-tab")));
+        });
+        tab.addEventListener("keydown", function (e) {
+          var i = Number(tab.getAttribute("data-hv2-tab"));
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          activate(next);
+          tabs[next].focus();
+        });
+      });
+    })();
+  </script>
+</div>
+</div>

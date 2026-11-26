@@ -1,0 +1,16 @@
+---
+interface Props {
+  caption?: string;
+}
+
+const { caption } = Astro.props;
+---
+
+<figure class="research-detail_table-wrap">
+  {caption ? <figcaption class="research-detail_caption">{caption}</figcaption> : null}
+  <div class="research-detail_table-scroll">
+    <table class="research-detail_table">
+      <slot />
+    </table>
+  </div>
+</figure>

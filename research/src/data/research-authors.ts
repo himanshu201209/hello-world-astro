@@ -1,0 +1,16 @@
+export const researchAuthors = {
+  "ali-ansari": { name: "Ali Ansari", role: "micro1" },
+  "andrew-maas": { name: "Andrew Maas", role: "micro1" },
+  "arian-sadeghi": { name: "Arian Sadeghi", role: "micro1" },
+  "aruj-mahajan": { name: "Aruj Mahajan", role: "micro1" },
+  "ava-fitoussy": { name: "Ava Fitoussy", role: "micro1" },
+  "jaime-paik": { name: "Jaime Paik", role: "micro1" },
+  "liu-zhang": { name: "Liu Zhang", role: "Member of Technical Staff, micro1" },
+  "mark-esposito": { name: "Mark Esposito", role: "Chief Economist, micro1" },
+  "mitali-potnis": { name: "Mitali Potnis", role: "micro1" },
+  "rajeev-joshi": { name: "Rajeev Joshi", role: "micro1" },
+  "rumi-elias-calles": { name: "Rumi Elias Calles", role: "Director of Research Eng, micro1" },
+  "yongchao-zhou": { name: "Yongchao Zhou", role: "micro1" },
+  "yuhao-jiang": { name: "Yuhao Jiang", role: "micro1" },
+  "zhuoyi-huang": { name: "Zhuoyi Huang", role: "micro1" },
+} as const;
