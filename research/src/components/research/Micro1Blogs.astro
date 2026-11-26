@@ -1,0 +1,32 @@
+---
+import { asset } from "../../lib/asset";
+import { researchBlogs } from "../../data/research";
+import BlogCard from "./BlogCard.astro";
+---
+
+<section class="section_micro1-blogs" aria-labelledby="micro1-blogs-title">
+  <div class="padding-global">
+    <div class="container-research">
+      <div class="micro1-blogs_header">
+        <h2 id="micro1-blogs-title" class="heading-research">micro1 blogs</h2>
+      </div>
+      <div class="micro1-blogs_grid">
+        {researchBlogs.map((blog) => <BlogCard blog={blog} />)}
+      </div>
+      <div class="micro1-blogs_actions">
+        <a
+          class="button-research is-primary"
+          href="https://www.micro1.ai/blog"
+        >
+          <span>View all blogs</span>
+          <img
+            src={asset("/research/icon-chevron-right.svg")}
+            alt=""
+            width="20"
+            height="20"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

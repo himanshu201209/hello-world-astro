@@ -1,0 +1,74 @@
+---
+import { asset } from "../../lib/asset";
+import {
+  PAPER_FILTERS,
+  PAPERS_PAGE_SIZE,
+  researchPapers,
+} from "../../data/research";
+import PaperCard from "./PaperCard.astro";
+---
+
+<section
+  class="section_research-papers"
+  aria-labelledby="research-papers-title"
+  data-papers-section
+>
+  <div class="padding-global">
+    <div class="container-research">
+      <div class="research-papers_header">
+        <h2 id="research-papers-title" class="heading-research">research papers</h2>
+        <div class="research-papers_filters" role="tablist" aria-label="Paper categories">
+          {
+            PAPER_FILTERS.map((filter, index) => (
+              <button
+                type="button"
+                class:list={[
+                  "research-papers_filter",
+                  { "is-active": index === 0 },
+                ]}
+                role="tab"
+                aria-selected={index === 0 ? "true" : "false"}
+                data-filter={filter}
+              >
+                {filter}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="research-papers_list-wrap">
+        <div class="research-papers_list" data-papers-list>
+          {
+            researchPapers.map((paper, index) => (
+              <PaperCard paper={paper} hidden={index >= PAPERS_PAGE_SIZE} />
+            ))
+          }
+        </div>
+        <img
+          class="research-papers_fade"
+          src={asset("/research/papers-fade.png")}
+          alt=""
+          aria-hidden="true"
+          data-papers-fade
+        />
+      </div>
+
+      <div class="research-papers_actions">
+        <button
+          type="button"
+          class="button-research is-primary"
+          data-papers-load-more
+        >
+          <span>Load more</span>
+          <img
+            src={asset("/research/icon-arrow-down.svg")}
+            alt=""
+            width="20"
+            height="20"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import type { FlowModel } from "../../data/research";
+
+interface Props {
+  models: FlowModel[];
+}
+
+const { models } = Astro.props;
+---
+
+<div
+  class="flow-modal_component"
+  data-flow-modal
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-label="Flow model details"
+>
+  <button
+    type="button"
+    class="flow-modal_backdrop"
+    data-flow-modal-close
+    aria-label="Close dialog"
+  ></button>
+  <div class="flow-modal_dialog" role="document">
+    <button
+      type="button"
+      class="flow-modal_close"
+      data-flow-modal-close
+      aria-label="Close"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+    {
+      models.map((model) => (
+        <div class="flow-modal_panel" data-flow-panel={model.id} hidden>
+          <div class="flow-modal_card">
+            <div class="flow-model-card_top is-modal">
+              <div class="flow-model-card_identity">
+                <div class:list={["flow-model-card_thumb", "is-modal", `is-${model.thumbCrop}`]}>
+                  <img src={model.image} alt="" />
+                </div>
+                <div class="flow-model-card_copy">
+                  <p class="flow-modal_title">{model.title}</p>
+                  <p class="flow-modal_desc">{model.description}</p>
+                </div>
+              </div>
+              <span class:list={["flow-model-card_tag", `is-${model.tagTone}`]}>
+                {model.tag}
+              </span>
+            </div>
+            <p class="flow-modal_details">{model.details}</p>
+            <div class="flow-model-card_specs is-modal">
+              <div class="flow-model-card_spec">
+                <p class="flow-model-card_spec-label">Input</p>
+                <p class="flow-model-card_spec-value">{model.input}</p>
+              </div>
+              <div class="flow-model-card_spec">
+                <p class="flow-model-card_spec-label">Method</p>
+                <p class="flow-model-card_spec-value">{model.method}</p>
+              </div>
+              <div class="flow-model-card_spec">
+                <p class="flow-model-card_spec-label">Output</p>
+                <p class="flow-model-card_spec-value">{model.output}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

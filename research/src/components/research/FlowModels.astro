@@ -1,0 +1,19 @@
+---
+import { flowModels } from "../../data/research";
+import FlowModelCard from "./FlowModelCard.astro";
+import FlowModelModal from "./FlowModelModal.astro";
+---
+
+<section class="section_flow-models" aria-labelledby="flow-models-title">
+  <div class="padding-global">
+    <div class="container-research">
+      <div class="flow-models_header">
+        <h2 id="flow-models-title" class="heading-research">flow models</h2>
+      </div>
+      <div class="flow-models_grid">
+        {flowModels.map((model) => <FlowModelCard model={model} />)}
+      </div>
+    </div>
+  </div>
+  <FlowModelModal models={flowModels} />
+</section>

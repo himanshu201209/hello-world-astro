@@ -1,0 +1,42 @@
+---
+import { asset } from "../../lib/asset";
+import type { ResearchPaper } from "../../data/research";
+
+interface Props {
+  paper: ResearchPaper;
+  hidden?: boolean;
+}
+
+const { paper, hidden = false } = Astro.props;
+---
+
+<article
+  class="paper-card_component"
+  data-paper-card
+  data-category={paper.category}
+  hidden={hidden || undefined}
+>
+  <div class="paper-card_body">
+    <h3 class="paper-card_title">{paper.title}</h3>
+    <div class="paper-card_meta">
+      <span class="paper-card_date">{paper.date}</span>
+      <img
+        class="paper-card_dot"
+        src={asset("/research/icon-dot.svg")}
+        alt=""
+        width="4"
+        height="4"
+      />
+      <span class="paper-card_category">{paper.category}</span>
+    </div>
+  </div>
+  <a class="paper-card_link" href={paper.href}>
+    <span>Read paper</span>
+    <img
+      src={asset("/research/icon-arrow-up-right.svg")}
+      alt=""
+      width="16"
+      height="16"
+    />
+  </a>
+</article>

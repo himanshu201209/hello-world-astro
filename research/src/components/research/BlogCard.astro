@@ -1,0 +1,21 @@
+---
+import type { ResearchBlog } from "../../data/research";
+
+interface Props {
+  blog: ResearchBlog;
+}
+
+const { blog } = Astro.props;
+---
+
+<a class="blog-card_component" href={blog.href}>
+  <div class="blog-card_thumb">
+    <img src={blog.image} alt="" loading="lazy" />
+  </div>
+  <div class="blog-card_body">
+    <div class="blog-card_copy">
+      <p class="blog-card_date">{blog.date}</p>
+      <h3 class="blog-card_title">{blog.title}</h3>
+    </div>
+  </div>
+</a>
