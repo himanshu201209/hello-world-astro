@@ -271,6 +271,18 @@ img {
   display: block;
 }
 
+.paper__embed {
+  margin: 1.75rem 0;
+  overflow: hidden;
+}
+
+.paper__embed iframe {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  border: 0;
+}
+
 .paper__lede {
   color: var(--text);
   margin-bottom: 2.5rem;

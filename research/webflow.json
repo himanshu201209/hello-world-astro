@@ -1,6 +1,7 @@
 {
   "cloud": {
-    "framework": "astro"
+    "framework": "astro",
+    "app_id": "623015b3-111c-4b98-8b80-e59544488976"
   },
   "siteId": "6ae04bddc23a43dde81d354f",
   "devlink-export": {
@@ -10,5 +11,6 @@
     "ts": true,
     "cssScopes": true,
     "relativeHrefRoot": "/"
-  }
+  },
+  "region": "us"
 }

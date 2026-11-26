@@ -1,51 +1,39 @@
-# Astro + React + Webflow Cloud
+# hello-world-astro
 
-Example [Astro](https://astro.build) app with React islands and the Cloudflare adapter, set up for [Webflow Cloud](https://webflow.com/cloud).
+Monorepo for micro1 Webflow Cloud applications.
 
-[![Deploy to Webflow](https://webflow.com/img/deploy-dark.svg)](https://webflow.com/dashboard/cloud/deploy?repo=https://github.com/Webflow-Examples/hello-world-astro)
-
-## Project structure
+## Structure
 
 ```text
-.
-├── astro.config.mjs
-├── package.json
-├── package-lock.json
-├── public/
-│   ├── .assetsignore
-│   ├── favicon.svg
-│   └── webflow.svg
-├── src/
-│   ├── env.d.ts
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── lib/
-│   │   └── counter.ts
-│   ├── pages/
-│   │   ├── api/
-│   │   │   └── hello.ts
-│   │   └── index.astro
-│   └── styles/
-│       └── global.css
-├── tsconfig.json
-├── webflow.json
-├── wrangler.json
-└── worker-configuration.d.ts
+hello-world-astro/
+├── research/   # Astro Research app (existing project)
+├── blog/       # Astro Blog app (Webflow Cloud mount: /blog)
+└── README.md
 ```
 
-## Commands
+## Research
 
-| Command | Action |
-| :------ | :----- |
-| `npm install` | Installs dependencies |
-| `npm run dev` | Starts the Astro dev server at `http://localhost:4321` |
-| `npm run build` | Builds the production site |
-| `npm run preview` | Runs `astro build` then `wrangler dev` for a local preview |
-| `npm run deploy` | Deploys with `webflow cloud deploy` |
-| `npm run astro` | Runs the Astro CLI (e.g. `astro add`, `astro check`) |
-| `npm run cf-typegen` | Generates Wrangler TypeScript types (`wrangler types`) |
+The Research Astro app lives in `research/` and can be installed, developed, and built independently from that folder.
 
-## Learn more
+```bash
+cd research
+npm install
+npm run dev
+npm run build
+```
 
-- [Astro documentation](https://docs.astro.build)
-- [Webflow Cloud](https://webflow.com/cloud)
+## Blog
+
+The Blog Astro app lives in `blog/` and can be installed, developed, and built independently from that folder.
+
+```bash
+cd blog
+npm install
+npm run dev
+npm run build
+```
+
+## Notes
+
+- The Git repository root remains at `hello-world-astro/` (no nested `.git` folders).
+- Each app keeps its own `package.json`, dependencies, and tooling.

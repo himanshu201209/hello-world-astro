@@ -77,6 +77,8 @@ export default function DevLinkChrome({ blogs = [] }: DevLinkChromeProps) {
             </ul>
           </section>
         )}
+
+        <div className="s_h_l"><div className="h_l_main"><div className="h_l_overlay"></div><div className="h_l_wrap"><div className="h_l_text"><h2 className="heading-style-h3">The data research company to accelerate AI in the real world</h2></div></div></div></div>
       </main>
     </SiteShell>
   );

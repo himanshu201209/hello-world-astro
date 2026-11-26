@@ -6,16 +6,16 @@ import type { SanityBlogCard, SanityBlogPost } from "./blog";
 export type { SanityBlogCard, SanityBlogPost } from "./blog";
 export { formatBlogMonthYear } from "./blog";
 
-const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID;
-const dataset = import.meta.env.PUBLIC_SANITY_DATASET;
-const apiVersion =
-  import.meta.env.PUBLIC_SANITY_API_VERSION || "2025-02-19";
+/** Public Sanity project values — safe to ship; `.env` may be absent on Webflow Cloud builds. */
+const DEFAULT_PROJECT_ID = "eoib96e0";
+const DEFAULT_DATASET = "production";
+const DEFAULT_API_VERSION = "2025-02-19";
 
-if (!projectId || !dataset) {
-  throw new Error(
-    "Missing PUBLIC_SANITY_PROJECT_ID or PUBLIC_SANITY_DATASET environment variables.",
-  );
-}
+const projectId =
+  import.meta.env.PUBLIC_SANITY_PROJECT_ID || DEFAULT_PROJECT_ID;
+const dataset = import.meta.env.PUBLIC_SANITY_DATASET || DEFAULT_DATASET;
+const apiVersion =
+  import.meta.env.PUBLIC_SANITY_API_VERSION || DEFAULT_API_VERSION;
 
 export const sanityClient: SanityClient = createClient({
   projectId,
@@ -58,11 +58,21 @@ export const BLOG_BY_SLUG_QUERY = groq`
 `;
 
 export async function getPublishedBlogs(): Promise<SanityBlogCard[]> {
-  return sanityClient.fetch(BLOGS_QUERY);
+  try {
+    return await sanityClient.fetch(BLOGS_QUERY);
+  } catch (error) {
+    console.error("Failed to fetch Sanity blogs", error);
+    return [];
+  }
 }
 
 export async function getBlogBySlug(
   slug: string,
 ): Promise<SanityBlogPost | null> {
-  return sanityClient.fetch(BLOG_BY_SLUG_QUERY, { slug });
+  try {
+    return await sanityClient.fetch(BLOG_BY_SLUG_QUERY, { slug });
+  } catch (error) {
+    console.error("Failed to fetch Sanity blog", slug, error);
+    return null;
+  }
 }

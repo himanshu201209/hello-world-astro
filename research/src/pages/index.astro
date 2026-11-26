@@ -6,7 +6,12 @@ import "../devlink/css/global.css";
 
 export const prerender = false;
 
-const blogs = await getPublishedBlogs();
+let blogs: Awaited<ReturnType<typeof getPublishedBlogs>> = [];
+try {
+  blogs = await getPublishedBlogs();
+} catch (error) {
+  console.error("Research page: Sanity blogs unavailable", error);
+}
 ---
 
 <Layout title="Research papers | micro1">
