@@ -6,6 +6,7 @@ import react from "@astrojs/react";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const researchSrc = path.resolve(rootDir, "../research/src");
+const blogTsconfig = path.resolve(rootDir, "tsconfig.json");
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,10 +20,16 @@ export default defineConfig({
   }),
   integrations: [react()],
   vite: {
+    // Force Vite/Rolldown to use blog/tsconfig.json for all transforms.
+    // Blog imports ../research/src/*; without this pin, Rolldown walks into
+    // research/tsconfig.json and fails in Webflow Cloud with
+    // "Tsconfig not found astro/tsconfigs/strict" (research has no node_modules).
+    tsconfig: blogTsconfig,
     resolve: {
       alias: {
         "react-dom/server": "react-dom/server.edge",
       },
+      tsconfigPaths: false,
     },
     server: {
       fs: {
